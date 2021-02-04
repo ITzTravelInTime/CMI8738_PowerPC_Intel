@@ -1,0 +1,704 @@
+// !$*UTF8*$!
+{
+	011774450071097E7F000001 /* libAudioFloatLib */ = {
+		activeExec = 0;
+	};
+	0117744B00710CA77F000001 /* SampleAudioClip.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1244, 1988}}";
+			sepNavSelRange = "{4297, 1}";
+			sepNavVisRect = "{{0, 826}, {945, 819}}";
+			sepNavWindowFrame = "{{15, 99}, {1007, 898}}";
+		};
+	};
+	0117744E00710DAB7F000001 /* CMI8738AudioEngine.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1202, 1358}}";
+			sepNavSelRange = "{3965, 0}";
+			sepNavVisRect = "{{0, 539}, {945, 819}}";
+			sepNavWindowFrame = "{{51, 444}, {750, 558}}";
+		};
+	};
+	0117744F00710DAB7F000001 /* CMI8738AudioEngine.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {945, 9184}}";
+			sepNavSelRange = "{4195, 0}";
+			sepNavVisRect = "{{0, 1269}, {945, 819}}";
+			sepNavWindowFrame = "{{537, 75}, {750, 927}}";
+		};
+	};
+	089C1669FE841209C02AAC07 /* Project object */ = {
+		activeBuildConfigurationName = Deployment;
+		activeBuildStyle = 06AA1265FFB2107B11CA28AA /* Development */;
+		activeTarget = 089C1673FE841209C02AAC07 /* CMI8738AudioDriver */;
+		addToTargets = (
+			089C1673FE841209C02AAC07 /* CMI8738AudioDriver */,
+		);
+		breakpoints = (
+			FCAB115908BADC670072DC7B /* cmipci.c:776 */,
+		);
+		breakpointsGroup = FCDBEC4A08B9B1DD0082AEF9 /* XCBreakpointsBucket */;
+		codeSenseManager = FCC4E42E08B955B400AC9D19 /* Code sense */;
+		perUserDictionary = {
+			"PBXConfiguration.PBXBreakpointsDataSource.v1:1CA1AED706398EBD00589147" = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXBreakpointsDataSource_BreakpointID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					20,
+					210,
+					20,
+					110,
+					109,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXBreakpointsDataSource_ActionID,
+					PBXBreakpointsDataSource_TypeID,
+					PBXBreakpointsDataSource_BreakpointID,
+					PBXBreakpointsDataSource_UseID,
+					PBXBreakpointsDataSource_LocationID,
+					PBXBreakpointsDataSource_ConditionID,
+					PBXBreakpointsDataSource_ContinueID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXBookmarksDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXBookmarksDataSource_NameID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					200,
+					200,
+					57.5835,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXBookmarksDataSource_LocationID,
+					PBXBookmarksDataSource_NameID,
+					PBXBookmarksDataSource_CommentsID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXErrorsWarningsDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXErrorsWarningsDataSource_LocationID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					300,
+					47,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXErrorsWarningsDataSource_TypeID,
+					PBXErrorsWarningsDataSource_MessageID,
+					PBXErrorsWarningsDataSource_LocationID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXExecutablesDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXExecutablesDataSource_NameID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					22,
+					300,
+					57.5835,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXExecutablesDataSource_ActiveFlagID,
+					PBXExecutablesDataSource_NameID,
+					PBXExecutablesDataSource_CommentsID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					747,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXFindDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFindDataSource_LocationID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					200,
+					120,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFindDataSource_MessageID,
+					PBXFindDataSource_LocationID,
+				);
+			};
+			PBXConfiguration.PBXTargetDataSource.PBXTargetDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					200,
+					10,
+					20,
+					48,
+					43,
+					43,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXTargetDataSource_PrimaryAttribute,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 147476433;
+			PBXWorkspaceStateSaveDate = 147476433;
+		};
+		perUserProjectItems = {
+			FC154B3F08CA33780045B133 /* PBXTextBookmark */ = FC154B3F08CA33780045B133 /* PBXTextBookmark */;
+			FC154B4008CA33780045B133 /* PBXTextBookmark */ = FC154B4008CA33780045B133 /* PBXTextBookmark */;
+			FC1A486A08CA50500016F70F /* PBXTextBookmark */ = FC1A486A08CA50500016F70F /* PBXTextBookmark */;
+			FCA470F608C0782400B8588F /* PBXTextBookmark */ = FCA470F608C0782400B8588F /* PBXTextBookmark */;
+			FCA470FD08C0782400B8588F /* PBXTextBookmark */ = FCA470FD08C0782400B8588F /* PBXTextBookmark */;
+			FCA470FF08C0782400B8588F /* PBXTextBookmark */ = FCA470FF08C0782400B8588F /* PBXTextBookmark */;
+			FCAEC11A08BDAF88003293D9 /* PBXTextBookmark */ = FCAEC11A08BDAF88003293D9 /* PBXTextBookmark */;
+			FCAEC11F08BDAF88003293D9 /* PBXTextBookmark */ = FCAEC11F08BDAF88003293D9 /* PBXTextBookmark */;
+			FCB93BB708BB4FE500679550 /* PBXTextBookmark */ = FCB93BB708BB4FE500679550 /* PBXTextBookmark */;
+			FCD9C69508BDB9A400EE835E /* PBXTextBookmark */ = FCD9C69508BDB9A400EE835E /* PBXTextBookmark */;
+			FCDA4BF208BEE76800482876 /* PBXTextBookmark */ = FCDA4BF208BEE76800482876 /* PBXTextBookmark */;
+			FCDAFD5D08BC647500F5DD2D /* PBXTextBookmark */ = FCDAFD5D08BC647500F5DD2D /* PBXTextBookmark */;
+			FCDAFD6508BC647500F5DD2D /* PBXTextBookmark */ = FCDAFD6508BC647500F5DD2D /* PBXTextBookmark */;
+			FCDBD87008C069B800696E51 /* PBXTextBookmark */ = FCDBD87008C069B800696E51 /* PBXTextBookmark */;
+			FCDBD87508C069B800696E51 /* PBXTextBookmark */ = FCDBD87508C069B800696E51 /* PBXTextBookmark */;
+			FCE089E808BDEE9C002205A5 /* PBXTextBookmark */ = FCE089E808BDEE9C002205A5 /* PBXTextBookmark */;
+			FCE089F608BDEE9C002205A5 /* PBXTextBookmark */ = FCE089F608BDEE9C002205A5 /* PBXTextBookmark */;
+			FCE2513F08C8900900035858 /* PBXTextBookmark */ = FCE2513F08C8900900035858 /* PBXTextBookmark */;
+			FCE52CCA08C8975200800385 /* PBXTextBookmark */ = FCE52CCA08C8975200800385 /* PBXTextBookmark */;
+			FCE52CCC08C8975200800385 /* PBXTextBookmark */ = FCE52CCC08C8975200800385 /* PBXTextBookmark */;
+			FCE7237D08C89DC700026E23 /* PBXTextBookmark */ = FCE7237D08C89DC700026E23 /* PBXTextBookmark */;
+			FCE7238008C89DC700026E23 /* PBXTextBookmark */ = FCE7238008C89DC700026E23 /* PBXTextBookmark */;
+			FCE7238108C89DC700026E23 /* PBXTextBookmark */ = FCE7238108C89DC700026E23 /* PBXTextBookmark */;
+			FCE7239F08C8A0D500026E23 /* PBXTextBookmark */ = FCE7239F08C8A0D500026E23 /* PBXTextBookmark */;
+			FCE723D508C8A4C900026E23 /* PBXTextBookmark */ = FCE723D508C8A4C900026E23 /* PBXTextBookmark */;
+			FCE723D708C8A4C900026E23 /* PBXTextBookmark */ = FCE723D708C8A4C900026E23 /* PBXTextBookmark */;
+			FCE7F01608BC07800038F15A /* PBXTextBookmark */ = FCE7F01608BC07800038F15A /* PBXTextBookmark */;
+			FCECDA6208BC88F5002CA599 /* PBXTextBookmark */ = FCECDA6208BC88F5002CA599 /* PBXTextBookmark */;
+			FCECDA6808BC88F5002CA599 /* PBXTextBookmark */ = FCECDA6808BC88F5002CA599 /* PBXTextBookmark */;
+			FCF2B34E08CA4ABC007028EA /* PBXTextBookmark */ = FCF2B34E08CA4ABC007028EA /* PBXTextBookmark */;
+			FCF2B35208CA4ABC007028EA /* PBXTextBookmark */ = FCF2B35208CA4ABC007028EA /* PBXTextBookmark */;
+		};
+		sourceControlManager = FCC4E42D08B955B400AC9D19 /* Source Control */;
+		userBookmarkGroup = FCE6DD5C08C86BEF005A756D /* PBXBookmarkGroup */;
+		userBuildSettings = {
+		};
+	};
+	089C1673FE841209C02AAC07 /* CMI8738AudioDriver */ = {
+		activeExec = 0;
+	};
+	089C167EFE841241C02AAC07 /* English */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {945, 819}}";
+			sepNavSelRange = "{152, 0}";
+			sepNavVisRect = "{{0, 0}, {945, 819}}";
+			sepNavWindowFrame = "{{15, 45}, {538, 952}}";
+		};
+	};
+	1A224C3EFF42367911CA2CB7 /* CMI8738AudioDevice.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {945, 1442}}";
+			sepNavSelRange = "{38, 1}";
+			sepNavVisRect = "{{0, 0}, {945, 819}}";
+			sepNavWindowFrame = "{{67, 75}, {750, 927}}";
+		};
+	};
+	1A224C3FFF42367911CA2CB7 /* CMI8738AudioDevice.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {945, 7098}}";
+			sepNavSelRange = "{10966, 0}";
+			sepNavVisRect = "{{0, 3948}, {945, 819}}";
+			sepNavWindowFrame = "{{297, 142}, {800, 801}}";
+		};
+	};
+	FC154B3F08CA33780045B133 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FCE7239808C89FB200026E23 /* install.sh */;
+		name = "install.sh: 11";
+		rLen = 0;
+		rLoc = 359;
+		rType = 0;
+		vrLen = 881;
+		vrLoc = 0;
+	};
+	FC154B4008CA33780045B133 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* CMI8738AudioDevice.cpp */;
+		name = "CMI8738AudioDevice.cpp: 297";
+		rLen = 0;
+		rLoc = 10966;
+		rType = 0;
+		vrLen = 2729;
+		vrLoc = 10080;
+	};
+	FC1A486A08CA50500016F70F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 0117744F00710DAB7F000001 /* CMI8738AudioEngine.cpp */;
+		name = "CMI8738AudioEngine.cpp: 125";
+		rLen = 0;
+		rLoc = 4195;
+		rType = 0;
+		vrLen = 2686;
+		vrLoc = 2723;
+	};
+	FCA470F608C0782400B8588F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FCA470F708C0782400B8588F /* debug.hpp */;
+		name = "#define DBGPRINT(msg)";
+		rLen = 21;
+		rLoc = 311;
+		rType = 0;
+		vrLen = 368;
+		vrLoc = 0;
+	};
+	FCA470F708C0782400B8588F /* debug.hpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.h;
+		name = debug.hpp;
+		path = /Volumes/Apps/WINDDK/2600/src/wdm/audio/cmedia/debug.hpp;
+		sourceTree = "<absolute>";
+	};
+	FCA470FD08C0782400B8588F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FCA470FE08C0782400B8588F /* debug.hpp */;
+		name = "(null): 6";
+		rLen = 181;
+		rLoc = 61;
+		rType = 0;
+		vrLen = 368;
+		vrLoc = 0;
+	};
+	FCA470FE08C0782400B8588F /* debug.hpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.h;
+		name = debug.hpp;
+		path = /Volumes/Apps/WINDDK/2600/src/wdm/audio/cmedia/debug.hpp;
+		sourceTree = "<absolute>";
+	};
+	FCA470FF08C0782400B8588F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FCDBEC6608B9B3D30082AEF9 /* CMI8738-register.h */;
+		name = CM_CHADC0;
+		rLen = 9;
+		rLoc = 1832;
+		rType = 0;
+		vrLen = 2048;
+		vrLoc = 0;
+	};
+	FCAB115908BADC670072DC7B /* cmipci.c:776 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		continueAfterActions = 0;
+		delayBeforeContinue = 0;
+		fileReference = FCDBECC408B9BF180082AEF9 /* cmipci.c */;
+		functionName = "snd_cmipci_pcm_prepare()";
+		hitCount = 0;
+		lineNumber = 776;
+		modificationTime = 146463847.788646;
+		state = 1;
+	};
+	FCACF6A408BC7D8A009EF1C6 /* minwave.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = minwave.cpp;
+		path = /Volumes/Apps/WINDDK/2600/src/wdm/audio/cmedia/minwave.cpp;
+		sourceTree = "<absolute>";
+	};
+	FCAEC11A08BDAF88003293D9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FCAEC11B08BDAF88003293D9 /* PhantomAudioEngine.cpp */;
+		name = Mall;
+		rLen = 4;
+		rLoc = 11118;
+		rType = 0;
+		vrLen = 1322;
+		vrLoc = 2035;
+	};
+	FCAEC11B08BDAF88003293D9 /* PhantomAudioEngine.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = PhantomAudioEngine.cpp;
+		path = /Developer/Examples/Kernel/IOKit/Audio/PhantomAudioDriver/PhantomAudioEngine.cpp;
+		sourceTree = "<absolute>";
+	};
+	FCAEC11F08BDAF88003293D9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FCAEC12008BDAF88003293D9 /* PhantomAudioEngine.cpp */;
+		name = Mall;
+		rLen = 4;
+		rLoc = 11118;
+		rType = 0;
+		vrLen = 1322;
+		vrLoc = 2035;
+	};
+	FCAEC12008BDAF88003293D9 /* PhantomAudioEngine.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = PhantomAudioEngine.cpp;
+		path = /Developer/Examples/Kernel/IOKit/Audio/PhantomAudioDriver/PhantomAudioEngine.cpp;
+		sourceTree = "<absolute>";
+	};
+	FCB93BB708BB4FE500679550 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 089C167EFE841241C02AAC07 /* English */;
+		name = "English: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 150;
+		vrLoc = 0;
+	};
+	FCC4E42D08B955B400AC9D19 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+		};
+		scmType = "";
+	};
+	FCC4E42E08B955B400AC9D19 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	FCD9C69508BDB9A400EE835E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FCACF6A408BC7D8A009EF1C6 /* minwave.cpp */;
+		name = "minwave.cpp: 1149";
+		rLen = 165;
+		rLoc = 37466;
+		rType = 0;
+		vrLen = 1725;
+		vrLoc = 36711;
+	};
+	FCDA4BF208BEE76800482876 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FCE28BB908BEE28B0084235F /* cmipci.c */;
+		name = CM_REG_MIXER1;
+		rLen = 13;
+		rLoc = 67472;
+		rType = 0;
+		vrLen = 2795;
+		vrLoc = 66021;
+	};
+	FCDAFD5D08BC647500F5DD2D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FCDAFD5E08BC647500F5DD2D /* cmipci.c */;
+		name = set_dac_channels;
+		rLen = 16;
+		rLoc = 20845;
+		rType = 0;
+		vrLen = 1640;
+		vrLoc = 20190;
+	};
+	FCDAFD5E08BC647500F5DD2D /* cmipci.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = cmipci.c;
+		path = /Volumes/MP3/D/WINDDK/2600/src/wdm/audio/cmipci.c;
+		sourceTree = "<absolute>";
+	};
+	FCDAFD6508BC647500F5DD2D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FCDAFD6608BC647500F5DD2D /* cmipci.c */;
+		name = set_dac_channels;
+		rLen = 16;
+		rLoc = 20845;
+		rType = 0;
+		vrLen = 1640;
+		vrLoc = 20190;
+	};
+	FCDAFD6608BC647500F5DD2D /* cmipci.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = cmipci.c;
+		path = /Volumes/MP3/D/WINDDK/2600/src/wdm/audio/cmipci.c;
+		sourceTree = "<absolute>";
+	};
+	FCDBD87008C069B800696E51 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FCDBD87108C069B800696E51 /* SamplePCIAudioEngine.cpp */;
+		name = "(null): 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1777;
+		vrLoc = 5292;
+	};
+	FCDBD87108C069B800696E51 /* SamplePCIAudioEngine.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = SamplePCIAudioEngine.cpp;
+		path = "/Developer/Examples/Kernel/IOKit/Audio/Templates/SamplePCIAudioDriver copy/SamplePCIAudioEngine.cpp";
+		sourceTree = "<absolute>";
+	};
+	FCDBD87508C069B800696E51 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 0117744E00710DAB7F000001 /* CMI8738AudioEngine.h */;
+		name = "CMI8738AudioEngine.h: shift";
+		rLen = 0;
+		rLoc = 1892;
+		rType = 0;
+		vrLen = 1566;
+		vrLoc = 2447;
+	};
+	FCDBEC4A08B9B1DD0082AEF9 /* XCBreakpointsBucket */ = {
+		isa = XCBreakpointsBucket;
+		name = "Project Breakpoints";
+		objects = (
+			FCAB115908BADC670072DC7B /* cmipci.c:776 */,
+		);
+	};
+	FCDBEC6608B9B3D30082AEF9 /* CMI8738-register.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {945, 4620}}";
+			sepNavSelRange = "{3, 0}";
+			sepNavVisRect = "{{0, 850}, {945, 819}}";
+			sepNavWindowFrame = "{{61, 179}, {1094, 776}}";
+		};
+	};
+	FCDBECC408B9BF180082AEF9 /* cmipci.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = cmipci.c;
+		path = /Volumes/MP3/D/WINDDK/2600/src/wdm/audio/cmipci.c;
+		sourceTree = "<absolute>";
+	};
+	FCE089E808BDEE9C002205A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FCE089E908BDEE9C002205A5 /* OSMetaClass.h */;
+		name = "class OSMetaClass;";
+		rLen = 19;
+		rLoc = 1076;
+		rType = 0;
+		vrLen = 2160;
+		vrLoc = 0;
+	};
+	FCE089E908BDEE9C002205A5 /* OSMetaClass.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OSMetaClass.h;
+		path = "/System/Library/Frameworks/Kernel.framework/Versions/A/PrivateHeaders/libkern/c++/OSMetaClass.h";
+		sourceTree = "<absolute>";
+	};
+	FCE089F608BDEE9C002205A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FCE089F708BDEE9C002205A5 /* OSMetaClass.h */;
+		name = "class OSMetaClass;";
+		rLen = 19;
+		rLoc = 1076;
+		rType = 0;
+		vrLen = 2160;
+		vrLoc = 0;
+	};
+	FCE089F708BDEE9C002205A5 /* OSMetaClass.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = OSMetaClass.h;
+		path = "/System/Library/Frameworks/Kernel.framework/Versions/A/PrivateHeaders/libkern/c++/OSMetaClass.h";
+		sourceTree = "<absolute>";
+	};
+	FCE2513F08C8900900035858 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* CMI8738AudioDevice.cpp */;
+		name = "#warning missing mutex implementation";
+		rLen = 39;
+		rLoc = 1764;
+		rType = 0;
+		vrLen = 1931;
+		vrLoc = 653;
+	};
+	FCE28BB908BEE28B0084235F /* cmipci.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = cmipci.c;
+		path = /Volumes/Apps/WINDDK/2600/src/wdm/audio/cmipci.c;
+		sourceTree = "<absolute>";
+	};
+	FCE52CCA08C8975200800385 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 0117744F00710DAB7F000001 /* CMI8738AudioEngine.cpp */;
+		name = CM_CDPLAY;
+		rLen = 9;
+		rLoc = 15826;
+		rType = 0;
+		vrLen = 1560;
+		vrLoc = 13645;
+	};
+	FCE52CCC08C8975200800385 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3EFF42367911CA2CB7 /* CMI8738AudioDevice.h */;
+		name = "CMI8738AudioDevice.h: 2";
+		rLen = 0;
+		rLoc = 71;
+		rType = 0;
+		vrLen = 2184;
+		vrLoc = 1677;
+	};
+	FCE52CD208C8981900800385 /* cmipci.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = cmipci.c;
+		path = /Volumes/Apps/WINDDK/2600/src/wdm/audio/cmipci.c;
+		sourceTree = "<absolute>";
+	};
+	FCE6DD5C08C86BEF005A756D /* PBXBookmarkGroup */ = {
+		isa = PBXBookmarkGroup;
+		children = (
+			FCE6DD7408C86C96005A756D /* PBXBookmark */,
+		);
+		name = Root;
+	};
+	FCE6DD7408C86C96005A756D /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 0117744E00710DAB7F000001 /* CMI8738AudioEngine.h */;
+	};
+	FCE7237D08C89DC700026E23 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FCE52CD208C8981900800385 /* cmipci.c */;
+		name = "cmipci.c: 1862";
+		rLen = 0;
+		rLoc = 54509;
+		rType = 0;
+		vrLen = 1810;
+		vrLoc = 54023;
+	};
+	FCE7238008C89DC700026E23 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FCDBEC6608B9B3D30082AEF9 /* CMI8738-register.h */;
+		name = "CMI8738-register.h: 2";
+		rLen = 0;
+		rLoc = 3;
+		rType = 0;
+		vrLen = 2034;
+		vrLoc = 2777;
+	};
+	FCE7238108C89DC700026E23 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 0117744B00710CA77F000001 /* SampleAudioClip.cpp */;
+		name = a;
+		rLen = 1;
+		rLoc = 4297;
+		rType = 0;
+		vrLen = 2903;
+		vrLoc = 3466;
+	};
+	FCE7239808C89FB200026E23 /* install.sh */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {945, 819}}";
+			sepNavSelRange = "{359, 0}";
+			sepNavVisRect = "{{0, 0}, {945, 819}}";
+		};
+	};
+	FCE7239F08C8A0D500026E23 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 089C167EFE841241C02AAC07 /* English */;
+		name = "English: 4";
+		rLen = 0;
+		rLoc = 152;
+		rType = 0;
+		vrLen = 160;
+		vrLoc = 0;
+	};
+	FCE723D508C8A4C900026E23 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3EFF42367911CA2CB7 /* CMI8738AudioDevice.h */;
+		name = "@";
+		rLen = 1;
+		rLoc = 38;
+		rType = 0;
+		vrLen = 2070;
+		vrLoc = 0;
+	};
+	FCE723D708C8A4C900026E23 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FCE7239808C89FB200026E23 /* install.sh */;
+		name = "install.sh: 23";
+		rLen = 0;
+		rLoc = 869;
+		rType = 0;
+		vrLen = 838;
+		vrLoc = 0;
+	};
+	FCE7F01608BC07800038F15A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 0117744B00710CA77F000001 /* SampleAudioClip.cpp */;
+		name = "SampleAudioClip.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1196;
+		vrLoc = 0;
+	};
+	FCECDA6208BC88F5002CA599 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FCECDA6308BC88F5002CA599 /* minwave.hpp */;
+		name = "(null): 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1886;
+		vrLoc = 2176;
+	};
+	FCECDA6308BC88F5002CA599 /* minwave.hpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.h;
+		name = minwave.hpp;
+		path = /Volumes/Apps/WINDDK/2600/src/wdm/audio/cmedia/minwave.hpp;
+		sourceTree = "<absolute>";
+	};
+	FCECDA6808BC88F5002CA599 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FCECDA6908BC88F5002CA599 /* minwave.hpp */;
+		name = "(null): 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1886;
+		vrLoc = 2176;
+	};
+	FCECDA6908BC88F5002CA599 /* minwave.hpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.h;
+		name = minwave.hpp;
+		path = /Volumes/Apps/WINDDK/2600/src/wdm/audio/cmedia/minwave.hpp;
+		sourceTree = "<absolute>";
+	};
+	FCF2B34E08CA4ABC007028EA /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 0117744E00710DAB7F000001 /* CMI8738AudioEngine.h */;
+		name = "CMI8738AudioEngine.h: filterInterrupt";
+		rLen = 0;
+		rLoc = 3965;
+		rType = 0;
+		vrLen = 2376;
+		vrLoc = 1657;
+	};
+	FCF2B35208CA4ABC007028EA /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 0117744F00710DAB7F000001 /* CMI8738AudioEngine.cpp */;
+		name = "CMI8738AudioEngine.cpp: 304";
+		rLen = 0;
+		rLoc = 10720;
+		rType = 0;
+		vrLen = 2750;
+		vrLoc = 9289;
+	};
+}

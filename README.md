@@ -13,7 +13,7 @@ A PPC 32 binary can be downloaded in the Releases section of this github repo (h
 
 # Compiling Requirements
 
-This driver can be compiled just with Xcode 2.x and 3.x, the project is configured to be buildable for both PPC and Intel and has support for both 32 and 64 bits targets 9at least at code level).
+This driver can be compiled just with Xcode 2.x and 3.x, the project is configured to be buildable for PPC and Intel (which also has support for both 32 and 64 bits targets, to be buildable for 64 bits you need to use snow leopard and the OS X 10.6 SDK).
 
 # Credits
 

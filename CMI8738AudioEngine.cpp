@@ -255,11 +255,11 @@ IOAudioStream *CMI8738AudioEngine::createNewAudioStream(IOAudioStreamDirection d
 			const UInt32 rates[] = {/*8000, 16000, 32000,*/ 48000, /*5512, 11025, 22050,*/ 44100};
 			rate.fraction = 0;
 			for(UInt8 w = 8; w <= BIT_DEPTH; w += 8){
-				format.fBitWidth = w;
+				format.fBitDepth = w;
 				for(size_t i = 0; i < ARRAYSZ(rates); i++){
 					rate.whole = rates[i];
 					audioStream->addAvailableFormat(&format, &rate, &rate);
-					DBGPRINT("	New samplig rate: Bits \"%u\" Sample Rate \"%u\"\n", (unsigned int)format.fBitWidth, (unsigned int)rate.whole);
+					DBGPRINT("	New samplig rate: Bits \"%u\" Sample Rate \"%u\"\n", (unsigned int)format.fBitDepth, (unsigned int)rate.whole);
 					
 				}
 			}

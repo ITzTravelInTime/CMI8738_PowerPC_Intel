@@ -14,6 +14,7 @@
 		089C1680FE841241C02AAC07 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
 		1A224C40FF42367911CA2CB7 /* CMI8738AudioDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A224C3EFF42367911CA2CB7 /* CMI8738AudioDevice.h */; };
 		1A224C41FF42367911CA2CB7 /* CMI8738AudioDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A224C3FFF42367911CA2CB7 /* CMI8738AudioDevice.cpp */; settings = {ATTRIBUTES = (); }; };
+		DD8B88F52613904100236EB7 /* install_updated.command in Resources */ = {isa = PBXBuildFile; fileRef = DD8B88F42613904100236EB7 /* install_updated.command */; };
 		DD912B7D2613855300FA0863 /* CMI8738-register.h in Headers */ = {isa = PBXBuildFile; fileRef = FCDBEC6608B9B3D30082AEF9 /* CMI8738-register.h */; };
 		DD912B7E2613855800FA0863 /* CMI8738AudioDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A224C3EFF42367911CA2CB7 /* CMI8738AudioDevice.h */; };
 		DD912B7F2613855C00FA0863 /* CMI8738AudioEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 0117744E00710DAB7F000001 /* CMI8738AudioEngine.h */; };
@@ -97,7 +98,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = DD912B3F2613831000FA0863 /* libAuioFloatLib_updated */;
+			remoteGlobalIDString = DD912B3F2613831000FA0863;
 			remoteInfo = libAuioFloatLib_updated;
 		};
 		FCC4E41808B955A500AC9D19 /* PBXContainerItemProxy */ = {
@@ -119,6 +120,7 @@
 		0B81C263FFB7832611CA28AA /* CMI8738PCIAudioDriver.kext */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = CMI8738PCIAudioDriver.kext; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A224C3EFF42367911CA2CB7 /* CMI8738AudioDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMI8738AudioDevice.h; sourceTree = "<group>"; };
 		1A224C3FFF42367911CA2CB7 /* CMI8738AudioDevice.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CMI8738AudioDevice.cpp; sourceTree = "<group>"; };
+		DD8B88F42613904100236EB7 /* install_updated.command */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = install_updated.command; sourceTree = "<group>"; };
 		DD912B2C2613812800FA0863 /* CMI8738AudioDriver_updated.kext */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CMI8738AudioDriver_updated.kext; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD912B2D2613812800FA0863 /* CMI8738AudioDriver_updated-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CMI8738AudioDriver_updated-Info.plist"; sourceTree = "<group>"; };
 		DD912B402613831000FA0863 /* libAuioFloatLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAuioFloatLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -195,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				FCE7239808C89FB200026E23 /* install.command */,
+				DD8B88F42613904100236EB7 /* install_updated.command */,
 				1A224C3EFF42367911CA2CB7 /* CMI8738AudioDevice.h */,
 				1A224C3FFF42367911CA2CB7 /* CMI8738AudioDevice.cpp */,
 				0117744E00710DAB7F000001 /* CMI8738AudioEngine.h */,
@@ -338,6 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD912BDE26138AA500FA0863 /* InfoPlist.strings in Resources */,
+				DD8B88F52613904100236EB7 /* install_updated.command in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,7 +421,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "script=\"${SYSTEM_DEVELOPER_DIR}/ProjectBuilder Extras/Kernel Extension Support/KEXTPostprocess\";\nif [ -x \"$script\" ]; then\n    . \"$script\"\nfi\nfind \"${BUILT_PRODUCTS_DIR}/CMI8738AudioDriver_updated.kext\" -type d -exec /bin/chmod 0755 {} \\;\nfind \"${BUILT_PRODUCTS_DIR}/CMI8738AudioDriver_updated.kext\" -type f -exec /bin/chmod 0644 {} \\;\ncp ${SRCROOT}/install.command ${BUILT_PRODUCTS_DIR}";
+			shellScript = "script=\"${SYSTEM_DEVELOPER_DIR}/ProjectBuilder Extras/Kernel Extension Support/KEXTPostprocess\";\nif [ -x \"$script\" ]; then\n    . \"$script\"\nfi\nfind \"${BUILT_PRODUCTS_DIR}/CMI8738AudioDriver_updated.kext\" -type d -exec /bin/chmod 0755 {} \\;\nfind \"${BUILT_PRODUCTS_DIR}/CMI8738AudioDriver_updated.kext\" -type f -exec /bin/chmod 0644 {} \\;\ncp ${SRCROOT}/install_updated.command ${BUILT_PRODUCTS_DIR}";
 		};
 /* End PBXShellScriptBuildPhase section */
 

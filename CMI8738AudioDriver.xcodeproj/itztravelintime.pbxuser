@@ -5,9 +5,9 @@
 	};
 	0117744B00710CA77F000001 /* SampleAudioClip.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {817, 2717}}";
+			sepNavIntBoundsRect = "{{0, 0}, {817, 2730}}";
 			sepNavSelRange = "{2278, 0}";
-			sepNavVisRange = "{1974, 304}";
+			sepNavVisRange = "{1844, 654}";
 		};
 	};
 	0117744E00710DAB7F000001 /* CMI8738AudioEngine.h */ = {
@@ -20,6 +20,9 @@
 	089C1669FE841209C02AAC07 /* Project object */ = {
 		activeBuildConfigurationName = Development;
 		activeTarget = DD912B2B2613812800FA0863 /* CMI8738AudioDriver_updated */;
+		addToTargets = (
+			DD912B2B2613812800FA0863 /* CMI8738AudioDriver_updated */,
+		);
 		codeSenseManager = DD912B27261380F300FA0863 /* Code sense */;
 		perUserDictionary = {
 			PBXConfiguration.PBXFileTableDataSource3.PBXExecutablesDataSource = {
@@ -80,19 +83,32 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 638812335;
-			PBXWorkspaceStateSaveDate = 638812335;
+			PBXPerProjectTemplateStateSaveDate = 638816170;
+			PBXWorkspaceStateSaveDate = 638816170;
 		};
 		perUserProjectItems = {
-			DD912BC726138A5400FA0863 /* PlistBookmark */ = DD912BC726138A5400FA0863 /* PlistBookmark */;
-			DD912BC826138A5400FA0863 /* PlistBookmark */ = DD912BC826138A5400FA0863 /* PlistBookmark */;
-			DD912BCA26138A5400FA0863 /* PBXTextBookmark */ = DD912BCA26138A5400FA0863 /* PBXTextBookmark */;
-			DD912BCB26138A5400FA0863 /* PBXTextBookmark */ = DD912BCB26138A5400FA0863 /* PBXTextBookmark */;
-			DD912BCC26138A5400FA0863 /* PBXTextBookmark */ = DD912BCC26138A5400FA0863 /* PBXTextBookmark */;
-			DD912BCD26138A5400FA0863 /* PBXTextBookmark */ = DD912BCD26138A5400FA0863 /* PBXTextBookmark */;
-			DD912BCE26138A5400FA0863 /* PBXTextBookmark */ = DD912BCE26138A5400FA0863 /* PBXTextBookmark */;
-			DD912BCF26138A5400FA0863 /* XCBuildMessageTextBookmark */ = DD912BCF26138A5400FA0863 /* XCBuildMessageTextBookmark */;
-			DD912BE626138C5F00FA0863 /* PBXTextBookmark */ = DD912BE626138C5F00FA0863 /* PBXTextBookmark */;
+			DD8B88DB26138FAD00236EB7 /* PBXTextBookmark */ = DD8B88DB26138FAD00236EB7 /* PBXTextBookmark */;
+			DD8B88F326138FD000236EB7 /* PBXTextBookmark */ = DD8B88F326138FD000236EB7 /* PBXTextBookmark */;
+			DD8B8907261390E800236EB7 /* PBXTextBookmark */ = DD8B8907261390E800236EB7 /* PBXTextBookmark */;
+			DD8B8908261390E800236EB7 /* PBXTextBookmark */ = DD8B8908261390E800236EB7 /* PBXTextBookmark */;
+			DD8B8909261390E800236EB7 /* PBXTextBookmark */ = DD8B8909261390E800236EB7 /* PBXTextBookmark */;
+			DD8B890A261390E800236EB7 /* PBXTextBookmark */ = DD8B890A261390E800236EB7 /* PBXTextBookmark */;
+			DD8B890B261390E800236EB7 /* PBXTextBookmark */ = DD8B890B261390E800236EB7 /* PBXTextBookmark */;
+			DD8B89102613910400236EB7 /* PBXTextBookmark */ = DD8B89102613910400236EB7 /* PBXTextBookmark */;
+			DD8B89132613912600236EB7 /* PBXTextBookmark */ = DD8B89132613912600236EB7 /* PBXTextBookmark */;
+			DD8B89182613913100236EB7 /* PBXTextBookmark */ = DD8B89182613913100236EB7 /* PBXTextBookmark */;
+			DD8B891B2613919E00236EB7 /* PBXTextBookmark */ = DD8B891B2613919E00236EB7 /* PBXTextBookmark */;
+			DD8B8920261391F100236EB7 /* PBXTextBookmark */ = DD8B8920261391F100236EB7 /* PBXTextBookmark */;
+			DD8B89252613926400236EB7 /* PBXTextBookmark */ = DD8B89252613926400236EB7 /* PBXTextBookmark */;
+			DD912BC726138A5400FA0863 = DD912BC726138A5400FA0863 /* PlistBookmark */;
+			DD912BC826138A5400FA0863 = DD912BC826138A5400FA0863 /* PlistBookmark */;
+			DD912BCA26138A5400FA0863 = DD912BCA26138A5400FA0863 /* PBXTextBookmark */;
+			DD912BCB26138A5400FA0863 = DD912BCB26138A5400FA0863 /* PBXTextBookmark */;
+			DD912BCC26138A5400FA0863 = DD912BCC26138A5400FA0863 /* PBXTextBookmark */;
+			DD912BCD26138A5400FA0863 = DD912BCD26138A5400FA0863 /* PBXTextBookmark */;
+			DD912BCE26138A5400FA0863 = DD912BCE26138A5400FA0863 /* PBXTextBookmark */;
+			DD912BCF26138A5400FA0863 = DD912BCF26138A5400FA0863 /* PBXTextBookmark */;
+			DD912BE626138C5F00FA0863 = DD912BE626138C5F00FA0863 /* PBXTextBookmark */;
 		};
 		sourceControlManager = DD912B26261380F300FA0863 /* Source Control */;
 		userBuildSettings = {
@@ -111,7 +127,7 @@
 	};
 	1A224C3EFF42367911CA2CB7 /* CMI8738AudioDevice.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {664, 1196}}";
+			sepNavIntBoundsRect = "{{0, 0}, {664, 1209}}";
 			sepNavSelRange = "{0, 0}";
 			sepNavVisRange = "{0, 1154}";
 		};
@@ -122,6 +138,143 @@
 			sepNavSelRange = "{0, 0}";
 			sepNavVisRange = "{0, 1154}";
 		};
+	};
+	DD8B88DB26138FAD00236EB7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 0117744B00710CA77F000001 /* SampleAudioClip.cpp */;
+		name = "SampleAudioClip.cpp: 51";
+		rLen = 0;
+		rLoc = 2278;
+		rType = 0;
+		vrLen = 654;
+		vrLoc = 1844;
+	};
+	DD8B88F326138FD000236EB7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 0117744B00710CA77F000001 /* SampleAudioClip.cpp */;
+		name = "SampleAudioClip.cpp: 51";
+		rLen = 0;
+		rLoc = 2278;
+		rType = 0;
+		vrLen = 654;
+		vrLoc = 1844;
+	};
+	DD8B88F42613904100236EB7 /* install_updated.command */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {705, 442}}";
+			sepNavSelRange = "{1162, 0}";
+			sepNavVisRange = "{313, 957}";
+		};
+	};
+	DD8B8907261390E800236EB7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 0117744B00710CA77F000001 /* SampleAudioClip.cpp */;
+		name = "SampleAudioClip.cpp: 51";
+		rLen = 0;
+		rLoc = 2278;
+		rType = 0;
+		vrLen = 654;
+		vrLoc = 1844;
+	};
+	DD8B8908261390E800236EB7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FCE7239808C89FB200026E23 /* install.command */;
+		name = "install.command: 1";
+		rLen = 1213;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 686;
+		vrLoc = 0;
+	};
+	DD8B8909261390E800236EB7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3EFF42367911CA2CB7 /* CMI8738AudioDevice.h */;
+		name = "CMI8738AudioDevice.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1154;
+		vrLoc = 0;
+	};
+	DD8B890A261390E800236EB7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DD8B88F42613904100236EB7 /* install_updated.command */;
+		name = "install_updated.command: 30";
+		rLen = 0;
+		rLoc = 1112;
+		rType = 0;
+		vrLen = 977;
+		vrLoc = 308;
+	};
+	DD8B890B261390E800236EB7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DD8B88F42613904100236EB7 /* install_updated.command */;
+		name = "install_updated.command: 30";
+		rLen = 0;
+		rLoc = 1112;
+		rType = 0;
+		vrLen = 977;
+		vrLoc = 308;
+	};
+	DD8B89102613910400236EB7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DD8B88F42613904100236EB7 /* install_updated.command */;
+		name = "install_updated.command: 30";
+		rLen = 0;
+		rLoc = 1112;
+		rType = 0;
+		vrLen = 977;
+		vrLoc = 308;
+	};
+	DD8B89132613912600236EB7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DD8B88F42613904100236EB7 /* install_updated.command */;
+		name = "install_updated.command: 32";
+		rLen = 0;
+		rLoc = 1181;
+		rType = 0;
+		vrLen = 985;
+		vrLoc = 308;
+	};
+	DD8B89182613913100236EB7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DD8B88F42613904100236EB7 /* install_updated.command */;
+		name = "install_updated.command: 32";
+		rLen = 0;
+		rLoc = 1181;
+		rType = 0;
+		vrLen = 985;
+		vrLoc = 308;
+	};
+	DD8B891B2613919E00236EB7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DD8B88F42613904100236EB7 /* install_updated.command */;
+		name = "install_updated.command: 11";
+		rLen = 0;
+		rLoc = 219;
+		rType = 0;
+		vrLen = 734;
+		vrLoc = 0;
+	};
+	DD8B8920261391F100236EB7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DD8B88F42613904100236EB7 /* install_updated.command */;
+		name = "install_updated.command: 26";
+		rLen = 0;
+		rLoc = 778;
+		rType = 0;
+		vrLen = 987;
+		vrLoc = 316;
+	};
+	DD8B89252613926400236EB7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DD8B88F42613904100236EB7 /* install_updated.command */;
+		name = "install_updated.command: 32";
+		rLen = 0;
+		rLoc = 1162;
+		rType = 0;
+		vrLen = 957;
+		vrLoc = 313;
 	};
 	DD912B26261380F300FA0863 /* Source Control */ = {
 		isa = PBXSourceControlManager;
@@ -140,19 +293,20 @@
 	DD912B2B2613812800FA0863 /* CMI8738AudioDriver_updated */ = {
 		activeExec = 0;
 	};
+	DD912B2D2613812800FA0863 /* CMI8738AudioDriver_updated-Info.plist */ = {
+		uiCtxt = {
+			sepNavWindowFrame = "{{15, 495}, {750, 558}}";
+		};
+	};
 	DD912B3F2613831000FA0863 /* libAuioFloatLib_updated */ = {
 		activeExec = 0;
 	};
 	DD912B972613871D00FA0863 /* NSObjCRuntime.h */ = {
 		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
 		name = NSObjCRuntime.h;
 		path = /System/Library/Frameworks/Foundation.framework/Headers/NSObjCRuntime.h;
 		sourceTree = "<absolute>";
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {796, 3302}}";
-			sepNavSelRange = "{6179, 0}";
-			sepNavVisRange = "{5921, 548}";
-		};
 	};
 	DD912BC726138A5400FA0863 /* PlistBookmark */ = {
 		isa = PlistBookmark;
@@ -163,7 +317,7 @@
 		);
 		name = "/Users/itztravelintime/Desktop/CMI8738AudioDriver_PowerPC_Intel/CMI8738AudioDriver_updated-Info.plist";
 		rLen = 0;
-		rLoc = 9223372036854775807;
+		rLoc = 9223372036854775808;
 	};
 	DD912BC826138A5400FA0863 /* PlistBookmark */ = {
 		isa = PlistBookmark;
@@ -174,10 +328,11 @@
 		);
 		name = /Users/itztravelintime/Desktop/CMI8738AudioDriver_PowerPC_Intel/build/Development/CMI8738AudioDriver_updated.kext/Contents/Info.plist;
 		rLen = 0;
-		rLoc = 9223372036854775807;
+		rLoc = 9223372036854775808;
 	};
 	DD912BC926138A5400FA0863 /* Info.plist */ = {
 		isa = PBXFileReference;
+		lastKnownFileType = text.plist.xml;
 		name = Info.plist;
 		path = /Users/itztravelintime/Desktop/CMI8738AudioDriver_PowerPC_Intel/build/Development/CMI8738AudioDriver_updated.kext/Contents/Info.plist;
 		sourceTree = "<absolute>";
@@ -232,11 +387,10 @@
 		vrLen = 584;
 		vrLoc = 1154;
 	};
-	DD912BCF26138A5400FA0863 /* XCBuildMessageTextBookmark */ = {
+	DD912BCF26138A5400FA0863 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		comments = "'UInt32 littleToBig32(UInt32)' defined but not used";
 		fRef = 0117744B00710CA77F000001 /* SampleAudioClip.cpp */;
-		fallbackIsa = XCBuildMessageTextBookmark;
 		rLen = 1;
 		rLoc = 50;
 		rType = 1;
@@ -250,5 +404,12 @@
 		rType = 0;
 		vrLen = 654;
 		vrLoc = 1844;
+	};
+	FCE7239808C89FB200026E23 /* install.command */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {670, 442}}";
+			sepNavSelRange = "{0, 1213}";
+			sepNavVisRange = "{0, 686}";
+		};
 	};
 }

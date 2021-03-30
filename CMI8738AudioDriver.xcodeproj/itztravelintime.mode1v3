@@ -232,8 +232,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -273,23 +271,19 @@
 								<string>247142CAFF3F8F9811CA285C</string>
 								<string>089C167CFE841241C02AAC07</string>
 								<string>1C37FBAC04509CD000000102</string>
-								<string>DD912BC026138A5400FA0863</string>
-								<string>DD912BC126138A5400FA0863</string>
-								<string>DD912BE526138C5F00FA0863</string>
-								<string>DD912BC326138A5400FA0863</string>
-								<string>DD912BC526138A5400FA0863</string>
-								<string>DD912BC626138A5400FA0863</string>
+								<string>DD8B88D726138FAA00236EB7</string>
+								<string>DD8B8906261390E800236EB7</string>
 								<string>1C37FABC05509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>29</integer>
-									<integer>18</integer>
+									<integer>22</integer>
+									<integer>19</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 309}, {258, 565}}</string>
+							<string>{{0, 98}, {258, 565}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -308,7 +302,7 @@
 							<real>258</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>124 337 1005 624 0 0 1920 1058 </string>
+						<string>176 434 1005 624 0 0 1920 1058 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -319,12 +313,14 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>SampleAudioClip.cpp</string>
+								<string>install_updated.command</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -332,21 +328,23 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>SampleAudioClip.cpp</string>
+										<string>install_updated.command</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>DD912BE626138C5F00FA0863</string>
+										<string>DD8B89252613926400236EB7</string>
 										<key>history</key>
 										<array>
 											<string>DD912BC726138A5400FA0863</string>
 											<string>DD912BC826138A5400FA0863</string>
 											<string>DD912BCA26138A5400FA0863</string>
-											<string>DD912BCB26138A5400FA0863</string>
 											<string>DD912BCC26138A5400FA0863</string>
 											<string>DD912BCD26138A5400FA0863</string>
 											<string>DD912BCE26138A5400FA0863</string>
-											<string>DD912BCF26138A5400FA0863</string>
+											<string>DD8B8907261390E800236EB7</string>
+											<string>DD8B8908261390E800236EB7</string>
+											<string>DD8B8909261390E800236EB7</string>
+											<string>DD8B890A261390E800236EB7</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -358,14 +356,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {725, 305}}</string>
+								<string>{{0, 0}, {725, 295}}</string>
 								<key>RubberWindowFrame</key>
-								<string>124 337 1005 624 0 0 1920 1058 </string>
+								<string>176 434 1005 624 0 0 1920 1058 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>305pt</string>
+							<string>295pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -378,14 +376,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 310}, {725, 273}}</string>
+								<string>{{0, 300}, {725, 283}}</string>
 								<key>RubberWindowFrame</key>
-								<string>124 337 1005 624 0 0 1920 1058 </string>
+								<string>176 434 1005 624 0 0 1920 1058 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>273pt</string>
+							<string>283pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -404,9 +402,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>DD912B342613822800FA0863</string>
+				<string>DD8B88DC26138FAD00236EB7</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>DD912B352613822800FA0863</string>
+				<string>DD8B88DD26138FAD00236EB7</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -548,7 +546,7 @@
 		<string>/Users/itztravelintime/Desktop/CMI8738AudioDriver_PowerPC_Intel/CMI8738AudioDriver.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>124 337 1005 624 0 0 1920 1058 </string>
+	<string>176 434 1005 624 0 0 1920 1058 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -569,7 +567,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>SampleAudioClip.cpp</string>
+								<string></string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -586,8 +584,6 @@
 							<string>138pt</string>
 						</dict>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -627,7 +623,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>DD912B22261380BE00FA0863</string>
-				<string>DD912B23261380BE00FA0863</string>
+				<string>DD8B88DE26138FAD00236EB7</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>

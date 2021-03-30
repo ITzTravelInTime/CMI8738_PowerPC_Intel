@@ -23,7 +23,7 @@
 		<key>CMI8738PCIAudioDriver</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
-			<string>com.homebrew.driver.CMI8738Audio</string>
+			<string>com.homebrew.driver.${PRODUCT_NAME:rfc1034identifier}</string>
 			<key>IOClass</key>
 			<string>com_homebrew_driver_CMI8738Audio</string>
 			<key>IOPCIMatch</key>
@@ -38,6 +38,10 @@
 		<string>1.1fc6</string>
 		<key>com.apple.iokit.IOPCIFamily</key>
 		<string>1.0</string>
+		<key>com.apple.kpi.iokit</key>
+		<string>8.0b1</string>
+		<key>com.apple.kpi.libkern</key>
+		<string>8.0b1</string>
 	</dict>
 </dict>
 </plist>

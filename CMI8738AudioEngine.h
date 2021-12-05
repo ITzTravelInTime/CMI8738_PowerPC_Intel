@@ -42,17 +42,6 @@ class CMI8738AudioEngine : public IOAudioEngine
 {
     OSDeclareDefaultStructors(CMI8738AudioEngine)
     
-	CMI8738Info						*cm;
-	UInt32                          shift, dma_size, currentSampleRate, currentResolution;
-    
-    SInt16							*outputBuffer;
-    SInt16							*inputBuffer;
-	IOPhysicalAddress               physicalAddressOutput;
-	IOPhysicalAddress               physicalAddressInput;
-	
-    
-    IOFilterInterruptEventSource	*interruptEventSource;
-    
 public:
 
     virtual bool	init(CMI8738Info* _cm);
@@ -91,6 +80,18 @@ public:
     static void interruptHandler(OSObject *owner, IOInterruptEventSource *source, int count);
     static bool interruptFilter(OSObject *owner, IOFilterInterruptEventSource *source);
     virtual void filterInterrupt(int index);
+
+private:
+	CMI8738Info						*cm;
+	UInt32                          shift, dma_size, currentSampleRate, currentResolution;
+    
+    SInt16							*outputBuffer;
+    SInt16							*inputBuffer;
+	IOPhysicalAddress               physicalAddressOutput;
+	IOPhysicalAddress               physicalAddressInput;
+	
+    
+    IOFilterInterruptEventSource	*interruptEventSource;
 };
 
 #endif /* _CMI8738AudioEngine_H */

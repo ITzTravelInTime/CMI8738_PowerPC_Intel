@@ -26,15 +26,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
 #include "CMI8738AudioEngine.h"
-
-static const float clipMax = 1.0f;
-static const float clipMin = -1.0f;
-
-static const float clipPosMul = 32767.0f;
-static const float clipNegMul = 32768.0f;
-
-static const float clipPosMulDiv = 1 / clipPosMul;
-static const float clipNegMulDiv = 1 / clipNegMul;
+#include "SampleConvert.h"
 
 // The function clipOutputSamples() is called to clip and convert samples from the float mix buffer into the actual
 // hardware sample buffer.  The samples to be clipped, are guaranteed not to wrap from the end of the buffer to the
@@ -43,44 +35,6 @@ static const float clipNegMulDiv = 1 / clipNegMul;
 // Each floating-point sample must be clipped to a range of -1.0 to 1.0 and then converted to the hardware buffer
 // format
 
-
- #ifdef __BIG_ENDIAN__
- //#if 0
- //#warning Experimental code
- 
- static UInt32 littleToBig32(const UInt32 num){
- 
- UInt32 res = 0;
- 
- res |= (num & 0xff000000) >> 24;
- res |= (num & 0x00ff0000) >> 8 ;
- res |= (num & 0x0000ff00) << 8 ;
- res |= (num & 0x000000ff) << 24;
- 
- return res;
- 
- }
- 
- static UInt16 littleToBig16(const UInt16 num){
- 
- UInt16 res = 0;
- 
- res |= (num & 0xff00) >> 8 ;
- res |= (num & 0x00ff) << 8 ;
- 
- return res;
- 
- }
- 
- #define correctEndian32(num) (littleToBig32(num))
- #define correctEndian16(num) (littleToBig16(num))
- 
- #else
- 
- #define correctEndian32(num) ((UInt32)(num))
- #define correctEndian16(num) ((UInt16)(num))
- 
- #endif
  
  
 
@@ -95,48 +49,14 @@ static const float clipNegMulDiv = 1 / clipNegMul;
 //		audioStream - the audio stream this function is operating on
 IOReturn CMI8738AudioEngine::clipOutputSamples(const void *mixBuf, void *sampleBuf, UInt32 firstSampleFrame, UInt32 numSampleFrames, const IOAudioStreamFormat *streamFormat, IOAudioStream *audioStream)
 {
-    UInt32 sampleIndex, maxSampleIndex;
-    float *floatMixBuf;
-    SInt16 *outputSInt16Buf = (SInt16 *)sampleBuf;
-    // Start by casting the void * mix and sample buffers to the appropriate types - float * for the mix buffer
-    // and SInt16 * for the sample buffer (because our sample hardware uses signed 16-bit samples)
-    floatMixBuf = (float *)mixBuf;
-
+    UInt32 startSampleIndex, maxSampleIndex;
     
-    // We calculate the maximum sample index we are going to clip and convert
-    // This is an index into the entire sample and mix buffers
     maxSampleIndex = (firstSampleFrame + numSampleFrames) * streamFormat->fNumChannels;
+    startSampleIndex = (firstSampleFrame * streamFormat->fNumChannels);
     
-    // Loop through the mix/sample buffers one sample at a time and perform the clip and conversion operations
-    for (sampleIndex = (firstSampleFrame * streamFormat->fNumChannels); sampleIndex < maxSampleIndex; sampleIndex++) {
-        float inSample;
-        
-        // Fetch the floating point mix sample
-        inSample = floatMixBuf[sampleIndex];
-        
-        // Clip that sample to a range of -1.0 to 1.0
-        // A softer clipping operation could be done here
-		
-        if (inSample > clipMax) {
-            inSample = clipMax;
-        } else if (inSample < clipMin) {
-            inSample = clipMin;
-        }
-        
-        // Scale the -1.0 to 1.0 range to the appropriate scale for signed 16-bit samples and then
-        // convert to SInt16 and store in the hardware sample buffer
-		
-		outputSInt16Buf[sampleIndex] = ((SInt16) (inSample * ((inSample >= 0) ? clipPosMul : clipNegMul)));
-		outputSInt16Buf[sampleIndex] = (SInt16)correctEndian16((UInt16)outputSInt16Buf[sampleIndex]);
-		
-		/*
-		if (inSample >= 0) {
-			outputSInt16Buf[sampleIndex] = (SInt16) (inSample * clipPosMul);
-		} else {
-			outputSInt16Buf[sampleIndex] = (SInt16) (inSample * clipNegMul);
-		}
-		*/
-    }
+    Float32ToSInt16_optimized( (const float *)mixBuf, (SInt16 *)sampleBuf, maxSampleIndex, startSampleIndex);
+    
+    return kIOReturnSuccess;
     
     return kIOReturnSuccess;
 }
@@ -182,9 +102,9 @@ IOReturn CMI8738AudioEngine::convertInputSamples(const void *sampleBuf, void *de
         // Scale that sample to a range of -1.0 to 1.0, convert to float and store in the destination buffer
         // at the proper location
         if (inputSample >= 0) {
-            (*floatDestBuf) = correctEndian16( inputSample * clipPosMulDiv );// / 32767.0;
+            (*floatDestBuf) = correctEndianess16( inputSample * clipPosMulDiv16 );// / 32767.0;
         } else {
-            (*floatDestBuf) = correctEndian16( inputSample * clipNegMulDiv );// / 32768.0;
+            (*floatDestBuf) = correctEndianess16( inputSample * clipNegMulDiv16 );// / 32768.0;
         }
         
         // Move on to the next sample

@@ -14,6 +14,7 @@
 		089C1680FE841241C02AAC07 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
 		1A224C40FF42367911CA2CB7 /* CMI8738AudioDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A224C3EFF42367911CA2CB7 /* CMI8738AudioDevice.h */; };
 		1A224C41FF42367911CA2CB7 /* CMI8738AudioDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A224C3FFF42367911CA2CB7 /* CMI8738AudioDevice.cpp */; settings = {ATTRIBUTES = (); }; };
+		DD6EE223275C1A4000BAB794 /* SampleConvert.h in Headers */ = {isa = PBXBuildFile; fileRef = DD6EE222275C1A4000BAB794 /* SampleConvert.h */; };
 		DD8B88F52613904100236EB7 /* install_updated.command in Resources */ = {isa = PBXBuildFile; fileRef = DD8B88F42613904100236EB7 /* install_updated.command */; };
 		DD912B7D2613855300FA0863 /* CMI8738-register.h in Headers */ = {isa = PBXBuildFile; fileRef = FCDBEC6608B9B3D30082AEF9 /* CMI8738-register.h */; };
 		DD912B7E2613855800FA0863 /* CMI8738AudioDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A224C3EFF42367911CA2CB7 /* CMI8738AudioDevice.h */; };
@@ -47,7 +48,7 @@
 			productName = CMI8738AudioDriver;
 			productReference = 0B81C263FFB7832611CA28AA /* CMI8738PCIAudioDriver.kext */;
 			productSettingsXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
-<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">
+<!DOCTYPE plist PUBLIC \"-//Apple Computer//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">
 <plist version=\"1.0\">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
@@ -120,9 +121,10 @@
 		0B81C263FFB7832611CA28AA /* CMI8738PCIAudioDriver.kext */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = CMI8738PCIAudioDriver.kext; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A224C3EFF42367911CA2CB7 /* CMI8738AudioDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMI8738AudioDevice.h; sourceTree = "<group>"; };
 		1A224C3FFF42367911CA2CB7 /* CMI8738AudioDevice.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CMI8738AudioDevice.cpp; sourceTree = "<group>"; };
+		DD6EE222275C1A4000BAB794 /* SampleConvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleConvert.h; sourceTree = "<group>"; };
 		DD8B88F42613904100236EB7 /* install_updated.command */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = install_updated.command; sourceTree = "<group>"; };
 		DD912B2C2613812800FA0863 /* CMI8738AudioDriver_updated.kext */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CMI8738AudioDriver_updated.kext; sourceTree = BUILT_PRODUCTS_DIR; };
-		DD912B2D2613812800FA0863 /* CMI8738AudioDriver_updated-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CMI8738AudioDriver_updated-Info.plist"; sourceTree = "<group>"; };
+		DD912B2D2613812800FA0863 /* CMI8738AudioDriver_updated-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "CMI8738AudioDriver_updated-Info.plist"; sourceTree = "<group>"; };
 		DD912B402613831000FA0863 /* libAuioFloatLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAuioFloatLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCDBEC6608B9B3D30082AEF9 /* CMI8738-register.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CMI8738-register.h"; sourceTree = "<group>"; };
 		FCE7239808C89FB200026E23 /* install.command */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = install.command; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				0117744F00710DAB7F000001 /* CMI8738AudioEngine.cpp */,
 				0117744B00710CA77F000001 /* SampleAudioClip.cpp */,
 				FCDBEC6608B9B3D30082AEF9 /* CMI8738-register.h */,
+				DD6EE222275C1A4000BAB794 /* SampleConvert.h */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD6EE223275C1A4000BAB794 /* SampleConvert.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +319,9 @@
 			buildConfigurationList = FCC4E42908B955B400AC9D19 /* Build configuration list for PBXProject "CMI8738AudioDriver" */;
 			compatibilityVersion = "Xcode 2.4";
 			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
 			mainGroup = 089C166AFE841209C02AAC07 /* CMI8738AudioDriver */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -491,8 +498,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1)";
+				ARCHS = (
+					i386,
+					ppc,
+				);
 				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
+				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -507,13 +518,15 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\\\"$(SRCROOT)/build/Deployment\\\"";
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				MODULE_IOKIT = YES;
 				MODULE_NAME = com.homebrew.driver.CMI8738AudioDriver_updated;
 				MODULE_VERSION = 1.0.0d1;
 				OTHER_REZFLAGS = "";
 				PREBINDING = NO;
 				PRODUCT_NAME = CMI8738AudioDriver_updated;
-				SDKROOT = "";
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				VALID_ARCHS = "ppc i386 x86_64";
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -528,16 +541,24 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					i386,
+					ppc,
+				);
+				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_MODEL_TUNING = G5;
 				INFOPLIST_FILE = "CMI8738AudioDriver_updated-Info.plist";
 				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions";
+				MACOSX_DEPLOYMENT_TARGET = 10.4;
 				MODULE_NAME = com.yourcompany.driver.CMI8738AudioDriver_updated;
 				MODULE_VERSION = 1.0.0d1;
 				PREBINDING = NO;
 				PRODUCT_NAME = CMI8738AudioDriver_updated;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				VALID_ARCHS = "ppc i386 x86_64";
 				WRAPPER_EXTENSION = kext;
 				ZERO_LINK = NO;
 			};
@@ -547,15 +568,23 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					i386,
+					ppc,
+				);
+				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_MODEL_TUNING = G5;
 				INFOPLIST_FILE = "CMI8738AudioDriver_updated-Info.plist";
 				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions";
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				MODULE_NAME = com.yourcompany.driver.CMI8738AudioDriver_updated;
 				MODULE_VERSION = 1.0.0d1;
 				PREBINDING = NO;
 				PRODUCT_NAME = CMI8738AudioDriver_updated;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				VALID_ARCHS = "ppc i386 x86_64";
 				WRAPPER_EXTENSION = kext;
 			};
 			name = Default;
@@ -564,8 +593,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1)";
+				ARCHS = (
+					i386,
+					ppc,
+				);
 				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
+				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
 				COPY_PHASE_STRIP = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -583,7 +616,7 @@
 				);
 				INFOPLIST_PREPROCESS = YES;
 				INSTALL_PATH = /usr/local/lib;
-				MACOSX_DEPLOYMENT_TARGET = 10.3;
+				MACOSX_DEPLOYMENT_TARGET = 10.4;
 				OTHER_CFLAGS = (
 					"-nostdinc",
 					"-finline",
@@ -598,8 +631,9 @@
 				PREBINDING = YES;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				PRODUCT_NAME = AuioFloatLib;
-				SDKROOT = "";
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 				SKIP_INSTALL = YES;
+				VALID_ARCHS = "ppc i386 x86_64";
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -612,6 +646,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					i386,
+					ppc,
+				);
+				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
@@ -619,6 +658,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				INSTALL_PATH = /usr/local/lib;
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -627,6 +667,8 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = libAuioFloatLib_updated;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				VALID_ARCHS = "ppc i386 x86_64";
 				ZERO_LINK = NO;
 			};
 			name = Deployment;
@@ -635,11 +677,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					i386,
+					ppc,
+				);
+				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				INSTALL_PATH = /usr/local/lib;
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -648,6 +696,8 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = libAuioFloatLib_updated;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				VALID_ARCHS = "ppc i386 x86_64";
 			};
 			name = Default;
 		};

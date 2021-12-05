@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>CMI8738AudioDriver.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>CMI8738AudioDriver_updated.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>libAudioFloatLib.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+		<key>libAuioFloatLib_updated.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>011774450071097E7F000001</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>089C1673FE841209C02AAC07</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DD912B2B2613812800FA0863</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DD912B3F2613831000FA0863</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

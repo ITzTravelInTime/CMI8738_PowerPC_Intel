@@ -29,6 +29,6 @@ find /System/Library/Extensions/CMI8738AudioDriver_updated.kext -type d -exec /b
 find /System/Library/Extensions/CMI8738AudioDriver_updated.kext -type f -exec /bin/chmod 0744 {} \;
 chown -R root:wheel /System/Library/Extensions/CMI8738AudioDriver_updated.kext
 
-kextload /System/Library/Extensions/CMI8738AudioDriver_updated.kext
+kextload -t /System/Library/Extensions/CMI8738AudioDriver_updated.kext
 
 echo "Installation finished - enjoy! dogbert <dogber1@gmail.com>, ITzTravelInTime"

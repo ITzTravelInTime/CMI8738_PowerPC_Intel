@@ -59,10 +59,9 @@ class CMI8738AudioDevice : public IOAudioDevice
 {
     friend class CMI8738AudioEngine;
     
+public:
     OSDeclareDefaultStructors(CMI8738AudioDevice)
     
-	CMI8738Info		cm;
-
     virtual bool	initHardware(IOService *provider);
     virtual bool	createAudioEngine();
     virtual void	free();
@@ -86,17 +85,22 @@ class CMI8738AudioDevice : public IOAudioDevice
 	virtual UInt8	readMixer(UInt8 reg);
 	virtual void	writeMixer(UInt8 reg, UInt8 value);	
 	
-	static IOReturn volumeChangeHandler(IOService *target, IOAudioControl *volumeControl, SInt32 oldValue, SInt32 newValue);
+	
     virtual IOReturn volumeChanged(IOAudioControl *volumeControl, SInt32 oldValue, SInt32 newValue);
     
-    static IOReturn outputMuteChangeHandler(IOService *target, IOAudioControl *muteControl, SInt32 oldValue, SInt32 newValue);
     virtual IOReturn outputMuteChanged(IOAudioControl *muteControl, SInt32 oldValue, SInt32 newValue);
 
-    static IOReturn gainChangeHandler(IOService *target, IOAudioControl *gainControl, SInt32 oldValue, SInt32 newValue);
     virtual IOReturn gainChanged(IOAudioControl *gainControl, SInt32 oldValue, SInt32 newValue);
     
-    static IOReturn inputMuteChangeHandler(IOService *target, IOAudioControl *muteControl, SInt32 oldValue, SInt32 newValue);
     virtual IOReturn inputMuteChanged(IOAudioControl *muteControl, SInt32 oldValue, SInt32 newValue);
+    
+private:
+    static IOReturn volumeChangeHandler(IOService *target, IOAudioControl *volumeControl, SInt32 oldValue, SInt32 newValue);
+    static IOReturn outputMuteChangeHandler(IOService *target, IOAudioControl *muteControl, SInt32 oldValue, SInt32 newValue);
+    static IOReturn gainChangeHandler(IOService *target, IOAudioControl *gainControl, SInt32 oldValue, SInt32 newValue);
+    static IOReturn inputMuteChangeHandler(IOService *target, IOAudioControl *muteControl, SInt32 oldValue, SInt32 newValue);
+    
+    CMI8738Info cm;
 };
 
 #endif /* _CMI8738AudioDevice_H */

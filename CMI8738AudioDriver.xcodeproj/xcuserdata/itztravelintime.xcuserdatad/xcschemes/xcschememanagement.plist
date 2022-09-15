@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>CMI8738AudioDriver.xcscheme</key>
+		<key>CMI8738AudioDriver.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>3</integer>
@@ -14,15 +14,25 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>CMI8738AudioDriver_updated_64.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
 		<key>libAudioFloatLib.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>libAuioFloatLib_updated.xcscheme</key>
+		<key>libAuioFloatLib_updated.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>2</integer>
+		</dict>
+		<key>libAuioFloatLib_updated_64.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -33,6 +43,11 @@
 			<true/>
 		</dict>
 		<key>089C1673FE841209C02AAC07</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DD0C26FD28D3BB0F00D1405D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

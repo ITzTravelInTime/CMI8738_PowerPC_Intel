@@ -29,6 +29,16 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef _CMI8738AudioEngine_H
 #define _CMI8738AudioEngine_H
 
+#if defined(i386) || defined(I386) || defined(IX86) || defined(__I386__) || defined(_IX86) || defined(_M_IX86) || defined(AMD64) || defined(__x86_64__) || defined(__i386__)
+    #define X86
+#elif defined(__PPC__) || defined(__ppc__) || defined(_ARCH_PPC) || defined(__POWERPC__) || defined(__powerpc) || defined(__powerpc__)
+    #define PPC
+#elif(defined(__ARM__) || defined(__arm__) || defined(_ARCH_ARM) || defined(_ARCH_ARM64) || defined(__aarch64e__) || defined(__arm) || defined(__arm64e__) || defined(__aarch64__))
+    #define ARM
+#else
+    #error "Unknown processor architecture"
+#endif
+
 #include <IOKit/audio/IOAudioEngine.h>
 
 #include "CMI8738AudioDevice.h"
@@ -37,6 +47,27 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 class IOFilterInterruptEventSource;
 class IOInterruptEventSource;
+
+#ifndef _IOBUFFERMEMORYDESCRIPTOR_H
+class IOBufferMemoryDescriptor;
+#endif
+
+struct memhandle
+{
+    // note: this is for 32-bit OS only
+    size_t size;
+    void * addr;          // virtual
+    UInt32 dma_handle;    // physical
+    
+#if !defined(OLD_ALLOC)
+    IOBufferMemoryDescriptor *desc;
+#endif
+};
+
+#define allocation_mask ((0x000000007FFFFFFFULL) & (~((PAGE_SIZE) - 1)))
+
+int pci_alloc(struct memhandle *h);
+void pci_free(struct memhandle *h);
 
 class CMI8738AudioEngine : public IOAudioEngine
 {
@@ -80,16 +111,24 @@ public:
     static void interruptHandler(OSObject *owner, IOInterruptEventSource *source, int count);
     static bool interruptFilter(OSObject *owner, IOFilterInterruptEventSource *source);
     virtual void filterInterrupt(int index);
+    
+#if defined(ARM)
+    virtual bool driverDesiresHiResSampleIntervals(void);
+#endif
 
 private:
 	CMI8738Info						*cm;
 	UInt32                          shift, dma_size, currentSampleRate, currentResolution;
     
+    /*
     SInt16							*outputBuffer;
     SInt16							*inputBuffer;
 	IOPhysicalAddress               physicalAddressOutput;
 	IOPhysicalAddress               physicalAddressInput;
-	
+	*/
+    
+    struct memhandle inBuffer;
+    struct memhandle outBuffer;
     
     IOFilterInterruptEventSource	*interruptEventSource;
 };

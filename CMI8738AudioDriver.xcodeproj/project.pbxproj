@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 42;
+	objectVersion = 45;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,17 @@
 		089C1680FE841241C02AAC07 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
 		1A224C40FF42367911CA2CB7 /* CMI8738AudioDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A224C3EFF42367911CA2CB7 /* CMI8738AudioDevice.h */; };
 		1A224C41FF42367911CA2CB7 /* CMI8738AudioDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A224C3FFF42367911CA2CB7 /* CMI8738AudioDevice.cpp */; settings = {ATTRIBUTES = (); }; };
+		DD0C270228D3BB0F00D1405D /* CMI8738-register.h in Headers */ = {isa = PBXBuildFile; fileRef = FCDBEC6608B9B3D30082AEF9 /* CMI8738-register.h */; };
+		DD0C270328D3BB0F00D1405D /* CMI8738AudioDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A224C3EFF42367911CA2CB7 /* CMI8738AudioDevice.h */; };
+		DD0C270428D3BB0F00D1405D /* CMI8738AudioEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 0117744E00710DAB7F000001 /* CMI8738AudioEngine.h */; };
+		DD0C270628D3BB0F00D1405D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
+		DD0C270728D3BB0F00D1405D /* install_updated.command in Resources */ = {isa = PBXBuildFile; fileRef = DD8B88F42613904100236EB7 /* install_updated.command */; };
+		DD0C270928D3BB0F00D1405D /* CMI8738AudioDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A224C3FFF42367911CA2CB7 /* CMI8738AudioDevice.cpp */; };
+		DD0C270A28D3BB0F00D1405D /* CMI8738AudioEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0117744F00710DAB7F000001 /* CMI8738AudioEngine.cpp */; };
+		DD0C271728D3BB1200D1405D /* SampleConvert.h in Headers */ = {isa = PBXBuildFile; fileRef = DD6EE222275C1A4000BAB794 /* SampleConvert.h */; };
+		DD0C271928D3BB1200D1405D /* SampleAudioClip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0117744B00710CA77F000001 /* SampleAudioClip.cpp */; };
+		DD0C272228D3BBF600D1405D /* liblibAuioFloatLib_updated_64.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD0C272028D3BB1200D1405D /* liblibAuioFloatLib_updated_64.a */; };
+		DD0C272528D3BC0200D1405D /* libAuioFloatLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD912B402613831000FA0863 /* libAuioFloatLib.a */; };
 		DD6EE223275C1A4000BAB794 /* SampleConvert.h in Headers */ = {isa = PBXBuildFile; fileRef = DD6EE222275C1A4000BAB794 /* SampleConvert.h */; };
 		DD8B88F52613904100236EB7 /* install_updated.command in Resources */ = {isa = PBXBuildFile; fileRef = DD8B88F42613904100236EB7 /* install_updated.command */; };
 		DD912B7D2613855300FA0863 /* CMI8738-register.h in Headers */ = {isa = PBXBuildFile; fileRef = FCDBEC6608B9B3D30082AEF9 /* CMI8738-register.h */; };
@@ -21,7 +32,6 @@
 		DD912B7F2613855C00FA0863 /* CMI8738AudioEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 0117744E00710DAB7F000001 /* CMI8738AudioEngine.h */; };
 		DD912B802613859A00FA0863 /* CMI8738AudioDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A224C3FFF42367911CA2CB7 /* CMI8738AudioDevice.cpp */; };
 		DD912B812613859A00FA0863 /* CMI8738AudioEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0117744F00710DAB7F000001 /* CMI8738AudioEngine.cpp */; };
-		DD912B82261385BC00FA0863 /* libAuioFloatLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD912B402613831000FA0863 /* libAuioFloatLib.a */; };
 		DD912B89261386DC00FA0863 /* SampleAudioClip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0117744B00710CA77F000001 /* SampleAudioClip.cpp */; };
 		DD912BDE26138AA500FA0863 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
 		FCDBEC6708B9B3D30082AEF9 /* CMI8738-register.h in Headers */ = {isa = PBXBuildFile; fileRef = FCDBEC6608B9B3D30082AEF9 /* CMI8738-register.h */; };
@@ -48,7 +58,7 @@
 			productName = CMI8738AudioDriver;
 			productReference = 0B81C263FFB7832611CA28AA /* CMI8738PCIAudioDriver.kext */;
 			productSettingsXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
-<!DOCTYPE plist PUBLIC \"-//Apple Computer//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">
+<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">
 <plist version=\"1.0\">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
@@ -95,7 +105,14 @@
 /* End PBXBundleTarget section */
 
 /* Begin PBXContainerItemProxy section */
-		DD912B462613836D00FA0863 /* PBXContainerItemProxy */ = {
+		DD0C272328D3BBF600D1405D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD0C271528D3BB1200D1405D;
+			remoteInfo = libAuioFloatLib_updated_64;
+		};
+		DD0C272628D3BC0200D1405D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
 			proxyType = 1;
@@ -121,10 +138,13 @@
 		0B81C263FFB7832611CA28AA /* CMI8738PCIAudioDriver.kext */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = CMI8738PCIAudioDriver.kext; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A224C3EFF42367911CA2CB7 /* CMI8738AudioDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMI8738AudioDevice.h; sourceTree = "<group>"; };
 		1A224C3FFF42367911CA2CB7 /* CMI8738AudioDevice.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CMI8738AudioDevice.cpp; sourceTree = "<group>"; };
+		DD0C271328D3BB0F00D1405D /* CMI8738AudioDriver_updated_64.kext */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CMI8738AudioDriver_updated_64.kext; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD0C271428D3BB1000D1405D /* CMI8738AudioDriver_updated_64-info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "CMI8738AudioDriver_updated_64-info.plist"; path = "/Users/itztravelintime/Documents/xcode/CMI8738_PowerPC_Intel/CMI8738AudioDriver_updated_64-info.plist"; sourceTree = "<absolute>"; };
+		DD0C272028D3BB1200D1405D /* liblibAuioFloatLib_updated_64.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblibAuioFloatLib_updated_64.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD6EE222275C1A4000BAB794 /* SampleConvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleConvert.h; sourceTree = "<group>"; };
 		DD8B88F42613904100236EB7 /* install_updated.command */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = install_updated.command; sourceTree = "<group>"; };
 		DD912B2C2613812800FA0863 /* CMI8738AudioDriver_updated.kext */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CMI8738AudioDriver_updated.kext; sourceTree = BUILT_PRODUCTS_DIR; };
-		DD912B2D2613812800FA0863 /* CMI8738AudioDriver_updated-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "CMI8738AudioDriver_updated-Info.plist"; sourceTree = "<group>"; };
+		DD912B2D2613812800FA0863 /* CMI8738AudioDriver_updated-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CMI8738AudioDriver_updated-Info.plist"; sourceTree = "<group>"; };
 		DD912B402613831000FA0863 /* libAuioFloatLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAuioFloatLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCDBEC6608B9B3D30082AEF9 /* CMI8738-register.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CMI8738-register.h"; sourceTree = "<group>"; };
 		FCE7239808C89FB200026E23 /* install.command */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = install.command; sourceTree = "<group>"; };
@@ -146,11 +166,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DD0C270B28D3BB0F00D1405D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD0C272228D3BBF600D1405D /* liblibAuioFloatLib_updated_64.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD0C271A28D3BB1200D1405D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DD912B2A2613812800FA0863 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD912B82261385BC00FA0863 /* libAuioFloatLib.a in Frameworks */,
+				DD0C272528D3BC0200D1405D /* libAuioFloatLib.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +207,8 @@
 				089C167CFE841241C02AAC07 /* Resources */,
 				00F55081007288EA11FF4F98 /* Kernel.framework */,
 				DD912B2D2613812800FA0863 /* CMI8738AudioDriver_updated-Info.plist */,
+				DD0C271428D3BB1000D1405D /* CMI8738AudioDriver_updated_64-info.plist */,
+				DD0C272128D3BBF600D1405D /* Frameworks */,
 			);
 			name = CMI8738AudioDriver;
 			sourceTree = "<group>";
@@ -191,6 +228,8 @@
 				011774440071097E7F000001 /* libAudioFloatLib.a */,
 				DD912B2C2613812800FA0863 /* CMI8738AudioDriver_updated.kext */,
 				DD912B402613831000FA0863 /* libAuioFloatLib.a */,
+				DD0C271328D3BB0F00D1405D /* CMI8738AudioDriver_updated_64.kext */,
+				DD0C272028D3BB1200D1405D /* liblibAuioFloatLib_updated_64.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -211,6 +250,13 @@
 			name = Source;
 			sourceTree = "<group>";
 		};
+		DD0C272128D3BBF600D1405D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -228,6 +274,24 @@
 				1A224C40FF42367911CA2CB7 /* CMI8738AudioDevice.h in Headers */,
 				0117745000710DAB7F000001 /* CMI8738AudioEngine.h in Headers */,
 				FCDBEC6708B9B3D30082AEF9 /* CMI8738-register.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD0C270128D3BB0F00D1405D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD0C270228D3BB0F00D1405D /* CMI8738-register.h in Headers */,
+				DD0C270328D3BB0F00D1405D /* CMI8738AudioDevice.h in Headers */,
+				DD0C270428D3BB0F00D1405D /* CMI8738AudioEngine.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD0C271628D3BB1200D1405D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD0C271728D3BB1200D1405D /* SampleConvert.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +335,46 @@
 /* End PBXLibraryTarget section */
 
 /* Begin PBXNativeTarget section */
+		DD0C26FD28D3BB0F00D1405D /* CMI8738AudioDriver_updated_64 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD0C270F28D3BB0F00D1405D /* Build configuration list for PBXNativeTarget "CMI8738AudioDriver_updated_64" */;
+			buildPhases = (
+				DD0C270028D3BB0F00D1405D /* ShellScript */,
+				DD0C270128D3BB0F00D1405D /* Headers */,
+				DD0C270528D3BB0F00D1405D /* Resources */,
+				DD0C270828D3BB0F00D1405D /* Sources */,
+				DD0C270B28D3BB0F00D1405D /* Frameworks */,
+				DD0C270D28D3BB0F00D1405D /* Rez */,
+				DD0C270E28D3BB0F00D1405D /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD0C272428D3BBF600D1405D /* PBXTargetDependency */,
+			);
+			name = CMI8738AudioDriver_updated_64;
+			productName = CMI8738AudioDriver_updated;
+			productReference = DD0C271328D3BB0F00D1405D /* CMI8738AudioDriver_updated_64.kext */;
+			productType = "com.apple.product-type.kernel-extension.iokit";
+		};
+		DD0C271528D3BB1200D1405D /* libAuioFloatLib_updated_64 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD0C271C28D3BB1200D1405D /* Build configuration list for PBXNativeTarget "libAuioFloatLib_updated_64" */;
+			buildPhases = (
+				DD0C271628D3BB1200D1405D /* Headers */,
+				DD0C271828D3BB1200D1405D /* Sources */,
+				DD0C271A28D3BB1200D1405D /* Frameworks */,
+				DD0C271B28D3BB1200D1405D /* Rez */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = libAuioFloatLib_updated_64;
+			productName = libAuioFloatLib_updated;
+			productReference = DD0C272028D3BB1200D1405D /* liblibAuioFloatLib_updated_64.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		DD912B2B2613812800FA0863 /* CMI8738AudioDriver_updated */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DD912B312613812800FA0863 /* Build configuration list for PBXNativeTarget "CMI8738AudioDriver_updated" */;
@@ -286,7 +390,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				DD912B472613836D00FA0863 /* PBXTargetDependency */,
+				DD0C272728D3BC0200D1405D /* PBXTargetDependency */,
 			);
 			name = CMI8738AudioDriver_updated;
 			productName = CMI8738AudioDriver_updated;
@@ -316,11 +420,15 @@
 /* Begin PBXProject section */
 		089C1669FE841209C02AAC07 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+			};
 			buildConfigurationList = FCC4E42908B955B400AC9D19 /* Build configuration list for PBXProject "CMI8738AudioDriver" */;
-			compatibilityVersion = "Xcode 2.4";
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				English,
 			);
 			mainGroup = 089C166AFE841209C02AAC07 /* CMI8738AudioDriver */;
 			projectDirPath = "";
@@ -330,6 +438,8 @@
 				011774450071097E7F000001 /* libAudioFloatLib */,
 				DD912B2B2613812800FA0863 /* CMI8738AudioDriver_updated */,
 				DD912B3F2613831000FA0863 /* libAuioFloatLib_updated */,
+				DD0C26FD28D3BB0F00D1405D /* CMI8738AudioDriver_updated_64 */,
+				DD0C271528D3BB1200D1405D /* libAuioFloatLib_updated_64 */,
 			);
 		};
 /* End PBXProject section */
@@ -340,6 +450,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				089C1680FE841241C02AAC07 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD0C270528D3BB0F00D1405D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD0C270628D3BB0F00D1405D /* InfoPlist.strings in Resources */,
+				DD0C270728D3BB0F00D1405D /* install_updated.command in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,6 +482,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		089C1679FE841209C02AAC07 /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD0C270D28D3BB0F00D1405D /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD0C271B28D3BB1200D1405D /* Rez */ = {
 			isa = PBXRezBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -403,6 +536,32 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "script=\"${SYSTEM_DEVELOPER_DIR}/ProjectBuilder Extras/Kernel Extension Support/KEXTPreprocess\";\nif [ -x \"$script\" ]; then\n    . \"$script\"\nfi";
+		};
+		DD0C270028D3BB0F00D1405D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "script=\"${SYSTEM_DEVELOPER_DIR}/ProjectBuilder Extras/Kernel Extension Support/KEXTPreprocess\";\nif [ -x \"$script\" ]; then\n    . \"$script\"\nfi";
+		};
+		DD0C270E28D3BB0F00D1405D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "script=\"${SYSTEM_DEVELOPER_DIR}/ProjectBuilder Extras/Kernel Extension Support/KEXTPostprocess\";\nif [ -x \"$script\" ]; then\n    . \"$script\"\nfi\nfind \"${BUILT_PRODUCTS_DIR}/CMI8738AudioDriver_updated.kext\" -type d -exec /bin/chmod 0755 {} \\;\nfind \"${BUILT_PRODUCTS_DIR}/CMI8738AudioDriver_updated.kext\" -type f -exec /bin/chmod 0644 {} \\;\ncp ${SRCROOT}/install_updated.command ${BUILT_PRODUCTS_DIR}";
 		};
 		DD912B762613848C00FA0863 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -450,6 +609,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DD0C270828D3BB0F00D1405D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD0C270928D3BB0F00D1405D /* CMI8738AudioDevice.cpp in Sources */,
+				DD0C270A28D3BB0F00D1405D /* CMI8738AudioEngine.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD0C271828D3BB1200D1405D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD0C271928D3BB1200D1405D /* SampleAudioClip.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DD912B282613812800FA0863 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -475,10 +651,15 @@
 			target = 011774450071097E7F000001 /* libAudioFloatLib */;
 			targetProxy = FCC4E41808B955A500AC9D19 /* PBXContainerItemProxy */;
 		};
-		DD912B472613836D00FA0863 /* PBXTargetDependency */ = {
+		DD0C272428D3BBF600D1405D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DD0C271528D3BB1200D1405D /* libAuioFloatLib_updated_64 */;
+			targetProxy = DD0C272328D3BBF600D1405D /* PBXContainerItemProxy */;
+		};
+		DD0C272728D3BC0200D1405D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = DD912B3F2613831000FA0863 /* libAuioFloatLib_updated */;
-			targetProxy = DD912B462613836D00FA0863 /* PBXContainerItemProxy */;
+			targetProxy = DD0C272628D3BC0200D1405D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -494,6 +675,200 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		DD0C271028D3BB0F00D1405D /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_STANDARD)";
+				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
+				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 2;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = "";
+				GCC_OPTIMIZATION_LEVEL = s;
+				INFOPLIST_FILE = "CMI8738AudioDriver_updated_64-info.plist";
+				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions";
+				KERNEL_MODULE = YES;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+				);
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\\\"$(SRCROOT)/build/Deployment\\\"";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MARKETING_VERSION = 2.0;
+				MODULE_IOKIT = YES;
+				MODULE_NAME = com.homebrew.driver.CMI8738AudioDriver_updated;
+				MODULE_VERSION = 1.0.0d1;
+				OTHER_REZFLAGS = "";
+				PREBINDING = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				VALID_ARCHS = "ppc i386 x86_64 arm64e";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = kext;
+				ZERO_LINK = NO;
+			};
+			name = Development;
+		};
+		DD0C271128D3BB0F00D1405D /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
+				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 2;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				INFOPLIST_FILE = "CMI8738AudioDriver_updated_64-info.plist";
+				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MARKETING_VERSION = 2.0;
+				MODULE_NAME = com.yourcompany.driver.CMI8738AudioDriver_updated;
+				MODULE_VERSION = 1.0.0d1;
+				PREBINDING = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				VALID_ARCHS = "ppc i386 x86_64 arm64e";
+				WRAPPER_EXTENSION = kext;
+				ZERO_LINK = NO;
+			};
+			name = Deployment;
+		};
+		DD0C271228D3BB0F00D1405D /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
+				CURRENT_PROJECT_VERSION = 2;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				INFOPLIST_FILE = "CMI8738AudioDriver_updated_64-info.plist";
+				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MARKETING_VERSION = 2.0;
+				MODULE_NAME = com.yourcompany.driver.CMI8738AudioDriver_updated;
+				MODULE_VERSION = 1.0.0d1;
+				PREBINDING = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				VALID_ARCHS = "ppc i386 x86_64 arm64e";
+				WRAPPER_EXTENSION = kext;
+			};
+			name = Default;
+		};
+		DD0C271D28D3BB1200D1405D /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_STANDARD)";
+				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
+				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				COPY_PHASE_STRIP = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_CPP_EXCEPTIONS = NO;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = "";
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				HEADER_SEARCH_PATHS = (
+					"$(SYSTEM_LIBRARY_DIR)/Frameworks/Kernel.framework/Headers",
+					"$(SYSTEM_LIBRARY_DIR)/Frameworks/Kernel.framework/Headers/bsd",
+				);
+				INFOPLIST_PREPROCESS = YES;
+				INSTALL_PATH = /usr/local/lib;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				OTHER_CFLAGS = (
+					"-nostdinc",
+					"-finline",
+					"-fno-keep-inline-functions",
+					"-force_cpusubtype_ALL",
+					"-fcheck-new",
+					"-findirect-virtual-calls",
+					"-static",
+				);
+				OTHER_LDFLAGS = "";
+				PREBINDING = YES;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VALID_ARCHS = "ppc i386 x86_64 arm64e";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Development;
+		};
+		DD0C271E28D3BB1200D1405D /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INSTALL_PATH = /usr/local/lib;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				VALID_ARCHS = "ppc i386 x86_64 arm64e";
+				ZERO_LINK = NO;
+			};
+			name = Deployment;
+		};
+		DD0C271F28D3BB1200D1405D /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INSTALL_PATH = /usr/local/lib;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				VALID_ARCHS = "ppc i386 x86_64 arm64e";
+			};
+			name = Default;
+		};
 		DD912B2E2613812800FA0863 /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -505,6 +880,7 @@
 				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
 				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
@@ -519,13 +895,14 @@
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\\\"$(SRCROOT)/build/Deployment\\\"";
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				MARKETING_VERSION = 2.0;
 				MODULE_IOKIT = YES;
 				MODULE_NAME = com.homebrew.driver.CMI8738AudioDriver_updated;
 				MODULE_VERSION = 1.0.0d1;
 				OTHER_REZFLAGS = "";
 				PREBINDING = NO;
 				PRODUCT_NAME = CMI8738AudioDriver_updated;
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.4u.sdk";
 				VALID_ARCHS = "ppc i386 x86_64";
 				WARNING_CFLAGS = (
 					"-Wmost",
@@ -547,17 +924,19 @@
 				);
 				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
 				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_MODEL_TUNING = G5;
 				INFOPLIST_FILE = "CMI8738AudioDriver_updated-Info.plist";
 				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions";
 				MACOSX_DEPLOYMENT_TARGET = 10.4;
+				MARKETING_VERSION = 2.0;
 				MODULE_NAME = com.yourcompany.driver.CMI8738AudioDriver_updated;
 				MODULE_VERSION = 1.0.0d1;
 				PREBINDING = NO;
 				PRODUCT_NAME = CMI8738AudioDriver_updated;
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.4u.sdk";
 				VALID_ARCHS = "ppc i386 x86_64";
 				WRAPPER_EXTENSION = kext;
 				ZERO_LINK = NO;
@@ -573,17 +952,19 @@
 					ppc,
 				);
 				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_MODEL_TUNING = G5;
 				INFOPLIST_FILE = "CMI8738AudioDriver_updated-Info.plist";
 				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions";
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				MARKETING_VERSION = 2.0;
 				MODULE_NAME = com.yourcompany.driver.CMI8738AudioDriver_updated;
 				MODULE_VERSION = 1.0.0d1;
 				PREBINDING = NO;
 				PRODUCT_NAME = CMI8738AudioDriver_updated;
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.4u.sdk";
 				VALID_ARCHS = "ppc i386 x86_64";
 				WRAPPER_EXTENSION = kext;
 			};
@@ -631,7 +1012,7 @@
 				PREBINDING = YES;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				PRODUCT_NAME = AuioFloatLib;
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.4u.sdk";
 				SKIP_INSTALL = YES;
 				VALID_ARCHS = "ppc i386 x86_64";
 				WARNING_CFLAGS = (
@@ -667,7 +1048,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = libAuioFloatLib_updated;
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.4u.sdk";
 				VALID_ARCHS = "ppc i386 x86_64";
 				ZERO_LINK = NO;
 			};
@@ -696,7 +1077,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = libAuioFloatLib_updated;
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.4u.sdk";
 				VALID_ARCHS = "ppc i386 x86_64";
 			};
 			name = Default;
@@ -941,7 +1322,7 @@
 				INFOPLIST_PREPROCESS = NO;
 				MACOSX_DEPLOYMENT_TARGET = 10.3;
 				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.4u.sdk";
 				VALID_ARCHS = "ppc ppc64 i386 x86_64";
 			};
 			name = Development;
@@ -954,7 +1335,7 @@
 				GCC_MODEL_TUNING = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.3;
 				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.4u.sdk";
 				VALID_ARCHS = "ppc ppc64 i386 x86_64";
 			};
 			name = Deployment;
@@ -966,7 +1347,7 @@
 				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "ppc i386 ppc64 x86_64";
 				GCC_MODEL_TUNING = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.3;
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.4u.sdk";
 				VALID_ARCHS = "ppc ppc64 i386 x86_64";
 			};
 			name = Default;
@@ -974,6 +1355,26 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		DD0C270F28D3BB0F00D1405D /* Build configuration list for PBXNativeTarget "CMI8738AudioDriver_updated_64" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD0C271028D3BB0F00D1405D /* Development */,
+				DD0C271128D3BB0F00D1405D /* Deployment */,
+				DD0C271228D3BB0F00D1405D /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		DD0C271C28D3BB1200D1405D /* Build configuration list for PBXNativeTarget "libAuioFloatLib_updated_64" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD0C271D28D3BB1200D1405D /* Development */,
+				DD0C271E28D3BB1200D1405D /* Deployment */,
+				DD0C271F28D3BB1200D1405D /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
 		DD912B312613812800FA0863 /* Build configuration list for PBXNativeTarget "CMI8738AudioDriver_updated" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

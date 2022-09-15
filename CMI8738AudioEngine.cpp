@@ -64,6 +64,9 @@ bool CMI8738AudioEngine::init(CMI8738Info* _cm)
 	
 	currentSampleRate = 0;
 	currentResolution = 0;
+    
+    bzero(&outBuffer, sizeof(struct memhandle));
+    bzero(&inBuffer, sizeof(struct memhandle));
 	
     result = true;
     
@@ -94,7 +97,6 @@ bool CMI8738AudioEngine::initHardware(IOService *provider)
 	if (cm->canMultiChannel) {
 		sprintf(description + strlen(description), "-MC%d", cm->maxChannels);
 	}	
-	
 	
     setDescription(description);
     
@@ -136,9 +138,21 @@ bool CMI8738AudioEngine::initHardware(IOService *provider)
     // when performAudioEngineStop() is called and the audio engine is no longer running
     // Although this really depends on the specific hardware 
     workLoop->addEventSource(interruptEventSource);
+    
+    outBuffer.size = BUFFER_SIZE;
+    inBuffer.size = BUFFER_SIZE;
 
+    if (pci_alloc(&outBuffer)){
+        goto Done;
+    }
+    
+    if (pci_alloc(&inBuffer)){
+        goto Done;
+    }
+    
     // Allocate our input and output buffers - a real driver will likely need to allocate its buffers
     // differently
+    /*
     outputBuffer = (SInt16 *)IOMallocContiguous(BUFFER_SIZE, 4, &physicalAddressOutput);
     if (!outputBuffer) {
         goto Done;
@@ -148,9 +162,11 @@ bool CMI8738AudioEngine::initHardware(IOService *provider)
     if (!inputBuffer) {
         goto Done;
     }
+     */
     
     // Create an IOAudioStream for each buffer and add it to this audio engine
-    audioStream = createNewAudioStream(kIOAudioStreamDirectionOutput, outputBuffer, BUFFER_SIZE, 0);
+    //audioStream = createNewAudioStream(kIOAudioStreamDirectionOutput, outputBuffer, BUFFER_SIZE, 0);
+    audioStream = createNewAudioStream(kIOAudioStreamDirectionOutput, outBuffer.addr, outBuffer.size, 0);
     if (!audioStream) {
         goto Done;
     }
@@ -168,10 +184,14 @@ bool CMI8738AudioEngine::initHardware(IOService *provider)
     audioStream->release();
     */
 	
-	writeUInt32(CM_REG_CH0_FRAME1, (UInt32)(physicalAddressOutput));
+	//writeUInt32(CM_REG_CH0_FRAME1, (UInt32)(physicalAddressOutput));
 	
-	writeUInt32(CM_REG_CH1_FRAME1, (UInt32)(physicalAddressInput));
+	//writeUInt32(CM_REG_CH1_FRAME1, (UInt32)(physicalAddressInput));
 	
+    writeUInt32(CM_REG_CH0_FRAME1, outBuffer.dma_handle);
+    
+    writeUInt32(CM_REG_CH1_FRAME1, inBuffer.dma_handle);
+    
     result = true;
     
 Done:
@@ -191,6 +211,7 @@ void CMI8738AudioEngine::free()
         interruptEventSource = NULL;
     }
     
+    /*
     if (outputBuffer) {
         IOFree(outputBuffer, BUFFER_SIZE);
         outputBuffer = NULL;
@@ -199,7 +220,10 @@ void CMI8738AudioEngine::free()
     if (inputBuffer) {
 		IOFree(inputBuffer, BUFFER_SIZE);
         inputBuffer = NULL;
-    }
+    }*/
+    
+    pci_free(&outBuffer);
+    pci_free(&inBuffer);
     
     super::free();
 }
@@ -700,4 +724,62 @@ void CMI8738AudioEngine::dumpRegisters()
     DBGPRINT("  sample rate: %d\n", (SInt32)currentSampleRate);
 */
 
+}
+
+#if defined(ARM)
+bool CMI8738AudioEngine::driverDesiresHiResSampleIntervals(){
+    return TRUE; //to be changed probably, idk
+}
+#endif
+
+int pci_alloc(struct memhandle *h)
+{
+    
+#if defined(OLD_ALLOC)
+    
+#warning "Using old dma memory allocation method"
+    
+    IOPhysicalAddress physical;
+    h->addr=IOMallocContiguous((vm_size_t)h->size,PAGE_SIZE,&physical);
+    h->dma_handle = (dword)physical;
+    
+    if (!(h->addr) || !(h->dma_handle))
+        return -1;
+#else
+    
+    //h->addr=IOMallocContiguous(h->size,PAGE_SIZE,&phys_addr);
+    mach_vm_address_t mask = allocation_mask; //0x000000007FFFFFFFULL & ~(PAGE_SIZE - 1);
+    
+    h->desc = IOBufferMemoryDescriptor::inTaskWithPhysicalMask(
+                                                               kernel_task,
+                                                               kIODirectionInOut | kIOMemoryPhysicallyContiguous,
+                                                               h->size,
+                                                               mask);
+    
+    if (!h->desc)
+        return -1;
+    
+    h->desc->prepare();
+    
+    h->addr =              h->desc->getBytesNoCopy    ();
+    h->dma_handle = (UInt32)h->desc->getPhysicalAddress();
+#endif
+    
+    //buffer cleaning
+    bzero((unsigned char*)h->addr, h->size);
+    
+    return 0;
+}
+
+void pci_free(struct memhandle *h)
+{
+    const size_t size = h->size;
+#if defined(OLD_ALLOC)
+    #warning "Using old dma memory allocation method"
+    IOFreeContiguous(h->addr,h->size);
+#else
+    h->desc->release();
+#endif
+    memset(h, 0, sizeof(*h));
+    h->size = size;
 }

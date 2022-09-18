@@ -7,8 +7,8 @@
  *
  */
  
- #if !defined(SAMPLE_CONVERT_H)
- #define SAMPLE_CONVERT_H
+#if !defined(SAMPLE_CONVERT_H)
+#define SAMPLE_CONVERT_H
  
 #include "CMI8738AudioEngine.h"
 
@@ -124,7 +124,6 @@ static inline double clamp(const double val){
     return fmin(fmax(val, clipMin), clipMax);
 }
 
-
 static void Float32ToSInt32_portable( const float* floatMixBuf, SInt32* destBuf, const size_t end, const size_t start){
     register float inSample;
     register size_t sampleIndex = start, sampleDestinationMemoryIndex = (start * sizeof(*destBuf));
@@ -175,7 +174,7 @@ static void Float32ToSInt16_portable( const float* floatMixBuf, SInt16* destBuf,
     }
 }
 
-static void Float32ToSInt32_no_array_little_endian( const float* mixBuf, int32_t* destBuf, const size_t end, const size_t start){
+static void Float32ToSInt32_no_array_little_endian( const float* mixBuf, SInt32* destBuf, const size_t end, const size_t start){
     register uintptr_t inSample = (uintptr_t)&mixBuf[start];
     register uintptr_t outSample = (uintptr_t)&destBuf[start];
     
@@ -187,7 +186,7 @@ static void Float32ToSInt32_no_array_little_endian( const float* mixBuf, int32_t
     
 }
 
-static void Float32ToSInt16Aligned32_no_array_little_endian( const float* mixBuf, int32_t* destBuf, const size_t end, const size_t start){
+static void Float32ToSInt16Aligned32_no_array_little_endian( const float* mixBuf, SInt32* destBuf, const size_t end, const size_t start){
     register uintptr_t inSample = (uintptr_t)&mixBuf[start];
     register uintptr_t outSample = (uintptr_t)&destBuf[start];
     
@@ -198,7 +197,7 @@ static void Float32ToSInt16Aligned32_no_array_little_endian( const float* mixBuf
     }
 }
 
-static void Float32ToSInt16_no_array_little_endian( const float* mixBuf, int16_t* destBuf, const size_t end, const size_t start){
+static void Float32ToSInt16_no_array_little_endian( const float* mixBuf, SInt16* destBuf, const size_t end, const size_t start){
     register uintptr_t inSample = (uintptr_t)&mixBuf[start];
     register uintptr_t outSample = (uintptr_t)&destBuf[start];
     
@@ -209,7 +208,7 @@ static void Float32ToSInt16_no_array_little_endian( const float* mixBuf, int16_t
     }
 }
 
-static void Float32ToSInt32_no_array_portable( const float* mixBuf, int32_t* destBuf, const size_t end, const size_t start){
+static void Float32ToSInt32_no_array_portable( const float* mixBuf, SInt32* destBuf, const size_t end, const size_t start){
     register uintptr_t inSample = (uintptr_t)&mixBuf[start];
     register size_t outSampleIndex = start * sizeof(*destBuf);
     
@@ -220,7 +219,7 @@ static void Float32ToSInt32_no_array_portable( const float* mixBuf, int32_t* des
     }
 }
 
-static void Float32ToSInt16Aligned32_no_array_portable( const float* mixBuf, int32_t* destBuf, const size_t end, const size_t start){
+static void Float32ToSInt16Aligned32_no_array_portable( const float* mixBuf, SInt32* destBuf, const size_t end, const size_t start){
     register uintptr_t inSample = (uintptr_t)&mixBuf[start];
     register size_t outSampleIndex = start * sizeof(*destBuf);
     
@@ -231,7 +230,7 @@ static void Float32ToSInt16Aligned32_no_array_portable( const float* mixBuf, int
     }
 }
 
-static void Float32ToSInt16_no_array_portable( const float* mixBuf, int16_t* destBuf, const size_t end, const size_t start){
+static void Float32ToSInt16_no_array_portable( const float* mixBuf, SInt16* destBuf, const size_t end, const size_t start){
     register uintptr_t inSample = (uintptr_t)&mixBuf[start];
     register size_t outSampleIndex = start * sizeof(*destBuf);
     
@@ -245,11 +244,16 @@ static void Float32ToSInt16_no_array_portable( const float* mixBuf, int16_t* des
 
 #if defined(PPC)
 
-#define Float32ToSInt16_optimized Float32ToSInt16_no_array_portable
-#define Float32ToSInt32_optimized Float32ToSInt32_no_array_portable
-#define Float32ToSInt16Aligned32_optimized Float32ToSInt16Aligned32_no_array_portable
+#define Float32ToSInt16_optimized Float32ToSInt16_portable
+#define Float32ToSInt32_optimized Float32ToSInt32_portable
+#define Float32ToSInt16Aligned32_optimized Float32ToSInt16Aligned32_portable
 
 #elif defined(TARGET_RT_LITTLE_ENDIAN) || defined(X86)
+
+#ifndef TARGET_RT_LITTLE_ENDIAN
+#define TARGET_RT_LITTLE_ENDIAN 0
+#endif
+
 #if TARGET_RT_LITTLE_ENDIAN || defined(X86)
 
 #define Float32ToSInt16_optimized Float32ToSInt16_no_array_little_endian

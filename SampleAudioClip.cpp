@@ -57,8 +57,6 @@ IOReturn CMI8738AudioEngine::clipOutputSamples(const void *mixBuf, void *sampleB
     Float32ToSInt16_optimized( (const float *)mixBuf, (SInt16 *)sampleBuf, maxSampleIndex, startSampleIndex);
     
     return kIOReturnSuccess;
-    
-    return kIOReturnSuccess;
 }
 
 // The function convertInputSamples() is responsible for converting from the hardware format 

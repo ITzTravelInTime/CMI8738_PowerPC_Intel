@@ -34,6 +34,8 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include <IOKit/pci/IOPCIDevice.h>
 
+#include <libkern/version.h>
+
 #define INITIAL_SAMPLE_RATE	44100
 #define NUM_SAMPLE_FRAMES	16384
 #define NUM_CHANNELS		2
@@ -93,10 +95,20 @@ bool CMI8738AudioEngine::initHardware(IOService *provider)
     initialSampleRate.whole = INITIAL_SAMPLE_RATE;
     initialSampleRate.fraction = 0;
     
-	sprintf(description, "CMI8738-v%d", cm->chipVersion);
-	if (cm->canMultiChannel) {
-		sprintf(description + strlen(description), "-MC%d", cm->maxChannels);
-	}	
+    bzero(description, 128);
+    
+    //const char* className = (myMetaClass) ? myMetaClass->getClassName() : NULL;
+    #if VERSION_MAJOR >= 10
+    snprintf(description, 128, "CMI8738-v%d", cm->chipVersion);
+    if (cm->canMultiChannel) {
+        snprintf(description + strlen(description), 128, "-MC%d", cm->maxChannels);
+    }
+    #else
+    sprintf(description, "CMI8738-v%d", cm->chipVersion);
+    if (cm->canMultiChannel) {
+        sprintf(description + strlen(description), "-MC%d", cm->maxChannels);
+    }
+    #endif
 	
     setDescription(description);
     
@@ -188,15 +200,58 @@ bool CMI8738AudioEngine::initHardware(IOService *provider)
 	
 	//writeUInt32(CM_REG_CH1_FRAME1, (UInt32)(physicalAddressInput));
 	
-    writeUInt32(CM_REG_CH0_FRAME1, outBuffer.dma_handle);
+    writeUInt32(CM_REG_CH0_FRAME1, (UInt32)outBuffer.dma_handle);
     
-    writeUInt32(CM_REG_CH1_FRAME1, inBuffer.dma_handle);
+    writeUInt32(CM_REG_CH1_FRAME1, (UInt32)inBuffer.dma_handle);
     
     result = true;
     
 Done:
 
     return result;
+}
+
+OSString* CMI8738AudioEngine::getGlobalUniqueID(){
+
+    //const OSMetaClass * const myMetaClass = getMetaClass();
+
+    UInt8 bus,device,function;
+    
+    bus = cm->pciDevice->getBusNumber();
+    device = cm->pciDevice->getDeviceNumber();
+    function = cm->pciDevice->getFunctionNumber();
+
+    const UInt16 port = cm->pciDevice->configRead16(kIOPCIConfigBaseAddress0) & 0xFFFE;
+
+    static const int MAX_STRING = 128;
+
+    char uniqueIDStr[MAX_STRING];
+    char description[MAX_STRING];
+    
+    bzero(uniqueIDStr, MAX_STRING);
+    bzero(description, MAX_STRING);
+
+    //const char* className = (myMetaClass) ? myMetaClass->getClassName() : NULL;
+    #if VERSION_MAJOR >= 10
+    snprintf(description, MAX_STRING, "CMI8738-v%d", cm->chipVersion);
+    if (cm->canMultiChannel) {
+        snprintf(description + strlen(description), MAX_STRING, "-MC%d", cm->maxChannels);
+    }
+    snprintf(uniqueIDStr, MAX_STRING, /*"%s:*/ "%s:%x:%x:%x:%x:%x", /*className,*/ description, bus, device, function, port, (const UInt32)this->index);
+    #else
+    sprintf(description, "CMI8738-v%d", cm->chipVersion);
+    if (cm->canMultiChannel) {
+        sprintf(description + strlen(description), "-MC%d", cm->maxChannels);
+    }
+    sprintf(uniqueIDStr, /*"%s:*/ "%s:%x:%x:%x:%x:%x", /*className,*/ description, bus, device, function, port, (const UInt32)this->index);
+    #endif
+    //OSString* value = super::getGlobalUniqueID();
+
+    OSString* value = OSString::withCString (uniqueIDStr);
+
+    DBGPRINT("CMI8738AudioEngine[%p]::getGlobalUniqueID() -- Returned value: %s\n", this, uniqueIDStr);
+
+    return value;
 }
 
 void CMI8738AudioEngine::free()
@@ -709,7 +764,7 @@ void CMI8738AudioEngine::clearUInt32Bit(UInt16 reg, UInt32 bit)
 
 void CMI8738AudioEngine::dumpRegisters()
 {
-	/*
+	
     DBGPRINT("CMI8738AudioEngine[%p]::dumpRegisters()\n", this);
     DBGPRINT("  FUNCTRL0:    0x%u\n", (UInt32)readUInt32(CM_REG_FUNCTRL0));
     DBGPRINT("  FUNCTRL1:    0x%u\n", (UInt32)readUInt32(CM_REG_FUNCTRL1));
@@ -722,7 +777,6 @@ void CMI8738AudioEngine::dumpRegisters()
     DBGPRINT("  bit shift:   %d\n", (SInt32)shift);
     DBGPRINT("  bit depth:   %d\n", (SInt32)currentResolution);
     DBGPRINT("  sample rate: %d\n", (SInt32)currentSampleRate);
-*/
 
 }
 
@@ -762,7 +816,7 @@ int pci_alloc(struct memhandle *h)
     h->desc->prepare();
     
     h->addr =              h->desc->getBytesNoCopy    ();
-    h->dma_handle = (UInt32)h->desc->getPhysicalAddress();
+    h->dma_handle = (uintptr_t)h->desc->getPhysicalAddress();
 #endif
     
     //buffer cleaning
@@ -773,7 +827,7 @@ int pci_alloc(struct memhandle *h)
 
 void pci_free(struct memhandle *h)
 {
-    const size_t size = h->size;
+    const UInt32 size = h->size;
 #if defined(OLD_ALLOC)
     #warning "Using old dma memory allocation method"
     IOFreeContiguous(h->addr,h->size);

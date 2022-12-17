@@ -55,9 +55,9 @@ class IOBufferMemoryDescriptor;
 struct memhandle
 {
     // note: this is for 32-bit OS only
-    size_t size;
+    UInt32 size;
     void * addr;          // virtual
-    UInt32 dma_handle;    // physical
+    uintptr_t dma_handle; // physical
     
 #if !defined(OLD_ALLOC)
     IOBufferMemoryDescriptor *desc;
@@ -90,6 +90,8 @@ public:
 	virtual void	writeUInt32(UInt16 reg, UInt32 value);
 	virtual void	clearUInt32Bit(UInt16 reg, UInt32 bit);
 	virtual void	setUInt32Bit(UInt16 reg, UInt32 bit);
+    
+    virtual OSString* getGlobalUniqueID();
 	
 	virtual void	dumpRegisters();
 
@@ -108,8 +110,6 @@ public:
     virtual IOReturn clipOutputSamples(const void *mixBuf, void *sampleBuf, UInt32 firstSampleFrame, UInt32 numSampleFrames, const IOAudioStreamFormat *streamFormat, IOAudioStream *audioStream);
     virtual IOReturn convertInputSamples(const void *sampleBuf, void *destBuf, UInt32 firstSampleFrame, UInt32 numSampleFrames, const IOAudioStreamFormat *streamFormat, IOAudioStream *audioStream);
     
-    static void interruptHandler(OSObject *owner, IOInterruptEventSource *source, int count);
-    static bool interruptFilter(OSObject *owner, IOFilterInterruptEventSource *source);
     virtual void filterInterrupt(int index);
     
 #if defined(ARM)
@@ -131,6 +131,9 @@ private:
     struct memhandle outBuffer;
     
     IOFilterInterruptEventSource	*interruptEventSource;
+    
+    static void interruptHandler(OSObject *owner, IOInterruptEventSource *source, int count);
+    static bool interruptFilter(OSObject *owner, IOFilterInterruptEventSource *source);
 };
 
 #endif /* _CMI8738AudioEngine_H */

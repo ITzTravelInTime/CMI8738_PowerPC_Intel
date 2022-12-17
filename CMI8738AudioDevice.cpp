@@ -398,6 +398,7 @@ IOReturn CMI8738AudioDevice::outputMuteChanged(IOAudioControl *muteControl, SInt
     DBGPRINT("CMI8738AudioDevice[%p]::outputMuteChanged(%p, %ld, %ld)\n", this, muteControl, oldValue, newValue);
     
 	// Add output mute code here
+	
 	if (newValue) {
 		clearUInt8Bit(CM_REG_MIXER1, CM_CDPLAY);
 		setUInt8Bit(CM_REG_MIXER1, CM_WSMUTE);

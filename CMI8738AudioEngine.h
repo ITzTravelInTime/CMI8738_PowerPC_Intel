@@ -118,8 +118,9 @@ public:
 
 private:
 	CMI8738Info						*cm;
-	UInt32                          shift, dma_size, currentSampleRate, currentResolution;
-    
+	UInt32                          currentSampleRate, currentResolution;
+    UInt32                          shift, dma_size_reg_ch0;
+	
     /*
     SInt16							*outputBuffer;
     SInt16							*inputBuffer;
@@ -134,6 +135,7 @@ private:
     
     static void interruptHandler(OSObject *owner, IOInterruptEventSource *source, int count);
     static bool interruptFilter(OSObject *owner, IOFilterInterruptEventSource *source);
+	
 };
 
 #endif /* _CMI8738AudioEngine_H */

@@ -47,6 +47,7 @@ OSDefineMetaClassAndStructors(CMI8738AudioDevice, IOAudioDevice)
 bool CMI8738AudioDevice::initHardware(IOService *provider)
 {
     bool result = false;
+    UInt32 deviceID = 0;
 	
 	/*
 	{
@@ -68,6 +69,14 @@ bool CMI8738AudioDevice::initHardware(IOService *provider)
 	cm.pciDevice = NULL;
 	cm.deviceMap = NULL;
     
+    cm.can96k = false;
+    cm.canAC3SW = false;
+    cm.canAC3HW = false;
+    cm.chipVersion = 0;
+    cm.maxChannels = 2;
+    cm.canMultiChannel = false;
+	cm.hasDualDAC = true;
+    
     // Get the PCI device provider
     cm.pciDevice = OSDynamicCast(IOPCIDevice, provider);
     if (!cm.pciDevice) {
@@ -87,10 +96,24 @@ bool CMI8738AudioDevice::initHardware(IOService *provider)
     cm.pciDevice->setIOEnable(true);
     cm.pciDevice->setBusMasterEnable(true);
 	
-    queryChip();
-
-    setDeviceName("C-Media 8738");
-    setDeviceShortName("CMI8738");
+    deviceID = cm.pciDevice->configRead32(kIOPCIConfigDeviceID) >> 16;
+    
+    DBGPRINT("CMI8738AudioDevice[%p]::initHardware - Detected deviceID: %lx\n", this, deviceID);
+    
+    if (deviceID != PCI_DEVICE_ID_CMEDIA_CM8338A && deviceID != PCI_DEVICE_ID_CMEDIA_CM8338B){
+		queryChip();
+		
+		setDeviceName("C-Media 8738");
+        setDeviceShortName("CMI8738");
+		
+		DBGPRINT("CMI8738AudioDevice[%p]::initHardware - Detected device: CMI83738\n", this);
+	}else{
+		setDeviceName("C-Media 8338");
+        setDeviceShortName("CMI8338");
+		
+		DBGPRINT("CMI8738AudioDevice[%p]::initHardware - Detected device: CMI83338\n", this);
+	}
+    
     setManufacturerName("C-Media, mod by ITzTravelInTime");
 	setDeviceTransportType(kIOAudioDeviceTransportTypePCI);
 
@@ -105,14 +128,27 @@ bool CMI8738AudioDevice::initHardware(IOService *provider)
 
 	writeUInt32(CM_REG_CHFORMAT, 0);
 
-	setUInt32Bit(CM_REG_MISC_CTRL, CM_TXVX);
 	setUInt32Bit(CM_REG_MISC_CTRL, CM_ENDBDAC|CM_N4SPK3D);
 	clearUInt32Bit(CM_REG_MISC_CTRL, CM_XCHGDAC);
+    
+    //from the linux driver
+    if (cm.chipVersion) {
+        writeUInt8(CM_REG_EXT_MISC, 0x20); /* magic */
+        writeUInt8(CM_REG_EXT_MISC + 1, 0x09); /* more magic */
+    }
 
+    /* Set Bus Master Request */
 	setUInt32Bit(CM_REG_FUNCTRL1, CM_BREQ);
+    
+    if (deviceID == PCI_DEVICE_ID_CMEDIA_CM8738 || deviceID == PCI_DEVICE_ID_CMEDIA_CM8738B)
+        setUInt32Bit(CM_REG_MISC_CTRL, CM_TXVX);
 	
-	clearUInt32Bit(CM_REG_MISC_CTRL, CM_FM_EN);
-	
+    if (cm.chipVersion < 68){
+        //disable opl3
+        clearUInt32Bit(CM_REG_LEGACY_CTRL, CM_FMSEL_MASK);
+        clearUInt32Bit(CM_REG_MISC_CTRL, CM_FM_EN);
+    }
+    
 	setUInt8Bit(CM_REG_MIXER1, CM_CDPLAY);
 	
     if (!createAudioEngine()) {
@@ -156,23 +192,46 @@ void CMI8738AudioDevice::queryChip()
 	if (!detect) {
 		/* check reg 08h, bit 24-28 */
 		detect = readUInt32(CM_REG_CHFORMAT) & CM_CHIP_MASK1;
-		if (!detect) {
-			cm.chipVersion = 33;
-			cm.maxChannels = 2;
-			if (cm.doAC3SW)
-				cm.canAC3SW = true;
-			else
-				cm.canAC3HW = true;
-			cm.hasDualDAC = true;
-		} else {
-			cm.chipVersion = 37;
-			cm.maxChannels = 2;
-			cm.canAC3HW = true;
-			cm.hasDualDAC = 1;
-		}
+        /*
+         if (!detect) {
+             cm.chipVersion = 33;
+             cm.maxChannels = 2;
+             if (cm.doAC3SW)
+                 cm.canAC3SW = true;
+             else
+                 cm.canAC3HW = true;
+             cm.hasDualDAC = true;
+         } else {
+             cm.chipVersion = 37;
+             cm.maxChannels = 2;
+             cm.canAC3HW = true;
+             cm.hasDualDAC = 1;
+         }
+         */
+        
+        switch (detect) {
+            case 0:
+                cm.chipVersion = 33;
+                if (cm.doAC3SW)
+                    cm.canAC3SW = true;
+                else
+                    cm.canAC3HW = true;
+                break;
+            case CM_CHIP_037:
+                cm.chipVersion = 37;
+                cm.canAC3HW = true;
+                break;
+            default:
+                cm.chipVersion = 39;
+                cm.canAC3HW = true;
+                break;
+        }
+        cm.hasDualDAC = true;
+        cm.maxChannels = 2;
 	} else {
 		/* check reg 0Ch, bit 26 */
-		if (detect & CM_CHIP_039) {
+		/*
+         if (detect & CM_CHIP_039) {
 			cm.chipVersion = 39;
 			if (detect & CM_CHIP_039_6CH)
 				cm.maxChannels = 6;
@@ -182,14 +241,33 @@ void CMI8738AudioDevice::queryChip()
 			cm.hasDualDAC = true;
 			cm.canMultiChannel = true;
 		} else {
-			cm.chipVersion = 55; /* 4 or 6 channels */
+			cm.chipVersion = 55; // 4 or 6 channels
 			cm.maxChannels = 6;
 			cm.canAC3HW = true;
 			cm.hasDualDAC = true;
 			cm.canMultiChannel = true;
-		}
-	}
-	return;
+         }
+         */
+        cm.can96k = true;
+        if (detect & CM_CHIP_039) {
+            cm.chipVersion = 39;
+			cm.can96k = false;
+            if (detect & CM_CHIP_039_6CH) /* 4 or 6 channels */
+                cm.maxChannels = 6;
+            else
+                cm.maxChannels = 4;
+        } else if (detect & CM_CHIP_8768) {
+            cm.chipVersion = 68;
+            cm.maxChannels = 8;
+        } else {
+            cm.chipVersion = 55;
+            cm.maxChannels = 6;
+        }
+        cm.hasDualDAC = true;
+        cm.canAC3HW = true;
+        cm.canMultiChannel = true;
+    }
+    return;
 }
 
 void CMI8738AudioDevice::resetChannel(int ch)

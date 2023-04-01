@@ -49,6 +49,7 @@ typedef struct CMI8738Info {
 	UInt32		regFUNCTRL0;
 	bool		canAC3HW, canAC3SW;
 	bool		canMultiChannel;
+    bool        can96k;
 	bool		doAC3SW;
 	bool		hasDualDAC;
 	IOPCIDevice *pciDevice;
@@ -66,24 +67,24 @@ public:
     virtual bool	createAudioEngine();
     virtual void	free();
     
-	virtual void	queryChip();
-    virtual void	resetChannel(int ch);
+	void	queryChip();
+    void	resetChannel(int ch);
 	
-	virtual UInt8	readUInt8(UInt16 reg);
-	virtual void	writeUInt8(UInt16 reg, UInt8 value);
-	virtual void	clearUInt8Bit(UInt16 reg, UInt8 bit);
-	virtual void	setUInt8Bit(UInt16 reg, UInt8 bit);
+	UInt8	readUInt8(UInt16 reg);
+	void	writeUInt8(UInt16 reg, UInt8 value);
+	void	clearUInt8Bit(UInt16 reg, UInt8 bit);
+	void	setUInt8Bit(UInt16 reg, UInt8 bit);
 
-	virtual UInt32	readUInt16(UInt16 reg);
-	virtual void	writeUInt16(UInt16 reg, UInt16 value);
+	UInt32	readUInt16(UInt16 reg);
+	void	writeUInt16(UInt16 reg, UInt16 value);
 
-	virtual UInt32	readUInt32(UInt16 reg);
-	virtual void	writeUInt32(UInt16 reg, UInt32 value);
-	virtual void	clearUInt32Bit(UInt16 reg, UInt32 bit);
-	virtual void	setUInt32Bit(UInt16 reg, UInt32 bit);
+	UInt32	readUInt32(UInt16 reg);
+	void	writeUInt32(UInt16 reg, UInt32 value);
+	void	clearUInt32Bit(UInt16 reg, UInt32 bit);
+	void	setUInt32Bit(UInt16 reg, UInt32 bit);
 	
-	virtual UInt8	readMixer(UInt8 reg);
-	virtual void	writeMixer(UInt8 reg, UInt8 value);	
+	UInt8	readMixer(UInt8 reg);
+	void	writeMixer(UInt8 reg, UInt8 value);	
 	
 	
     virtual IOReturn volumeChanged(IOAudioControl *volumeControl, SInt32 oldValue, SInt32 newValue);

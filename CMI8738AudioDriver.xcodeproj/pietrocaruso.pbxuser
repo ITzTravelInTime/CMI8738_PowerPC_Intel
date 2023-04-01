@@ -5,32 +5,32 @@
 	};
 	0117744B00710CA77F000001 /* SampleAudioClip.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1594, 2800}}";
-			sepNavSelRange = "{2278, 48}";
-			sepNavVisRange = "{4114, 2464}";
+			sepNavIntBoundsRect = "{{0, 0}, {1568, 1498}}";
+			sepNavSelRange = "{3221, 0}";
+			sepNavVisRange = "{2302, 2576}";
 			sepNavWindowFrame = "{{15, 253}, {1307, 800}}";
 		};
 	};
 	0117744E00710DAB7F000001 /* CMI8738AudioEngine.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1303, 1358}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{1738, 2295}";
+			sepNavIntBoundsRect = "{{0, 0}, {1086, 1946}}";
+			sepNavSelRange = "{2091, 39}";
+			sepNavVisRange = "{1080, 1458}";
 		};
 	};
 	0117744F00710DAB7F000001 /* CMI8738AudioEngine.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {942, 9758}}";
-			sepNavSelRange = "{8670, 0}";
-			sepNavVisRange = "{8166, 1141}";
+			sepNavIntBoundsRect = "{{0, 0}, {1568, 11634}}";
+			sepNavSelRange = "{6144, 0}";
+			sepNavVisRange = "{6194, 1121}";
 			sepNavWindowFrame = "{{686, 120}, {914, 702}}";
 		};
 	};
 	089C1669FE841209C02AAC07 /* Project object */ = {
-		activeArchitecturePreference = i386;
+		activeArchitecturePreference = ppc;
 		activeBuildConfigurationName = Deployment;
 		activeSDKPreference = macosx10.4;
-		activeTarget = 089C1673FE841209C02AAC07 /* CMI8738AudioDriver */;
+		activeTarget = DD912B2B2613812800FA0863 /* CMI8738AudioDriver_updated */;
 		codeSenseManager = C6ED8CB4259CB1480034CCFF /* Code sense */;
 		perUserDictionary = {
 			PBXConfiguration.PBXFileTableDataSource3.PBXErrorsWarningsDataSource = {
@@ -48,11 +48,11 @@
 				);
 			};
 			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
-				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingDirectionKey = 1;
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					764,
+					727,
 					20,
 					48,
 					43,
@@ -102,7 +102,7 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					724,
+					687,
 					60,
 					20,
 					48,
@@ -119,26 +119,45 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 634655467;
-			PBXWorkspaceStateSaveDate = 634655467;
+			PBXPerProjectTemplateStateSaveDate = "-978306721";
+			PBXWorkspaceStateSaveDate = "-978306721";
 		};
 		perUserProjectItems = {
+			C644007929D2E8C6000EE925 /* PBXTextBookmark */ = C644007929D2E8C6000EE925 /* PBXTextBookmark */;
+			C644007B29D2E8C6000EE925 /* PBXTextBookmark */ = C644007B29D2E8C6000EE925 /* PBXTextBookmark */;
+			C644007E29D2E8C6000EE925 /* PlistBookmark */ = C644007E29D2E8C6000EE925 /* PlistBookmark */;
+			C644007F29D2E8C6000EE925 /* PBXTextBookmark */ = C644007F29D2E8C6000EE925 /* PBXTextBookmark */;
+			C644008629D2E9F3000EE925 /* PBXTextBookmark */ = C644008629D2E9F3000EE925 /* PBXTextBookmark */;
+			C644008929D2E9F3000EE925 /* PBXTextBookmark */ = C644008929D2E9F3000EE925 /* PBXTextBookmark */;
+			C64421D42922EAAF00E49560 /* PBXTextBookmark */ = C64421D42922EAAF00E49560 /* PBXTextBookmark */;
+			C679ED162922DF0800FBE6B2 /* PBXTextBookmark */ = C679ED162922DF0800FBE6B2 /* PBXTextBookmark */;
 			C67E2CFDC5B03821002C882D /* PBXTextBookmark */ = C67E2CFDC5B03821002C882D /* PBXTextBookmark */;
-			C67F778025B8602A00FD896E /* PBXTextBookmark */ = C67F778025B8602A00FD896E /* PBXTextBookmark */;
 			C67F778325B8602A00FD896E /* PBXTextBookmark */ = C67F778325B8602A00FD896E /* PBXTextBookmark */;
 			C67F778625B8602A00FD896E /* PBXTextBookmark */ = C67F778625B8602A00FD896E /* PBXTextBookmark */;
 			C67F778725B8602A00FD896E /* PBXTextBookmark */ = C67F778725B8602A00FD896E /* PBXTextBookmark */;
-			C69137F525CC31EF004DDF0B /* PBXTextBookmark */ = C69137F525CC31EF004DDF0B /* PBXTextBookmark */;
-			C6A0DA0E25A0A59B00804CCA /* PBXTextBookmark */ = C6A0DA0E25A0A59B00804CCA /* PBXTextBookmark */;
+			C6825768C5B03FB700F227B9 /* PBXTextBookmark */ = C6825768C5B03FB700F227B9 /* PBXTextBookmark */;
+			C682576BC5B0404100F227B9 /* PBXTextBookmark */ = C682576BC5B0404100F227B9 /* PBXTextBookmark */;
+			C682576CC5B0404100F227B9 /* PBXTextBookmark */ = C682576CC5B0404100F227B9 /* PBXTextBookmark */;
+			C682576DC5B0404100F227B9 /* PBXTextBookmark */ = C682576DC5B0404100F227B9 /* PBXTextBookmark */;
+			C682576EC5B0404100F227B9 /* PlistBookmark */ = C682576EC5B0404100F227B9 /* PlistBookmark */;
+			C682576FC5B0404100F227B9 /* PBXTextBookmark */ = C682576FC5B0404100F227B9 /* PBXTextBookmark */;
+			C6825770C5B0404100F227B9 /* PBXTextBookmark */ = C6825770C5B0404100F227B9 /* PBXTextBookmark */;
+			C6825771C5B0404100F227B9 /* PlistBookmark */ = C6825771C5B0404100F227B9 /* PlistBookmark */;
+			C6825772C5B0404100F227B9 /* PBXTextBookmark */ = C6825772C5B0404100F227B9 /* PBXTextBookmark */;
+			C6825773C5B0404100F227B9 /* PBXTextBookmark */ = C6825773C5B0404100F227B9 /* PBXTextBookmark */;
+			C6825774C5B0404100F227B9 /* PlistBookmark */ = C6825774C5B0404100F227B9 /* PlistBookmark */;
+			C6825775C5B0404100F227B9 /* PBXTextBookmark */ = C6825775C5B0404100F227B9 /* PBXTextBookmark */;
+			C6825776C5B0404100F227B9 /* PlistBookmark */ = C6825776C5B0404100F227B9 /* PlistBookmark */;
+			C6825777C5B0404100F227B9 /* PBXTextBookmark */ = C6825777C5B0404100F227B9 /* PBXTextBookmark */;
 			C6A0DA1325A0A59B00804CCA /* PBXTextBookmark */ = C6A0DA1325A0A59B00804CCA /* PBXTextBookmark */;
-			C6A4E84C25D377C800818F5E /* PBXTextBookmark */ = C6A4E84C25D377C800818F5E /* PBXTextBookmark */;
 			C6C87C6725D40F32004BA7FB /* PBXTextBookmark */ = C6C87C6725D40F32004BA7FB /* PBXTextBookmark */;
 			C6C87C8F25D4149D004BA7FB /* PBXTextBookmark */ = C6C87C8F25D4149D004BA7FB /* PBXTextBookmark */;
-			C6C87C9025D4149D004BA7FB /* PBXTextBookmark */ = C6C87C9025D4149D004BA7FB /* PBXTextBookmark */;
-			C6C87C9125D4149D004BA7FB /* PBXTextBookmark */ = C6C87C9125D4149D004BA7FB /* PBXTextBookmark */;
-			C6C87C9225D4149D004BA7FB /* PBXTextBookmark */ = C6C87C9225D4149D004BA7FB /* PBXTextBookmark */;
 			C6E6EA0725A0776C004C3AC8 /* PBXTextBookmark */ = C6E6EA0725A0776C004C3AC8 /* PBXTextBookmark */;
-			C6EDF73925A35EC40080BF23 /* PBXTextBookmark */ = C6EDF73925A35EC40080BF23 /* PBXTextBookmark */;
+			C6E803E729D2F4A6000A9FE2 /* PBXTextBookmark */ = C6E803E729D2F4A6000A9FE2 /* PBXTextBookmark */;
+			C6E803E829D2F4A6000A9FE2 /* PBXTextBookmark */ = C6E803E829D2F4A6000A9FE2 /* PBXTextBookmark */;
+			C6E803E929D2F4A6000A9FE2 /* PBXTextBookmark */ = C6E803E929D2F4A6000A9FE2 /* PBXTextBookmark */;
+			C6E803EA29D2F4A6000A9FE2 /* PBXTextBookmark */ = C6E803EA29D2F4A6000A9FE2 /* PBXTextBookmark */;
+			C6E803EB29D2F4A6000A9FE2 /* PBXTextBookmark */ = C6E803EB29D2F4A6000A9FE2 /* PBXTextBookmark */;
 		};
 		sourceControlManager = C6ED8CB3259CB1480034CCFF /* Source Control */;
 		userBuildSettings = {
@@ -147,19 +166,121 @@
 	089C1673FE841209C02AAC07 /* CMI8738AudioDriver */ = {
 		activeExec = 0;
 	};
+	089C167EFE841241C02AAC07 /* English */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1568, 584}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 160}";
+		};
+	};
 	1A224C3EFF42367911CA2CB7 /* CMI8738AudioDevice.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1303, 1540}}";
+			sepNavIntBoundsRect = "{{0, 0}, {905, 1610}}";
 			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{228, 1884}";
+			sepNavVisRange = "{1669, 1004}";
 		};
 	};
 	1A224C3FFF42367911CA2CB7 /* CMI8738AudioDevice.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {968, 8022}}";
-			sepNavSelRange = "{3015, 0}";
-			sepNavVisRange = "{3940, 1062}";
+			sepNavIntBoundsRect = "{{0, 0}, {905, 7574}}";
+			sepNavSelRange = "{14483, 0}";
+			sepNavVisRange = "{13792, 1403}";
 		};
+	};
+	C644005029D2E6FB000EE925 /* NSObjCRuntime.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = NSObjCRuntime.h;
+		path = /Developer/SDKs/MacOSX10.5.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSObjCRuntime.h;
+		sourceTree = "<absolute>";
+	};
+	C644005829D2E753000EE925 /* NSObjCRuntime.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = NSObjCRuntime.h;
+		path = /Developer/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSObjCRuntime.h;
+		sourceTree = "<absolute>";
+	};
+	C644007929D2E8C6000EE925 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 0117744F00710DAB7F000001 /* CMI8738AudioEngine.cpp */;
+		name = "CMI8738AudioEngine.cpp: 183";
+		rLen = 0;
+		rLoc = 6144;
+		rType = 0;
+		vrLen = 1121;
+		vrLoc = 6194;
+	};
+	C644007B29D2E8C6000EE925 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = C644005029D2E6FB000EE925 /* NSObjCRuntime.h */;
+		name = "NSObjCRuntime.h: 124";
+		rLen = 27;
+		rLoc = 3897;
+		rType = 0;
+		vrLen = 1574;
+		vrLoc = 3270;
+	};
+	C644007E29D2E8C6000EE925 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = DD912B2D2613812800FA0863 /* CMI8738AudioDriver_updated-Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/Volumes/usb/kexts_source/CMI8738_PowerPC_Intel/CMI8738AudioDriver_updated-Info.plist";
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	C644007F29D2E8C6000EE925 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = C644005029D2E6FB000EE925 /* NSObjCRuntime.h */;
+		name = "NSObjCRuntime.h: 124";
+		rLen = 27;
+		rLoc = 3897;
+		rType = 0;
+		vrLen = 1574;
+		vrLoc = 3270;
+	};
+	C644008629D2E9F3000EE925 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = C644005829D2E753000EE925 /* NSObjCRuntime.h */;
+		name = "NSObjCRuntime.h: 60";
+		rLen = 17;
+		rLoc = 1535;
+		rType = 0;
+		vrLen = 1281;
+		vrLoc = 1164;
+	};
+	C644008929D2E9F3000EE925 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = C644005829D2E753000EE925 /* NSObjCRuntime.h */;
+		name = "NSObjCRuntime.h: 60";
+		rLen = 17;
+		rLoc = 1535;
+		rType = 0;
+		vrLen = 1281;
+		vrLoc = 1164;
+	};
+	C64421D42922EAAF00E49560 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* CMI8738AudioDevice.cpp */;
+		name = "CMI8738AudioDevice.cpp: 401";
+		rLen = 0;
+		rLoc = 14483;
+		rType = 0;
+		vrLen = 1316;
+		vrLoc = 13662;
+	};
+	C679ED162922DF0800FBE6B2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DD6EE222275C1A4000BAB794 /* SampleConvert.h */;
+		name = "SampleConvert.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1997;
+		vrLoc = 2903;
 	};
 	C67E2CFDC5B03821002C882D /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -177,16 +298,6 @@
 		name = "CMI8738-register.h";
 		path = "/Users/pietrocaruso/Desktop/CMI8738AudioDriver_PowerPC_Intel/CMI8738-register.h";
 		sourceTree = "<absolute>";
-	};
-	C67F778025B8602A00FD896E /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 1A224C3EFF42367911CA2CB7 /* CMI8738AudioDevice.h */;
-		name = "CMI8738AudioDevice.h: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 1884;
-		vrLoc = 228;
 	};
 	C67F778325B8602A00FD896E /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -218,25 +329,170 @@
 		vrLen = 1884;
 		vrLoc = 228;
 	};
-	C69137F525CC31EF004DDF0B /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 0117744B00710CA77F000001 /* SampleAudioClip.cpp */;
-		name = "SampleAudioClip.cpp: 51";
-		rLen = 48;
-		rLoc = 2278;
-		rType = 0;
-		vrLen = 2508;
-		vrLoc = 3852;
+	C682573DC5B0398F00F227B9 /* IOTypes.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = IOTypes.h;
+		path = /Developer/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks/Kernel.framework/Headers/IOKit/IOTypes.h;
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1136, 2982}}";
+			sepNavSelRange = "{1134, 11}";
+			sepNavVisRange = "{0, 1230}";
+		};
 	};
-	C6A0DA0E25A0A59B00804CCA /* PBXTextBookmark */ = {
+	C6825768C5B03FB700F227B9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "error: #if with no expression";
+		fRef = C682573DC5B0398F00F227B9 /* IOTypes.h */;
+		rLen = 1;
+		rLoc = 35;
+		rType = 1;
+	};
+	C682576BC5B0404100F227B9 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 0117744E00710DAB7F000001 /* CMI8738AudioEngine.h */;
-		name = "CMI8738AudioEngine.h: 1";
+		name = "CMI8738AudioEngine.h: 42";
+		rLen = 39;
+		rLoc = 2091;
+		rType = 0;
+		vrLen = 1458;
+		vrLoc = 1080;
+	};
+	C682576CC5B0404100F227B9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* CMI8738AudioDevice.cpp */;
+		name = "CMI8738AudioDevice.cpp: 403";
+		rLen = 0;
+		rLoc = 14483;
+		rType = 0;
+		vrLen = 1421;
+		vrLoc = 13655;
+	};
+	C682576DC5B0404100F227B9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3EFF42367911CA2CB7 /* CMI8738AudioDevice.h */;
+		name = "CMI8738AudioDevice.h: 1";
 		rLen = 0;
 		rLoc = 0;
 		rType = 0;
-		vrLen = 2295;
-		vrLoc = 1738;
+		vrLen = 1004;
+		vrLoc = 1669;
+	};
+	C682576EC5B0404100F227B9 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = DD912B2D2613812800FA0863 /* CMI8738AudioDriver_updated-Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/Volumes/usb/kexts_source/CMI8738_PowerPC_Intel/CMI8738AudioDriver_updated-Info.plist";
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	C682576FC5B0404100F227B9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 0117744E00710DAB7F000001 /* CMI8738AudioEngine.h */;
+		name = "CMI8738AudioEngine.h: 42";
+		rLen = 39;
+		rLoc = 2091;
+		rType = 0;
+		vrLen = 1458;
+		vrLoc = 1080;
+	};
+	C6825770C5B0404100F227B9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = C682573DC5B0398F00F227B9 /* IOTypes.h */;
+		name = "IOTypes.h: 36";
+		rLen = 11;
+		rLoc = 1134;
+		rType = 0;
+		vrLen = 1211;
+		vrLoc = 75;
+	};
+	C6825771C5B0404100F227B9 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = DD912B2D2613812800FA0863 /* CMI8738AudioDriver_updated-Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/Volumes/usb/kexts_source/CMI8738_PowerPC_Intel/CMI8738AudioDriver_updated-Info.plist";
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	C6825772C5B0404100F227B9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* CMI8738AudioDevice.cpp */;
+		name = "CMI8738AudioDevice.cpp: 403";
+		rLen = 0;
+		rLoc = 14483;
+		rType = 0;
+		vrLen = 1421;
+		vrLoc = 13655;
+	};
+	C6825773C5B0404100F227B9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3EFF42367911CA2CB7 /* CMI8738AudioDevice.h */;
+		name = "CMI8738AudioDevice.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1004;
+		vrLoc = 1669;
+	};
+	C6825774C5B0404100F227B9 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = DD912B2D2613812800FA0863 /* CMI8738AudioDriver_updated-Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/Volumes/usb/kexts_source/CMI8738_PowerPC_Intel/CMI8738AudioDriver_updated-Info.plist";
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	C6825775C5B0404100F227B9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = C682573DC5B0398F00F227B9 /* IOTypes.h */;
+		name = "IOTypes.h: 36";
+		rLen = 11;
+		rLoc = 1134;
+		rType = 0;
+		vrLen = 605;
+		vrLoc = 1011;
+	};
+	C6825776C5B0404100F227B9 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = DD912B2D2613812800FA0863 /* CMI8738AudioDriver_updated-Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/Volumes/usb/kexts_source/CMI8738_PowerPC_Intel/CMI8738AudioDriver_updated-Info.plist";
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	C6825777C5B0404100F227B9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = C6825778C5B0404100F227B9 /* IOTypes.h */;
+		name = "IOTypes.h: 36";
+		rLen = 11;
+		rLoc = 1134;
+		rType = 0;
+		vrLen = 1238;
+		vrLoc = 0;
+	};
+	C6825778C5B0404100F227B9 /* IOTypes.h */ = {
+		isa = PBXFileReference;
+		name = IOTypes.h;
+		path = /Developer/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks/Kernel.framework/Headers/IOKit/IOTypes.h;
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {905, 2982}}";
+			sepNavSelRange = "{1134, 11}";
+			sepNavVisRange = "{0, 1238}";
+		};
 	};
 	C6A0DA1325A0A59B00804CCA /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -247,16 +503,6 @@
 		rType = 0;
 		vrLen = 2295;
 		vrLoc = 1738;
-	};
-	C6A4E84C25D377C800818F5E /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 1A224C3FFF42367911CA2CB7 /* CMI8738AudioDevice.cpp */;
-		name = "CMI8738AudioDevice.cpp: 88";
-		rLen = 0;
-		rLoc = 3015;
-		rType = 0;
-		vrLen = 1062;
-		vrLoc = 3940;
 	};
 	C6C87C6725D40F32004BA7FB /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -278,45 +524,65 @@
 		vrLen = 1213;
 		vrLoc = 0;
 	};
-	C6C87C9025D4149D004BA7FB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 0117744F00710DAB7F000001 /* CMI8738AudioEngine.cpp */;
-		name = "CMI8738AudioEngine.cpp: 258";
-		rLen = 0;
-		rLoc = 8428;
-		rType = 0;
-		vrLen = 1141;
-		vrLoc = 8166;
-	};
-	C6C87C9125D4149D004BA7FB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = FCE7239808C89FB200026E23 /* install.command */;
-		name = "install.command: 19";
-		rLen = 0;
-		rLoc = 622;
-		rType = 0;
-		vrLen = 1213;
-		vrLoc = 0;
-	};
-	C6C87C9225D4149D004BA7FB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 0117744F00710DAB7F000001 /* CMI8738AudioEngine.cpp */;
-		name = "CMI8738AudioEngine.cpp: 262";
-		rLen = 0;
-		rLoc = 8670;
-		rType = 0;
-		vrLen = 1141;
-		vrLoc = 8166;
-	};
 	C6E6EA0725A0776C004C3AC8 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 0117744B00710CA77F000001 /* SampleAudioClip.cpp */;
 		name = "SampleAudioClip.cpp: 134";
 		rLen = 0;
-		rLoc = 7598;
+		rLoc = 5923;
 		rType = 0;
 		vrLen = 2545;
 		vrLoc = 1435;
+	};
+	C6E803E729D2F4A6000A9FE2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 089C167EFE841241C02AAC07 /* English */;
+		name = "InfoPlist.strings: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 160;
+		vrLoc = 0;
+	};
+	C6E803E829D2F4A6000A9FE2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FCDBEC6608B9B3D30082AEF9 /* CMI8738-register.h */;
+		name = "CMI8738-register.h: 195";
+		rLen = 0;
+		rLoc = 7916;
+		rType = 0;
+		vrLen = 1683;
+		vrLoc = 1162;
+	};
+	C6E803E929D2F4A6000A9FE2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 0117744B00710CA77F000001 /* SampleAudioClip.cpp */;
+		name = "SampleAudioClip.cpp: 57";
+		rLen = 0;
+		rLoc = 3221;
+		rType = 0;
+		vrLen = 2576;
+		vrLoc = 2302;
+	};
+	C6E803EA29D2F4A6000A9FE2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DD6EE222275C1A4000BAB794 /* SampleConvert.h */;
+		name = "SampleConvert.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1269;
+		vrLoc = 594;
+	};
+	C6E803EB29D2F4A6000A9FE2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 089C167EFE841241C02AAC07 /* English */;
+		name = "InfoPlist.strings: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 160;
+		vrLoc = 0;
 	};
 	C6ED8CB3259CB1480034CCFF /* Source Control */ = {
 		isa = PBXSourceControlManager;
@@ -329,21 +595,30 @@
 		isa = PBXCodeSenseManager;
 		indexTemplatePath = "";
 	};
-	C6EDF73925A35EC40080BF23 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 1A224C3FFF42367911CA2CB7 /* CMI8738AudioDevice.cpp */;
-		name = "CMI8738AudioDevice.cpp: 60";
-		rLen = 0;
-		rLoc = 2141;
-		rType = 0;
-		vrLen = 1430;
-		vrLoc = 1586;
+	DD0C26FD28D3BB0F00D1405D /* CMI8738AudioDriver_updated_64 */ = {
+		activeExec = 0;
+	};
+	DD0C271528D3BB1200D1405D /* libAuioFloatLib_updated_64 */ = {
+		activeExec = 0;
+	};
+	DD6EE222275C1A4000BAB794 /* SampleConvert.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1568, 4270}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{594, 1269}";
+		};
+	};
+	DD912B2B2613812800FA0863 /* CMI8738AudioDriver_updated */ = {
+		activeExec = 0;
+	};
+	DD912B3F2613831000FA0863 /* libAuioFloatLib_updated */ = {
+		activeExec = 0;
 	};
 	FCDBEC6608B9B3D30082AEF9 /* CMI8738-register.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {855, 4788}}";
-			sepNavSelRange = "{10053, 17}";
-			sepNavVisRange = "{9986, 338}";
+			sepNavIntBoundsRect = "{{0, 0}, {1568, 4242}}";
+			sepNavSelRange = "{7916, 0}";
+			sepNavVisRange = "{1162, 1683}";
 		};
 	};
 	FCE7239808C89FB200026E23 /* install.command */ = {

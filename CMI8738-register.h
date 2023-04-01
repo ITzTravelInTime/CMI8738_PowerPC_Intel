@@ -79,10 +79,14 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define CM_ADCDACLEN_130	0x00002000
 #define CM_ADCDACLEN_280	0x00003000
 
-#define CM_CH1_SRATE_176K	0x00000800
-#define CM_CH1_SRATE_88K	0x00000400
-#define CM_CH0_SRATE_176K	0x00000200
-#define CM_CH0_SRATE_88K	0x00000100
+#define CM_CH1_SRATE_176K    0x00000800
+#define CM_CH1_SRATE_96K    0x00000800    /* model 055? */
+#define CM_CH1_SRATE_88K    0x00000400
+#define CM_CH0_SRATE_176K    0x00000200
+#define CM_CH0_SRATE_96K    0x00000200    /* model 055? */
+#define CM_CH0_SRATE_88K    0x00000100
+#define CM_CH0_SRATE_128K    0x00000300
+#define CM_CH0_SRATE_MASK    0x00000300
 
 #define CM_SPDIF_INVERSE2	0x00000080	/* model 055? */
 
@@ -93,6 +97,8 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #define CM_REG_INT_HLDCLR	0x0C
 #define CM_CHIP_MASK2		0xff000000
+#define CM_CHIP_8768        0x20000000
+#define CM_CHIP_055        0x08000000
 #define CM_CHIP_039		0x04000000
 #define CM_CHIP_039_6CH		0x01000000
 #define CM_TDMA_INT_EN		0x00040000
@@ -267,6 +273,16 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define CM_REG_CH0_FRAME2	0x84
 #define CM_REG_CH1_FRAME1	0x88	/* 0-15: count of samples at bus master; buffer size */
 #define CM_REG_CH1_FRAME2	0x8C	/* 16-31: count of samples at codec; fragment size */
+
+#define CM_REG_EXT_MISC        0x90
+#define CM_ADC48K44K        0x10000000    /* ADC parameters group, 0: 44k, 1: 48k */
+#define CM_CHB3D8C        0x00200000    /* 7.1 channels support */
+#define CM_SPD32FMT        0x00100000    /* SPDIF/IN 32k sample rate */
+#define CM_ADC2SPDIF        0x00080000    /* ADC output to SPDIF/OUT */
+#define CM_SHAREADC        0x00040000    /* DAC in ADC as Center/LFE */
+#define CM_REALTCMP        0x00020000    /* monitor the CMPL/CMPR of ADC */
+#define CM_INVLRCK        0x00010000    /* invert ZVPORT's LRCK */
+#define CM_UNKNOWN_90_MASK    0x0000FFFF    /* ? */
 
 /*
  * size of i/o region

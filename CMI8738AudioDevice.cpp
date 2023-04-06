@@ -25,6 +25,8 @@ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+#include "ArchDetect.h"
+
 #include "CMI8738AudioDevice.h"
 
 #include "CMI8738AudioEngine.h"
@@ -41,6 +43,8 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define super IOAudioDevice
 
 #warning missing mutex implementation 
+
+#define ARRAYSZ(ar) ((sizeof(ar))/(sizeof(*ar)))
 
 OSDefineMetaClassAndStructors(CMI8738AudioDevice, IOAudioDevice)
 
@@ -76,6 +80,7 @@ bool CMI8738AudioDevice::initHardware(IOService *provider)
     cm.maxChannels = 2;
     cm.canMultiChannel = false;
 	cm.hasDualDAC = true;
+    cm.supports24Bit = false;
     
     // Get the PCI device provider
     cm.pciDevice = OSDynamicCast(IOPCIDevice, provider);
@@ -100,19 +105,29 @@ bool CMI8738AudioDevice::initHardware(IOService *provider)
     
     DBGPRINT("CMI8738AudioDevice[%p]::initHardware - Detected deviceID: %lx\n", this, deviceID);
     
-    if (deviceID != PCI_DEVICE_ID_CMEDIA_CM8338A && deviceID != PCI_DEVICE_ID_CMEDIA_CM8338B){
-		queryChip();
-		
-		setDeviceName("C-Media 8738");
-        setDeviceShortName("CMI8738");
-		
-		DBGPRINT("CMI8738AudioDevice[%p]::initHardware - Detected device: CMI83738\n", this);
-	}else{
-		setDeviceName("C-Media 8338");
+    if (deviceID == PCI_DEVICE_ID_CMEDIA_CM8338A || deviceID == PCI_DEVICE_ID_CMEDIA_CM8338B){
+        //UInt32 detect = readUInt32(CM_REG_INT_HLDCLR) & CM_CHIP_MASK2;
+        //DBGPRINT("CMI8738AudioDevice[%p]::initHardware - Detected interrupt register value: %lx\n", this, detect);
+        
+        setDeviceName("C-Media 8338");
         setDeviceShortName("CMI8338");
-		
-		DBGPRINT("CMI8738AudioDevice[%p]::initHardware - Detected device: CMI83338\n", this);
-	}
+        
+        DBGPRINT("CMI8738AudioDevice[%p]::initHardware - Detected device: CMI83338\n", this);
+	}else if (deviceID == PCI_DEVICE_ID_CMEDIA_CM8738 || deviceID == PCI_DEVICE_ID_CMEDIA_CM8738B){
+        
+        
+        setDeviceName("C-Media 8738");
+        setDeviceShortName("CMI8738");
+        
+        DBGPRINT("CMI8738AudioDevice[%p]::initHardware - Detected device: CMI83738\n", this);
+    }else{
+        setDeviceName("C-Media Chip");
+        setDeviceShortName("CMI8xx8");
+    }
+    
+    if (deviceID != PCI_DEVICE_ID_CMEDIA_CM8338A && deviceID != PCI_DEVICE_ID_CMEDIA_CM8338B){
+        queryChip();
+    }
     
     setManufacturerName("C-Media, mod by ITzTravelInTime");
 	setDeviceTransportType(kIOAudioDeviceTransportTypePCI);
@@ -128,6 +143,12 @@ bool CMI8738AudioDevice::initHardware(IOService *provider)
 
 	writeUInt32(CM_REG_CHFORMAT, 0);
 
+	//presumebly distributed dma suport
+	#ifndef PPC 
+	if (deviceID == PCI_DEVICE_ID_CMEDIA_CM8738 || deviceID == PCI_DEVICE_ID_CMEDIA_CM8738B)
+        setUInt32Bit(CM_REG_MISC_CTRL, CM_TXVX);
+	#endif
+	
 	setUInt32Bit(CM_REG_MISC_CTRL, CM_ENDBDAC|CM_N4SPK3D);
 	clearUInt32Bit(CM_REG_MISC_CTRL, CM_XCHGDAC);
     
@@ -139,17 +160,45 @@ bool CMI8738AudioDevice::initHardware(IOService *provider)
 
     /* Set Bus Master Request */
 	setUInt32Bit(CM_REG_FUNCTRL1, CM_BREQ);
-    
-    if (deviceID == PCI_DEVICE_ID_CMEDIA_CM8738 || deviceID == PCI_DEVICE_ID_CMEDIA_CM8738B)
-        setUInt32Bit(CM_REG_MISC_CTRL, CM_TXVX);
 	
     if (cm.chipVersion < 68){
         //disable opl3
         clearUInt32Bit(CM_REG_LEGACY_CTRL, CM_FMSEL_MASK);
         clearUInt32Bit(CM_REG_MISC_CTRL, CM_FM_EN);
     }
-    
-	setUInt8Bit(CM_REG_MIXER1, CM_CDPLAY);
+	
+    //disable unused input monitors
+    //TODO: eventually add those as toggle controls
+	clearUInt8Bit(CM_REG_MIXER1, CM_SPK4 | CM_X3DEN | CM_WAVEINR | CM_WAVEINL);
+	
+	setUInt8Bit(CM_REG_MIXER1, CM_CDPLAY | CM_FMMUTE);
+	
+	//mutes unused stuff
+	if (!cm.chipVersion){
+		writeUInt8(CM_REG_EXTENT_IND, 0);
+	}
+	
+	writeMixer(0, 0);
+	
+    //disasble joystick
+	clearUInt32Bit(CM_REG_FUNCTRL1, CM_JYSTK_EN);
+	
+    //disable modem link
+	if (cm.chipVersion <= 37){
+		clearUInt32Bit(CM_REG_MISC_CTRL, CM_FLINKON);
+		setUInt32Bit(CM_REG_MISC_CTRL, CM_FLINKOFF);
+	}
+	
+    //set pll values??
+	 #if 1
+	 if (!cm.chipVersion){
+		static const UInt32 rates[] = { 5512, 11025, 22050, 44100, 8000, 16000, 32000, 48000 };
+		for (unsigned int val = 0; val < ARRAYSZ(rates); val++)
+			set_pll(rates[val], val);
+			
+		//setUInt32Bit(CM_REG_MISC_CTRL, CM_SPDIF48K|CM_SPDF_AC97);
+	 }
+	 #endif
 	
     if (!createAudioEngine()) {
         goto Done;
@@ -477,6 +526,8 @@ IOReturn CMI8738AudioDevice::outputMuteChanged(IOAudioControl *muteControl, SInt
     
 	// Add output mute code here
 	
+	//clearUInt8Bit(CM_REG_MIXER1, CM_CDPLAY);
+	
 	if (newValue) {
 		clearUInt8Bit(CM_REG_MIXER1, CM_CDPLAY);
 		setUInt8Bit(CM_REG_MIXER1, CM_WSMUTE);
@@ -597,5 +648,21 @@ UInt8 CMI8738AudioDevice::readMixer(UInt8 reg)
 {
 	cm.pciDevice->ioWrite8(CM_REG_SB16_ADDR, reg, cm.deviceMap);
 	return cm.pciDevice->ioRead8(CM_REG_SB16_DATA, cm.deviceMap);
+}
+
+void CMI8738AudioDevice::set_pll(UInt32 rate, unsigned int slot){
+	unsigned int reg = CM_REG_PLL + slot;
+	/*
+	 * Guess that this programs at reg. 0x04 the pos 15:13/12:10
+	 * for DSFC/ASFC (000 up to 111).
+	 */
+	
+	/* FIXME: Init (Do we've to set an other register first before programming?) */
+	
+	/* FIXME: Is this correct? Or shouldn't the m/n/r values be used for that? */
+	writeUInt8(reg, rate>>8);
+	writeUInt8(reg, rate&0xff);
+	
+	/* FIXME: Setup (Do we've to set an other register first to enable this?) */
 }
 

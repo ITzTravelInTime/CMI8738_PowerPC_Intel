@@ -29,45 +29,18 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef _CMI8738AudioEngine_H
 #define _CMI8738AudioEngine_H
 
-#if defined(i386) || defined(I386) || defined(IX86) || defined(__I386__) || defined(_IX86) || defined(_M_IX86) || defined(AMD64) || defined(__x86_64__) || defined(__i386__)
-    #define X86
-#elif defined(__PPC__) || defined(__ppc__) || defined(_ARCH_PPC) || defined(__POWERPC__) || defined(__powerpc) || defined(__powerpc__)
-    #define PPC
-#elif(defined(__ARM__) || defined(__arm__) || defined(_ARCH_ARM) || defined(_ARCH_ARM64) || defined(__aarch64e__) || defined(__arm) || defined(__arm64e__) || defined(__aarch64__))
-    #define ARM
-#else
-    #error "Unknown processor architecture"
-#endif
-
 #include <IOKit/audio/IOAudioEngine.h>
 
+#include "ArchDetect.h"
 #include "CMI8738AudioDevice.h"
+#include "Memhandle.h"
 
 #define CMI8738AudioEngine com_CMI8738AudioEngine
 
 class IOFilterInterruptEventSource;
 class IOInterruptEventSource;
 
-#ifndef _IOBUFFERMEMORYDESCRIPTOR_H
-class IOBufferMemoryDescriptor;
-#endif
-
-struct memhandle
-{
-    // note: this is for 32-bit OS only
-    UInt32 size;
-    void * addr;          // virtual
-    uintptr_t dma_handle; // physical
-    
-#if !defined(OLD_ALLOC)
-    IOBufferMemoryDescriptor *desc;
-#endif
-};
-
-#define allocation_mask ((0x000000007FFFFFFFULL) & (~((PAGE_SIZE) - 1)))
-
-int pci_alloc(struct memhandle *h);
-void pci_free(struct memhandle *h);
+static const int MAX_STRING = 128;
 
 class CMI8738AudioEngine : public IOAudioEngine
 {
@@ -80,23 +53,27 @@ public:
     
     virtual bool	initHardware(IOService *provider);
     virtual void	stop(IOService *provider);
-	virtual bool	setDACChannels(int channels, int format);
+	bool	setDACChannels(int channels, int format);
 	    
-	virtual UInt8	readUInt8(UInt16 reg);
-	virtual void	writeUInt8(UInt16 reg, UInt8 value);
-	virtual UInt32	readUInt16(UInt16 reg);
-	virtual void	writeUInt16(UInt16 reg, UInt16 value);
-	virtual UInt32	readUInt32(UInt16 reg);
-	virtual void	writeUInt32(UInt16 reg, UInt32 value);
-	virtual void	clearUInt32Bit(UInt16 reg, UInt32 bit);
-	virtual void	setUInt32Bit(UInt16 reg, UInt32 bit);
+	UInt8	readUInt8(UInt16 reg);
+	void	writeUInt8(UInt16 reg, UInt8 value);
+	UInt32	readUInt16(UInt16 reg);
+	void	writeUInt16(UInt16 reg, UInt16 value);
+	UInt32	readUInt32(UInt16 reg);
+	void	writeUInt32(UInt16 reg, UInt32 value);
+	void	clearUInt32Bit(UInt16 reg, UInt32 bit);
+	void	setUInt32Bit(UInt16 reg, UInt32 bit);
+    
+    void    setDMASettings(UInt32 bufferTag);
     
     virtual OSString* getGlobalUniqueID();
 	
 	virtual void	dumpRegisters();
 
-	virtual void	setupSPDIFPlayback(bool enableSPDIF, bool enableAC3);
-	virtual void	setupAC3Passthru(bool enableAC3Passthru);
+	void	setupSPDIFPlayback(bool enableSPDIF, bool enableAC3);
+	void	setupAC3Passthru(bool enableAC3Passthru);
+    
+    void    getChipDisaplyName(char* str, const size_t lenght);
 
 	virtual IOAudioStream *createNewAudioStream(IOAudioStreamDirection direction, void *sampleBuffer, UInt32 sampleBufferSize, UInt32 channel);
 
@@ -119,7 +96,7 @@ public:
 private:
 	CMI8738Info						*cm;
 	UInt32                          currentSampleRate, currentResolution;
-    UInt32                          shift, dma_size_reg_ch0;
+    UInt32                          shift_ch0, dma_size_ch0, period_size_ch0, shift_ch1, dma_size_ch1, period_size_ch1;
 	
     /*
     SInt16							*outputBuffer;
@@ -128,8 +105,8 @@ private:
 	IOPhysicalAddress               physicalAddressInput;
 	*/
     
-    struct memhandle inBuffer;
-    struct memhandle outBuffer;
+    Memhandle inBuffer;
+    Memhandle outBuffer;
     
     IOFilterInterruptEventSource	*interruptEventSource;
     

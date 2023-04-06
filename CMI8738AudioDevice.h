@@ -45,8 +45,9 @@ class IOMemoryMap;
 
 typedef struct CMI8738Info {
 	int			chipVersion;
-	int			maxChannels;
+	UInt32			maxChannels;
 	UInt32		regFUNCTRL0;
+    bool        supports24Bit;
 	bool		canAC3HW, canAC3SW;
 	bool		canMultiChannel;
     bool        can96k;
@@ -86,6 +87,7 @@ public:
 	UInt8	readMixer(UInt8 reg);
 	void	writeMixer(UInt8 reg, UInt8 value);	
 	
+	void    set_pll(UInt32 rate, unsigned int slot);
 	
     virtual IOReturn volumeChanged(IOAudioControl *volumeControl, SInt32 oldValue, SInt32 newValue);
     

@@ -11,6 +11,7 @@
 #define SAMPLE_CONVERT_H
  
 #include "CMI8738AudioEngine.h"
+#include "ArchDetect.h"
 
 #include <IOKit/IOLib.h>
 //#include <TargetConditionals.h>

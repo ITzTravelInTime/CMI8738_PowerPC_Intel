@@ -42,10 +42,10 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define BIT_DEPTH			16
 #define BIT_DEPTH_MAX       (cm->supports24Bit ? 32 : 16)
 
-#define BUFFER_SIZE_CALC(__channels, __bithDepth) (NUM_SAMPLE_FRAMES * (__channels) * (__bithDepth) / 8)
+#define BUFFER_SIZE_CALC(__channels, __bitDepth) (NUM_SAMPLE_FRAMES * (__channels) * (__bitDepth) / 8)
 
-#define BUFFER_SIZE_MAX     BUFFER_SIZE_CALC(NUM_CHANNELS_MAX, BIT_DEPTH_MAX)
-#define BUFFER_SIZE			BUFFER_SIZE_CALC(NUM_CHANNELS, BIT_DEPTH)//(NUM_SAMPLE_FRAMES * NUM_CHANNELS * BIT_DEPTH / 8)
+#define BUFFER_SIZE_MAX     (BUFFER_SIZE_CALC(NUM_CHANNELS_MAX, BIT_DEPTH_MAX) * 2)
+#define BUFFER_SIZE			BUFFER_SIZE_CALC(NUM_CHANNELS, BIT_DEPTH) //(NUM_SAMPLE_FRAMES * NUM_CHANNELS * BIT_DEPTH / 8)
 
 #define ARRAYSZ(ar) ((sizeof(ar))/(sizeof(*ar)))
 
@@ -67,6 +67,8 @@ bool CMI8738AudioEngine::init(CMI8738Info* _cm)
 		goto Done;
 	}	
 	cm = _cm;
+	
+	modelID = 0;
 	
 	currentSampleRate = 0;
 	currentResolution = 0;
@@ -153,7 +155,7 @@ bool CMI8738AudioEngine::initHardware(IOService *provider)
     workLoop->addEventSource(interruptEventSource);
     
     outBuffer.size = BUFFER_SIZE_MAX;
-    inBuffer.size = BUFFER_SIZE;
+    inBuffer.size = BUFFER_SIZE_MAX;
 
     if (pci_alloc(&outBuffer)){
         goto Done;
@@ -187,7 +189,7 @@ bool CMI8738AudioEngine::initHardware(IOService *provider)
     addAudioStream(audioStream);
     audioStream->release();
 	
-    /*
+	/*
     audioStream = createNewAudioStream(kIOAudioStreamDirectionInput, inBuffer.addr, inBuffer.size, CM_CH_CAPT);
     if (!audioStream) {
         goto Done;
@@ -195,14 +197,12 @@ bool CMI8738AudioEngine::initHardware(IOService *provider)
     
     addAudioStream(audioStream);
     audioStream->release();
-	*/
-    
-	//writeUInt32(CM_REG_CH0_FRAME1, (UInt32)(physicalAddressOutput));
+    */
 	
+	//writeUInt32(CM_REG_CH0_FRAME1, (UInt32)(physicalAddressOutput));
 	//writeUInt32(CM_REG_CH1_FRAME1, (UInt32)(physicalAddressInput));
 	
     writeUInt32(CM_REG_CH0_FRAME1, (UInt32)outBuffer.dma_handle);
-    
     writeUInt32(CM_REG_CH1_FRAME1, (UInt32)inBuffer.dma_handle);
     
     result = true;
@@ -213,19 +213,14 @@ Done:
 }
 
 void CMI8738AudioEngine::getChipDisaplyName(char* str, const size_t lenght){
-    UInt32 modelID = 0x8738;
     
+    if (!modelID){
     if (cm->chipVersion < 68){
         const UInt32 deviceID = cm->pciDevice->configRead32(kIOPCIConfigDeviceID) >> 16;
         switch (deviceID) {
             case PCI_DEVICE_ID_CMEDIA_CM8338A:
-                modelID = 0x8338A;
-                break;
             case PCI_DEVICE_ID_CMEDIA_CM8338B:
-                modelID = 0x8338B;
-                break;
-            case PCI_DEVICE_ID_CMEDIA_CM8738B:
-                modelID = 0x8738B;
+                modelID = 0x8338;
                 break;
             default:
                 modelID = 0x8738;
@@ -259,17 +254,17 @@ void CMI8738AudioEngine::getChipDisaplyName(char* str, const size_t lenght){
                 break;
         }
     }
-    
+	}
     
     
 #if VERSION_MAJOR >= 10
     snprintf(str, lenght, "CMI%x", modelID);
-    if (cm->chipVersion < 68){
+    if (cm->chipVersion && cm->chipVersion < 68){
         snprintf(str + strlen(str), lenght, "-V%d", cm->chipVersion);
     }
     
     if (cm->canMultiChannel) {
-        snprintf(str + strlen(str), lenght, "-MC%d", cm->maxChannels);
+        snprintf(str + strlen(str), lenght, "-%dCH", cm->maxChannels);
     }
     
     if (cm->canAC3SW) {
@@ -277,12 +272,12 @@ void CMI8738AudioEngine::getChipDisaplyName(char* str, const size_t lenght){
     }
 #else
     sprintf(str, "CMI%x", modelID);
-    if (cm->chipVersion < 68){
+    if (cm->chipVersion && cm->chipVersion < 68){
         sprintf(str + strlen(str), "-V%d", cm->chipVersion);
     }
     
     if (cm->canMultiChannel) {
-        sprintf(str + strlen(str), "-MC%d", cm->maxChannels);
+        sprintf(str + strlen(str), "-%dCH", cm->maxChannels);
     }
     
     if (cm->canAC3SW) {
@@ -538,7 +533,7 @@ IOReturn CMI8738AudioEngine::performFormatChange(IOAudioStream *audioStream, con
     
 	UInt32 val, fmt = 0, freq = 0, freq_ext = 0, dma_size_reg = NUM_SAMPLE_FRAMES, period_size_reg = NUM_SAMPLE_FRAMES;
 	UInt16 currentChShift = 0;
-	bool is_dac = audioStream->direction == kIOAudioStreamDirectionOutput;
+	const bool is_dac = audioStream->direction == kIOAudioStreamDirectionOutput;
 	bool EnableSPDIF = false;
 	
 	const IOAudioStreamFormat* format = newFormat ? newFormat : audioStream->getFormat();
@@ -598,75 +593,99 @@ IOReturn CMI8738AudioEngine::performFormatChange(IOAudioStream *audioStream, con
         }
     }
 	
-		DBGPRINT("CMI8738AudioEngine[%p]::peformFormatChange -- setting format buffers values\n", this);
-		
-		currentResolution = format->fBitDepth;
-		currentChShift = 0;
-		fmt = 0;
-		
-        //should be supported just by some later CMI chips, not the case of the CMI8738/CMI8338
-		if (currentResolution >= 16) {
-			fmt |= 0x02;
-			if (currentResolution > 16)
-				currentChShift++;
+	DBGPRINT("CMI8738AudioEngine[%p]::peformFormatChange -- setting format buffers values\n", this);
+	
+	currentResolution = format->fBitDepth;
+	currentChShift = 0;
+	fmt = 0;
+	
+	//should be supported just by some later CMI chips, not the case of the CMI8738/CMI8338
+	if (currentResolution >= 16) {
+		fmt |= 0x02;
+		if (currentResolution > 16)
+			currentChShift++;
+	}
+	
+	if (format->fNumChannels > 1) {
+		fmt |= 0x01;
+	}
+	
+	if (is_dac){
+		if (!setDACChannels(format->fNumChannels, fmt)) {
+			DBGPRINT(("/t Internal Error - setDACChannels failed, invalid channels/bit width config!\n"));
+			return kIOReturnInternalError;
 		}
+	}
+	
+	dma_size_reg = NUM_SAMPLE_FRAMES << currentChShift;
+	period_size_reg = NUM_SAMPLE_FRAMES << currentChShift;
+	
+	if (format->fNumChannels > 2){
+		dma_size_reg = (dma_size_reg * format->fNumChannels) / 2;
+		period_size_reg = (period_size_reg * format->fNumChannels) / 2;
+	}
+	
+	//values to program the sample counts acording to the new format
+	if (format->fDriverTag == CM_CH_PLAY){
+		dma_size_ch0 = dma_size_reg;
+		period_size_ch0 = period_size_reg;
+		shift_ch0 = currentChShift;
+	}else if (format->fDriverTag == CM_CH_CAPT){
+		dma_size_ch1 = dma_size_reg;
+		period_size_ch1 = period_size_reg;
+		shift_ch1 = currentChShift;
+	}
+	
+	//for variable channel numbers we also need to change the dma buffer size, so the OS can manage it properly.
+	//if (newFormat){
+		//Memhandle* buffer = (format->fDriverTag == CM_CH_PLAY) ? &outBuffer : &inBuffer;
 		
-		if (format->fNumChannels > 1) {
-			fmt |= 0x01;
+		//pci_free(buffer);
+		
+		//bzero(buffer, sizeof(Memhandle));
+		
+		//buffer->size = BUFFER_SIZE_CALC( format->fNumChannels, format->fBitDepth );
+		/*
+		if (pci_alloc(buffer)){
+			DBGPRINT(("/t Internal Error - failed to allocate the new dma buffer!\n"));
+			return kIOReturnInternalError;
 		}
+		*/
 		
-        if (is_dac){
-            if (!setDACChannels(format->fNumChannels, fmt)) {
-                DBGPRINT(("/t Internal Error - setDACChannels failed, invalid channels/bit width config!\n"));
-                return kIOReturnInternalError;
-            }
-        }
-    
-        //for variable channel numbers we also need to change the dma buffer size, so the OS can manage it properly.
-        if (format){
-			const UInt32 bufferSize = BUFFER_SIZE_CALC( format->fNumChannels, format->fBitDepth );
-			audioStream->setSampleBuffer( is_dac ? outBuffer.addr : inBuffer.addr, bufferSize );
-        }
 		
-		dma_size_reg = NUM_SAMPLE_FRAMES << currentChShift;
-		period_size_reg = NUM_SAMPLE_FRAMES << currentChShift;
+		//audioStream->setSampleBuffer( buffer->addr, buffer->size );
 		
-		if (format->fNumChannels > 2){
-			dma_size_reg = (dma_size_reg * format->fNumChannels) / 2;
-			period_size_reg = (period_size_reg * format->fNumChannels) / 2;
-		}
-		
-		//values to program the sample counts acording to the new format
-		if (format->fDriverTag == CM_CH_PLAY){
-			dma_size_ch0 = dma_size_reg;
-			period_size_ch0 = period_size_reg;
-			shift_ch0 = currentChShift;
-		}else if (format->fDriverTag == CM_CH_CAPT){
-			dma_size_ch1 = dma_size_reg;
-			period_size_ch1 = period_size_reg;
-			shift_ch1 = currentChShift;
-		}
-    
-        //setup the playback counter registers
-        setDMASettings(format->fDriverTag);
-		
-		DBGPRINT("CMI8738AudioEngine[%p]::peformFormatChange -- setting basic format part 0\n", this);
-		val = readUInt32(CM_REG_CHFORMAT);
-		if (format->fDriverTag) {
-			val &= ~CM_CH1FMT_MASK;
-			val |= fmt << CM_CH1FMT_SHIFT;
-		} else {
-			val &= ~CM_CH0FMT_MASK;
-			val |= fmt << CM_CH0FMT_SHIFT;
-		}
-		
-		DBGPRINT("CMI8738AudioEngine[%p]::peformFormatChange -- setting extended format\n", this);
-		/* set ext format */
-		if (cm->can96k) {
-			val &= ~(CM_CH0_SRATE_MASK << (format->fDriverTag * 2));
-			val |= freq_ext << (format->fDriverTag * 2);
-		}
-		writeUInt32(CM_REG_CHFORMAT, val);
+		//writeUInt32((format->fDriverTag == CM_CH_PLAY) ? CM_REG_CH0_FRAME1 : CM_REG_CH1_FRAME1, (UInt32)buffer->dma_handle);
+	//}
+	
+	Memhandle* buffer = (format->fDriverTag == CM_CH_PLAY) ? &outBuffer : &inBuffer;
+	
+	bzero(buffer->addr, buffer->size);
+	
+	audioStream->setSampleBuffer( buffer->addr, BUFFER_SIZE_CALC( format->fNumChannels, format->fBitDepth ) );
+	
+	writeUInt32((format->fDriverTag == CM_CH_PLAY) ? CM_REG_CH0_FRAME1 : CM_REG_CH1_FRAME1, (UInt32)buffer->dma_handle);
+	
+	//setup the playback counter registers
+	setDMASettings(format->fDriverTag);
+	
+	DBGPRINT("CMI8738AudioEngine[%p]::peformFormatChange -- setting basic format part 0\n", this);
+	val = readUInt32(CM_REG_CHFORMAT);
+	if (format->fDriverTag) {
+		val &= ~CM_CH1FMT_MASK;
+		val |= fmt << CM_CH1FMT_SHIFT;
+	} else {
+		val &= ~CM_CH0FMT_MASK;
+		val |= fmt << CM_CH0FMT_SHIFT;
+	}
+	
+	DBGPRINT("CMI8738AudioEngine[%p]::peformFormatChange -- setting extended format\n", this);
+	/* set ext format */
+	if (cm->can96k) {
+		val &= ~(CM_CH0_SRATE_MASK << (format->fDriverTag * 2));
+		val |= freq_ext << (format->fDriverTag * 2);
+	}
+	writeUInt32(CM_REG_CHFORMAT, val);
 	
 	DBGPRINT("CMI8738AudioEngine[%p]::peformFormatChange -- setting dac/adc flag\n", this);
 	//set dac/adc flag
@@ -701,10 +720,18 @@ IOReturn CMI8738AudioEngine::performFormatChange(IOAudioStream *audioStream, con
 	
     //SPDIF
 	DBGPRINT("CMI8738AudioEngine[%p]::peformFormatChange -- setting spdf\n", this);
-	EnableSPDIF = ( currentSampleRate >= 44100 && currentSampleRate <= 48000 /*96000*/ ) && 
+	EnableSPDIF = ( currentSampleRate >= 44100 && currentSampleRate <= 96000 ) && 
 				  (currentResolution == 16) && (format->fNumChannels == 2);
+
+	if (EnableSPDIF && currentSampleRate > 48000)
+		setUInt32Bit(CM_REG_CHFORMAT, CM_DBLSPDS);
+	else
+		clearUInt32Bit(CM_REG_CHFORMAT, CM_DBLSPDS);
 	
-	setupSPDIFPlayback(EnableSPDIF, false);
+	if (is_dac)
+		setupSPDIFPlayback(EnableSPDIF, false);
+	else
+		setupSPDIFCapture(EnableSPDIF);
         
 	dumpRegisters();
 	
@@ -720,13 +747,14 @@ void CMI8738AudioEngine::setupSPDIFPlayback(bool enableSPDIF, bool enableAC3)
 		setUInt32Bit(CM_REG_LEGACY_CTRL, CM_ENSPDOUT);
 		setUInt32Bit(CM_REG_FUNCTRL1, CM_SPDO2DAC);
         setUInt32Bit(CM_REG_FUNCTRL1, CM_PLAYBACK_SPDF);
+		
 		setupAC3Passthru(enableAC3);
 
-		if (currentSampleRate == 48000)
+		//sets spdif base clock
+		if (currentSampleRate == 48000 || currentSampleRate == 96000)
             setUInt32Bit(CM_REG_MISC_CTRL, CM_SPDIF48K | CM_SPDF_AC97);
 		else
             clearUInt32Bit(CM_REG_MISC_CTRL, CM_SPDIF48K | CM_SPDF_AC97);
-
 	} else {
         clearUInt32Bit(CM_REG_FUNCTRL1, CM_PLAYBACK_SPDF);
 		setupAC3Passthru(false);
@@ -753,7 +781,7 @@ void CMI8738AudioEngine::setupAC3Passthru(bool enableAC3Passthru)
             setUInt32Bit(CM_REG_CHFORMAT, CM_SPD24SEL);
             clearUInt32Bit(CM_REG_MISC_CTRL, CM_SPD32SEL);
             
-            //disabled on linux, enabled here on OS X to also be able to use spdf
+            //disabled on linux, enabled here on OS X to also be able to use spdif
 			if (cm->chipVersion >= 39)
                 writeUInt8(CM_REG_MIXER1, readUInt8(CM_REG_MIXER1) & ~CM_CDPLAY);
 		} else {
@@ -776,13 +804,15 @@ void CMI8738AudioEngine::setupAC3Passthru(bool enableAC3Passthru)
 		if (cm->canAC3HW)
 		{
 			/* chip model >= 37 */
-			if (currentResolution > 16) {
+			
+			if (cm->supports24Bit && currentResolution > 16) {
 				setUInt32Bit(CM_REG_MISC_CTRL, CM_SPD32SEL);
 				setUInt32Bit(CM_REG_CHFORMAT, CM_SPD24SEL);
 			} else {
 				clearUInt32Bit(CM_REG_MISC_CTRL, CM_SPD32SEL);
 				clearUInt32Bit(CM_REG_CHFORMAT, CM_SPD24SEL);
 			}
+			
 		} else {
 			clearUInt32Bit(CM_REG_MISC_CTRL, CM_SPD32SEL);
 			clearUInt32Bit(CM_REG_CHFORMAT, CM_SPD24SEL);
@@ -790,6 +820,22 @@ void CMI8738AudioEngine::setupAC3Passthru(bool enableAC3Passthru)
 		}
 	}
 	return;
+}
+
+void CMI8738AudioEngine::setupSPDIFCapture(bool enableSPDIF){
+	if(enableSPDIF){
+		/*if (cm->supports24Bit && currentResolution > 16) {
+			setUInt32Bit(CM_REG_MISC_CTRL, CM_SPD32SEL);
+			setUInt32Bit(CM_REG_CHFORMAT, CM_SPD24SEL);
+		} else {
+			clearUInt32Bit(CM_REG_MISC_CTRL, CM_SPD32SEL);
+			clearUInt32Bit(CM_REG_CHFORMAT, CM_SPD24SEL);
+		}*/
+		
+		setUInt32Bit(CM_REG_FUNCTRL1, CM_CAPTURE_SPDF);
+	}else{
+		clearUInt32Bit(CM_REG_FUNCTRL1, CM_CAPTURE_SPDF);
+	}
 }
 
 bool CMI8738AudioEngine::setDACChannels(int channels, int format)

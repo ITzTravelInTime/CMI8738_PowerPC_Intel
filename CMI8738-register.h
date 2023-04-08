@@ -55,8 +55,10 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define CM_JYSTK_EN		0x00000002	/* joy stick */
 
 #define CM_REG_CHFORMAT		0x08
+#define  CM_DBLSPDS          0x40 /* double SPDF sample rate to support 88.2/96khz */
 
 #define CM_CHB3D5C		0x80000000	/* 5,6 channels */
+#define CM_FMOFFSET2    0x40000000  /* initial FM PCM offset 2 when Fmute=1 */ 
 #define CM_CHB3D		0x20000000	/* 4 channels */
 
 #define CM_CHIP_MASK1		0x1f000000

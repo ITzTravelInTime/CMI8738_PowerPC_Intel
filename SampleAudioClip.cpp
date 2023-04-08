@@ -54,6 +54,9 @@ IOReturn CMI8738AudioEngine::clipOutputSamples(const void *mixBuf, void *sampleB
     maxSampleIndex = (firstSampleFrame + numSampleFrames) * streamFormat->fNumChannels;
     startSampleIndex = (firstSampleFrame * streamFormat->fNumChannels);
     
+	if (currentResolution > 16)
+	Float32ToSInt32_optimized( (const float *)mixBuf, (SInt32 *)sampleBuf, maxSampleIndex, startSampleIndex);
+	else
     Float32ToSInt16_optimized( (const float *)mixBuf, (SInt16 *)sampleBuf, maxSampleIndex, startSampleIndex);
     
     return kIOReturnSuccess;
@@ -99,6 +102,7 @@ IOReturn CMI8738AudioEngine::convertInputSamples(const void *sampleBuf, void *de
     
         // Scale that sample to a range of -1.0 to 1.0, convert to float and store in the destination buffer
         // at the proper location
+		
         if (inputSample >= 0) {
             (*floatDestBuf) = correctEndianess16( inputSample * clipPosMulDiv16 );// / 32767.0;
         } else {

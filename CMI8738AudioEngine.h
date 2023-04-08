@@ -71,6 +71,7 @@ public:
 	virtual void	dumpRegisters();
 
 	void	setupSPDIFPlayback(bool enableSPDIF, bool enableAC3);
+	void	setupSPDIFCapture(bool enableSPDIF);
 	void	setupAC3Passthru(bool enableAC3Passthru);
     
     void    getChipDisaplyName(char* str, const size_t lenght);
@@ -95,6 +96,7 @@ public:
 
 private:
 	CMI8738Info						*cm;
+	UInt32                          modelID;
 	UInt32                          currentSampleRate, currentResolution;
     UInt32                          shift_ch0, dma_size_ch0, period_size_ch0, shift_ch1, dma_size_ch1, period_size_ch1;
 	

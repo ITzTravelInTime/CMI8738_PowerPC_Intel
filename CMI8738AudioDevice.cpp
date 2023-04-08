@@ -111,18 +111,22 @@ bool CMI8738AudioDevice::initHardware(IOService *provider)
         
         setDeviceName("C-Media 8338");
         setDeviceShortName("CMI8338");
+		
+		//cm.canAC3SW = true;
         
         DBGPRINT("CMI8738AudioDevice[%p]::initHardware - Detected device: CMI83338\n", this);
 	}else if (deviceID == PCI_DEVICE_ID_CMEDIA_CM8738 || deviceID == PCI_DEVICE_ID_CMEDIA_CM8738B){
-        
         
         setDeviceName("C-Media 8738");
         setDeviceShortName("CMI8738");
         
         DBGPRINT("CMI8738AudioDevice[%p]::initHardware - Detected device: CMI83738\n", this);
     }else{
+        
         setDeviceName("C-Media Chip");
         setDeviceShortName("CMI8xx8");
+        
+        DBGPRINT("CMI8738AudioDevice[%p]::initHardware - Detected device: Generic/Other CMI chip\n", this);
     }
     
     if (deviceID != PCI_DEVICE_ID_CMEDIA_CM8338A && deviceID != PCI_DEVICE_ID_CMEDIA_CM8338B){
@@ -184,7 +188,7 @@ bool CMI8738AudioDevice::initHardware(IOService *provider)
 	clearUInt32Bit(CM_REG_FUNCTRL1, CM_JYSTK_EN);
 	
     //disable modem link
-	if (cm.chipVersion <= 37){
+	if (cm.chipVersion < 39){
 		clearUInt32Bit(CM_REG_MISC_CTRL, CM_FLINKON);
 		setUInt32Bit(CM_REG_MISC_CTRL, CM_FLINKOFF);
 	}

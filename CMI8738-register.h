@@ -189,23 +189,23 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define CM_TOLERANCE_RATE	0.001			/* Tolerance sample rate pitch (1000ppm) */
 #define CM_MAXIMUM_RATE		80000000		/* Note more than 80MHz */
 
-#define CM_REG_MIXER1		0x24
-#define CM_FMMUTE		0x80	/* mute FM */
-#define CM_FMMUTE_SHIFT		7
-#define CM_WSMUTE		0x40	/* mute PCM */
-#define CM_WSMUTE_SHIFT		6
-#define CM_SPK4			0x20	/* lin-in -> rear line out */
-#define CM_SPK4_SHIFT		5
-#define CM_REAR2FRONT		0x10	/* exchange rear/front */
-#define CM_REAR2FRONT_SHIFT	4
-#define CM_WAVEINL		0x08	/* digital wave rec. left chan */
-#define CM_WAVEINL_SHIFT	3
-#define CM_WAVEINR		0x04	/* digical wave rec. right */
-#define CM_WAVEINR_SHIFT	2
-#define CM_X3DEN		0x02	/* 3D surround enable */
-#define CM_X3DEN_SHIFT		1
-#define CM_CDPLAY		0x01	/* enable SPDIF/IN PCM -> DAC */
-#define CM_CDPLAY_SHIFT		0
+#define CM_REG_MIXER1        0x24
+#define CM_FMMUTE        0x80    /* mute FM */
+#define CM_FMMUTE_SHIFT        7
+#define CM_WSMUTE        0x40    /* mute PCM */
+#define CM_WSMUTE_SHIFT        6
+#define CM_REAR2LIN        0x20    /* lin-in -> rear line out */
+#define CM_REAR2LIN_SHIFT    5
+#define CM_REAR2FRONT        0x10    /* exchange rear/front */
+#define CM_REAR2FRONT_SHIFT    4
+#define CM_WAVEINL        0x08    /* digital wave rec. left chan */
+#define CM_WAVEINL_SHIFT    3
+#define CM_WAVEINR        0x04    /* digical wave rec. right */
+#define CM_WAVEINR_SHIFT    2
+#define CM_X3DEN        0x02    /* 3D surround enable */
+#define CM_X3DEN_SHIFT        1
+#define CM_CDPLAY        0x01    /* enable SPDIF/IN PCM -> DAC */
+#define CM_CDPLAY_SHIFT        0
 
 #define CM_REG_MIXER2		0x25
 #define CM_RAUXREN		0x80	/* AUX right capture */

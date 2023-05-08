@@ -189,15 +189,14 @@ bool CMI8738AudioEngine::initHardware(IOService *provider)
     addAudioStream(audioStream);
     audioStream->release();
 	
-	/*
-    audioStream = createNewAudioStream(kIOAudioStreamDirectionInput, inBuffer.addr, inBuffer.size, CM_CH_CAPT);
+	
+    audioStream = createNewAudioStream(cm->hasDualDAC ? kIOAudioStreamDirectionOutput : kIOAudioStreamDirectionInput, inBuffer.addr, inBuffer.size, CM_CH_CAPT);
     if (!audioStream) {
         goto Done;
     }
     
     addAudioStream(audioStream);
     audioStream->release();
-    */
 	
 	//writeUInt32(CM_REG_CH0_FRAME1, (UInt32)(physicalAddressOutput));
 	//writeUInt32(CM_REG_CH1_FRAME1, (UInt32)(physicalAddressInput));
@@ -533,7 +532,7 @@ IOReturn CMI8738AudioEngine::performFormatChange(IOAudioStream *audioStream, con
     
 	UInt32 val, fmt = 0, freq = 0, freq_ext = 0, dma_size_reg = NUM_SAMPLE_FRAMES, period_size_reg = NUM_SAMPLE_FRAMES;
 	UInt16 currentChShift = 0;
-	const bool is_dac = audioStream->direction == kIOAudioStreamDirectionOutput;
+	const bool is_dac = audioStream->getDirection() == kIOAudioStreamDirectionOutput;
 	bool EnableSPDIF = false;
 	
 	const IOAudioStreamFormat* format = newFormat ? newFormat : audioStream->getFormat();
@@ -728,7 +727,7 @@ IOReturn CMI8738AudioEngine::performFormatChange(IOAudioStream *audioStream, con
 	else
 		clearUInt32Bit(CM_REG_CHFORMAT, CM_DBLSPDS);
 	
-	if (is_dac)
+	if (audioStream->getDirection() == kIOAudioStreamDirectionOutput)
 		setupSPDIFPlayback(EnableSPDIF, false);
 	else
 		setupSPDIFCapture(EnableSPDIF);

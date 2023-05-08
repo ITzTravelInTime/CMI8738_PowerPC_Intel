@@ -27,7 +27,7 @@
 			<key>IOClass</key>
 			<string>com_homebrew_driver_CMI8738Audio</string>
 			<key>IOPCIMatch</key>
-			<string>0x011113F6</string>
+			<string>0x011213F6 0x011113F6 0x010013F6 0x010113F6</string>
 			<key>IOProviderClass</key>
 			<string>IOPCIDevice</string>
 		</dict>

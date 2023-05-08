@@ -79,7 +79,7 @@ bool CMI8738AudioDevice::initHardware(IOService *provider)
     cm.chipVersion = 0;
     cm.maxChannels = 2;
     cm.canMultiChannel = false;
-	cm.hasDualDAC = true;
+    cm.hasDualDAC = false;//true;
     cm.supports24Bit = false;
     
     // Get the PCI device provider
@@ -153,8 +153,14 @@ bool CMI8738AudioDevice::initHardware(IOService *provider)
         setUInt32Bit(CM_REG_MISC_CTRL, CM_TXVX);
 	#endif
 	
-	setUInt32Bit(CM_REG_MISC_CTRL, CM_ENDBDAC|CM_N4SPK3D);
-	clearUInt32Bit(CM_REG_MISC_CTRL, CM_XCHGDAC);
+    if (cm.hasDualDAC)
+        setUInt32Bit(CM_REG_MISC_CTRL, CM_ENDBDAC);
+    else
+        clearUInt32Bit(CM_REG_MISC_CTRL, CM_ENDBDAC);
+        
+    clearUInt32Bit(CM_REG_MISC_CTRL, CM_N4SPK3D);
+	
+    clearUInt32Bit(CM_REG_MISC_CTRL, CM_XCHGDAC);
     
     //from the linux driver
     if (cm.chipVersion) {
@@ -279,7 +285,7 @@ void CMI8738AudioDevice::queryChip()
                 cm.canAC3HW = true;
                 break;
         }
-        cm.hasDualDAC = true;
+        //cm.hasDualDAC = true;
         cm.maxChannels = 2;
 	} else {
 		/* check reg 0Ch, bit 26 */
@@ -316,7 +322,7 @@ void CMI8738AudioDevice::queryChip()
             cm.chipVersion = 55;
             cm.maxChannels = 6;
         }
-        cm.hasDualDAC = true;
+        //cm.hasDualDAC = true;
         cm.canAC3HW = true;
         cm.canMultiChannel = true;
     }

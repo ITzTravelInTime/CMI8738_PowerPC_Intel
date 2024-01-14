@@ -26,6 +26,15 @@
 		DD0C272228D3BBF600D1405D /* liblibAuioFloatLib_updated_64.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD0C272028D3BB1200D1405D /* liblibAuioFloatLib_updated_64.a */; };
 		DD0C272528D3BC0200D1405D /* libAuioFloatLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD912B402613831000FA0863 /* libAuioFloatLib.a */; };
 		DD6EE223275C1A4000BAB794 /* SampleConvert.h in Headers */ = {isa = PBXBuildFile; fileRef = DD6EE222275C1A4000BAB794 /* SampleConvert.h */; };
+		DD73C19E29DE779100D3B953 /* Memhandle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD73C19C29DE779100D3B953 /* Memhandle.cpp */; };
+		DD73C19F29DE779100D3B953 /* Memhandle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD73C19C29DE779100D3B953 /* Memhandle.cpp */; };
+		DD73C1A029DE779100D3B953 /* Memhandle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD73C19C29DE779100D3B953 /* Memhandle.cpp */; };
+		DD73C1A129DE779100D3B953 /* Memhandle.h in Headers */ = {isa = PBXBuildFile; fileRef = DD73C19D29DE779100D3B953 /* Memhandle.h */; };
+		DD73C1A229DE779100D3B953 /* Memhandle.h in Headers */ = {isa = PBXBuildFile; fileRef = DD73C19D29DE779100D3B953 /* Memhandle.h */; };
+		DD73C1A329DE779100D3B953 /* Memhandle.h in Headers */ = {isa = PBXBuildFile; fileRef = DD73C19D29DE779100D3B953 /* Memhandle.h */; };
+		DD73C1A529DE7AF300D3B953 /* ArchDetect.h in Headers */ = {isa = PBXBuildFile; fileRef = DD73C1A429DE7AF300D3B953 /* ArchDetect.h */; };
+		DD73C1A629DE7AF300D3B953 /* ArchDetect.h in Headers */ = {isa = PBXBuildFile; fileRef = DD73C1A429DE7AF300D3B953 /* ArchDetect.h */; };
+		DD73C1A729DE7AF300D3B953 /* ArchDetect.h in Headers */ = {isa = PBXBuildFile; fileRef = DD73C1A429DE7AF300D3B953 /* ArchDetect.h */; };
 		DD8B88F52613904100236EB7 /* install_updated.command in Resources */ = {isa = PBXBuildFile; fileRef = DD8B88F42613904100236EB7 /* install_updated.command */; };
 		DD912B7D2613855300FA0863 /* CMI8738-register.h in Headers */ = {isa = PBXBuildFile; fileRef = FCDBEC6608B9B3D30082AEF9 /* CMI8738-register.h */; };
 		DD912B7E2613855800FA0863 /* CMI8738AudioDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A224C3EFF42367911CA2CB7 /* CMI8738AudioDevice.h */; };
@@ -139,9 +148,12 @@
 		1A224C3EFF42367911CA2CB7 /* CMI8738AudioDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMI8738AudioDevice.h; sourceTree = "<group>"; };
 		1A224C3FFF42367911CA2CB7 /* CMI8738AudioDevice.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CMI8738AudioDevice.cpp; sourceTree = "<group>"; };
 		DD0C271328D3BB0F00D1405D /* CMI8738AudioDriver_updated_64.kext */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CMI8738AudioDriver_updated_64.kext; sourceTree = BUILT_PRODUCTS_DIR; };
-		DD0C271428D3BB1000D1405D /* CMI8738AudioDriver_updated_64-info.plist */ = {isa = PBXFileReference; lastKnownFileType = file; name = "CMI8738AudioDriver_updated_64-info.plist"; path = "/Users/itztravelintime/Documents/xcode/CMI8738_PowerPC_Intel/CMI8738AudioDriver_updated_64-info.plist"; sourceTree = "<absolute>"; };
 		DD0C272028D3BB1200D1405D /* liblibAuioFloatLib_updated_64.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblibAuioFloatLib_updated_64.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD6618622A0885320067EF40 /* CMI8738AudioDriver_updated_64-info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "CMI8738AudioDriver_updated_64-info.plist"; sourceTree = "<group>"; };
 		DD6EE222275C1A4000BAB794 /* SampleConvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleConvert.h; sourceTree = "<group>"; };
+		DD73C19C29DE779100D3B953 /* Memhandle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Memhandle.cpp; sourceTree = "<group>"; };
+		DD73C19D29DE779100D3B953 /* Memhandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Memhandle.h; sourceTree = "<group>"; };
+		DD73C1A429DE7AF300D3B953 /* ArchDetect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArchDetect.h; sourceTree = "<group>"; };
 		DD8B88F42613904100236EB7 /* install_updated.command */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = install_updated.command; sourceTree = "<group>"; };
 		DD912B2C2613812800FA0863 /* CMI8738AudioDriver_updated.kext */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CMI8738AudioDriver_updated.kext; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD912B2D2613812800FA0863 /* CMI8738AudioDriver_updated-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "CMI8738AudioDriver_updated-Info.plist"; sourceTree = "<group>"; };
@@ -207,7 +219,7 @@
 				089C167CFE841241C02AAC07 /* Resources */,
 				00F55081007288EA11FF4F98 /* Kernel.framework */,
 				DD912B2D2613812800FA0863 /* CMI8738AudioDriver_updated-Info.plist */,
-				DD0C271428D3BB1000D1405D /* CMI8738AudioDriver_updated_64-info.plist */,
+				DD6618622A0885320067EF40 /* CMI8738AudioDriver_updated_64-info.plist */,
 				DD0C272128D3BBF600D1405D /* Frameworks */,
 			);
 			name = CMI8738AudioDriver;
@@ -246,6 +258,9 @@
 				0117744B00710CA77F000001 /* SampleAudioClip.cpp */,
 				FCDBEC6608B9B3D30082AEF9 /* CMI8738-register.h */,
 				DD6EE222275C1A4000BAB794 /* SampleConvert.h */,
+				DD73C19D29DE779100D3B953 /* Memhandle.h */,
+				DD73C19C29DE779100D3B953 /* Memhandle.cpp */,
+				DD73C1A429DE7AF300D3B953 /* ArchDetect.h */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -273,6 +288,8 @@
 			files = (
 				1A224C40FF42367911CA2CB7 /* CMI8738AudioDevice.h in Headers */,
 				0117745000710DAB7F000001 /* CMI8738AudioEngine.h in Headers */,
+				DD73C1A529DE7AF300D3B953 /* ArchDetect.h in Headers */,
+				DD73C1A129DE779100D3B953 /* Memhandle.h in Headers */,
 				FCDBEC6708B9B3D30082AEF9 /* CMI8738-register.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,6 +300,8 @@
 			files = (
 				DD0C270228D3BB0F00D1405D /* CMI8738-register.h in Headers */,
 				DD0C270328D3BB0F00D1405D /* CMI8738AudioDevice.h in Headers */,
+				DD73C1A729DE7AF300D3B953 /* ArchDetect.h in Headers */,
+				DD73C1A329DE779100D3B953 /* Memhandle.h in Headers */,
 				DD0C270428D3BB0F00D1405D /* CMI8738AudioEngine.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,6 +328,8 @@
 			files = (
 				DD912B7D2613855300FA0863 /* CMI8738-register.h in Headers */,
 				DD912B7E2613855800FA0863 /* CMI8738AudioDevice.h in Headers */,
+				DD73C1A629DE7AF300D3B953 /* ArchDetect.h in Headers */,
+				DD73C1A229DE779100D3B953 /* Memhandle.h in Headers */,
 				DD912B7F2613855C00FA0863 /* CMI8738AudioEngine.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -604,6 +625,7 @@
 			files = (
 				1A224C41FF42367911CA2CB7 /* CMI8738AudioDevice.cpp in Sources */,
 				0117745100710DAB7F000001 /* CMI8738AudioEngine.cpp in Sources */,
+				DD73C19E29DE779100D3B953 /* Memhandle.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -613,6 +635,7 @@
 			files = (
 				DD0C270928D3BB0F00D1405D /* CMI8738AudioDevice.cpp in Sources */,
 				DD0C270A28D3BB0F00D1405D /* CMI8738AudioEngine.cpp in Sources */,
+				DD73C1A029DE779100D3B953 /* Memhandle.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -630,6 +653,7 @@
 			files = (
 				DD912B802613859A00FA0863 /* CMI8738AudioDevice.cpp in Sources */,
 				DD912B812613859A00FA0863 /* CMI8738AudioEngine.cpp in Sources */,
+				DD73C19F29DE779100D3B953 /* Memhandle.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -878,8 +902,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = (
-					i386,
 					ppc,
+					i386,
 				);
 				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
 				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
@@ -889,8 +913,9 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_MODEL_TUNING = "";
-				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_OPTIMIZATION_LEVEL = 2;
 				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
+				GCC_VERSION = "";
 				INFOPLIST_FILE = "CMI8738AudioDriver_updated-Info.plist";
 				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions";
 				KERNEL_MODULE = YES;
@@ -899,7 +924,7 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\\\"$(SRCROOT)/build/Deployment\\\"";
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.4;
 				MARKETING_VERSION = 2.0;
 				MODULE_IOKIT = YES;
 				MODULE_NAME = com.homebrew.driver.CMI8738AudioDriver_updated;
@@ -923,17 +948,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = (
-					i386,
-					ppc,
-				);
+				ARCHS = ppc;
 				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
-				COPY_PHASE_STRIP = YES;
+				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_MODEL_TUNING = "";
+				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
+				GCC_VERSION = 3.3;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
@@ -956,7 +980,8 @@
 				MODULE_VERSION = 1.0.0d1;
 				PREBINDING = YES;
 				PRODUCT_NAME = CMI8738AudioDriver_updated;
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT = macosx10.4;
+				STRIP_STYLE = debugging;
 				VALID_ARCHS = "ppc i386 x86_64";
 				WARNING_CFLAGS = (
 					"-Wmost",
@@ -989,7 +1014,7 @@
 				MODULE_VERSION = 1.0.0d1;
 				PREBINDING = NO;
 				PRODUCT_NAME = CMI8738AudioDriver_updated;
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT = macosx10.4;
 				VALID_ARCHS = "ppc i386 x86_64";
 				WRAPPER_EXTENSION = kext;
 			};
@@ -1000,8 +1025,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = (
-					i386,
 					ppc,
+					i386,
 				);
 				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
 				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
@@ -1013,10 +1038,11 @@
 				GCC_ENABLE_CPP_RTTI = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_MODEL_TUNING = "";
-				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_OPTIMIZATION_LEVEL = 2;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
 				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
+				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = (
 					"$(SYSTEM_LIBRARY_DIR)/Frameworks/Kernel.framework/Headers",
 					"$(SYSTEM_LIBRARY_DIR)/Frameworks/Kernel.framework/Headers/bsd",
@@ -1117,7 +1143,7 @@
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_NAME = libAuioFloatLib_updated;
 				REZ_EXECUTABLE = YES;
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT = macosx10.4;
 				SKIP_INSTALL = YES;
 				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = dynamic;
 				VALID_ARCHS = "ppc i386 x86_64";
@@ -1153,7 +1179,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = libAuioFloatLib_updated;
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT = macosx10.4;
 				VALID_ARCHS = "ppc i386 x86_64";
 			};
 			name = Default;
@@ -1391,14 +1417,13 @@
 		FCC4E42A08B955B400AC9D19 /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "ppc i386 ppc64 x86_64";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				BUILD_VARIANTS = normal;
 				GCC_MODEL_TUNING = "";
 				INFOPLIST_PREPROCESS = NO;
 				MACOSX_DEPLOYMENT_TARGET = 10.3;
 				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT = macosx10.4;
 				VALID_ARCHS = "ppc ppc64 i386 x86_64";
 			};
 			name = Development;
@@ -1406,12 +1431,11 @@
 		FCC4E42B08B955B400AC9D19 /* Deployment */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "ppc i386 ppc64 x86_64";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_MODEL_TUNING = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.3;
 				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT = macosx10.4;
 				VALID_ARCHS = "ppc ppc64 i386 x86_64";
 			};
 			name = Deployment;
@@ -1419,11 +1443,10 @@
 		FCC4E42C08B955B400AC9D19 /* Default */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "ppc i386 ppc64 x86_64";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_MODEL_TUNING = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.3;
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT = macosx10.4;
 				VALID_ARCHS = "ppc ppc64 i386 x86_64";
 			};
 			name = Default;

@@ -79,7 +79,7 @@ bool CMI8738AudioDevice::initHardware(IOService *provider)
     cm.chipVersion = 0;
     cm.maxChannels = 2;
     cm.canMultiChannel = false;
-    cm.hasDualDAC = true;
+    cm.hasDualDAC = false;
     cm.supports24Bit = false;
     
     // Get the PCI device provider
@@ -146,21 +146,13 @@ bool CMI8738AudioDevice::initHardware(IOService *provider)
 	writeUInt32(CM_REG_FUNCTRL1, 0);
 
 	writeUInt32(CM_REG_CHFORMAT, 0);
-
-	//presumebly distributed dma suport
-	#ifndef PPC 
-	if (deviceID == PCI_DEVICE_ID_CMEDIA_CM8738 || deviceID == PCI_DEVICE_ID_CMEDIA_CM8738B)
-        setUInt32Bit(CM_REG_MISC_CTRL, CM_TXVX);
-	#endif
 	
     if (cm.hasDualDAC)
-        setUInt32Bit(CM_REG_MISC_CTRL, CM_ENDBDAC);
+        setUInt32Bit(CM_REG_MISC_CTRL, CM_ENDBDAC | CM_N4SPK3D);
     else
-        clearUInt32Bit(CM_REG_MISC_CTRL, CM_ENDBDAC);
-        
-    clearUInt32Bit(CM_REG_MISC_CTRL, CM_N4SPK3D);
+        clearUInt32Bit(CM_REG_MISC_CTRL, CM_ENDBDAC | CM_N4SPK3D);
 	
-    clearUInt32Bit(CM_REG_MISC_CTRL, CM_XCHGDAC);
+    clearUInt32Bit(CM_REG_MISC_CTRL, CM_XCHGDAC); //Sets ch0 as the front output and ch1 as the rear
     
     //from the linux driver
     if (cm.chipVersion) {
@@ -170,6 +162,12 @@ bool CMI8738AudioDevice::initHardware(IOService *provider)
 
     /* Set Bus Master Request */
 	setUInt32Bit(CM_REG_FUNCTRL1, CM_BREQ);
+    
+    //presumebly distributed dma suport, any intel mac should support this
+    #ifndef PPC
+    if (deviceID == PCI_DEVICE_ID_CMEDIA_CM8738 || deviceID == PCI_DEVICE_ID_CMEDIA_CM8738B)
+        setUInt32Bit(CM_REG_MISC_CTRL, CM_TXVX);
+    #endif
 	
     if (cm.chipVersion < 68){
         //disable opl3
@@ -177,15 +175,62 @@ bool CMI8738AudioDevice::initHardware(IOService *provider)
         clearUInt32Bit(CM_REG_MISC_CTRL, CM_FM_EN);
     }
 	
-    //disable unused input monitors
+	writeUInt8(CM_REG_MIXER1, 0);
+	
     //TODO: eventually add those as toggle controls
-	clearUInt8Bit(CM_REG_MIXER1, CM_X3DEN);
+    //if (cm.chipVersion)
+    //setUInt8Bit(CM_REG_MIXER1, CM_X3DEN); //enable X3D only form 8738 and up, it causes just harm on 8338
 	
-	setUInt8Bit(CM_REG_MIXER1, CM_CDPLAY | CM_FMMUTE | CM_REAR2LIN | CM_WAVEINR | CM_WAVEINL);
+	/*
+	#define CM_REG_MIXER1        0x24
+#define CM_FMMUTE        0x80    // mute FM 
+#define CM_FMMUTE_SHIFT        7
+#define CM_WSMUTE        0x40    // mute PCM 
+#define CM_WSMUTE_SHIFT        6
+#define CM_REAR2LIN        0x20    // lin-in -> rear line out 
+#define CM_REAR2LIN_SHIFT    5
+#define CM_REAR2FRONT        0x10    // exchange rear/front
+#define CM_REAR2FRONT_SHIFT    4
+#define CM_WAVEINL        0x08    // digital wave rec. left chan
+#define CM_WAVEINL_SHIFT    3
+#define CM_WAVEINR        0x04    // digical wave rec. right 
+#define CM_WAVEINR_SHIFT    2
+#define CM_X3DEN        0x02    // 3D surround enable 
+#define CM_X3DEN_SHIFT        1
+#define CM_CDPLAY        0x01    // enable SPDIF/IN PCM -> DAC 
+#define CM_CDPLAY_SHIFT        0
+	*/
 	
-	//mutes unused stuff
+	setUInt8Bit(CM_REG_MIXER1, CM_CDPLAY | CM_FMMUTE /*| CM_REAR2LIN*/);
+    
+    if (!cm.hasDualDAC)
+		setUInt8Bit(CM_REG_MIXER1, CM_WAVEINR | CM_WAVEINL); //enable wave recording
+    
+    //setting second mixer
+    
+    writeUInt8(CM_REG_MIXER2, 0);
+    /*
+    writeUInt8(CM_REG_MIXER2, 7 << CM_VADMIC_SHIFT); // sets mic vol?
+    
+    setUInt8Bit(CM_REG_MIXER2, CM_RAUXLEN | CM_RAUXREN | CM_MICGAINZ); //enable aux in + gain control
+    
+    clearUInt8Bit(CM_REG_MIXER2, CM_VAUXLM | CM_VAUXRM); //unmute aux in
+    
+    writeUInt8(CM_REG_AUX_VOL, 0xFF); //maxes out aux vol
+	 */
+	 
 	if (!cm.chipVersion){
 		writeUInt8(CM_REG_EXTENT_IND, 0);
+        /*
+         #define CM_VSPKM        0x08    // Speaker mute control, default high
+         #define CM_RLOOPREN        0x04    // Rec. R-channel enable
+         #define CM_RLOOPLEN        0x02    // Rec. L-channel enable
+         */
+        
+        //setUInt8Bit(CM_REG_EXTENT_IND, CM_VPHOM); //unmute pc spacker passtrough?
+        
+        //if (!cm.hasDualDAC)
+        //    setUInt8Bit(CM_REG_EXTENT_IND, CM_RLOOPREN | CM_RLOOPLEN);
 	}
 	
 	writeMixer(0, 0);
@@ -206,7 +251,7 @@ bool CMI8738AudioDevice::initHardware(IOService *provider)
 		for (unsigned int val = 0; val < ARRAYSZ(rates); val++)
 			set_pll(rates[val], val);
 			
-		//setUInt32Bit(CM_REG_MISC_CTRL, CM_SPDIF48K|CM_SPDF_AC97);
+		setUInt32Bit(CM_REG_MISC_CTRL, CM_SPDIF48K|CM_SPDF_AC97);
 	 }
 	 #endif
 	

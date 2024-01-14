@@ -64,7 +64,7 @@ public:
 	void	clearUInt32Bit(UInt16 reg, UInt32 bit);
 	void	setUInt32Bit(UInt16 reg, UInt32 bit);
     
-    void    setDMASettings(UInt32 bufferTag);
+    void    setDMASettings(const UInt32 bufferTag);
     
     virtual OSString* getGlobalUniqueID();
 	

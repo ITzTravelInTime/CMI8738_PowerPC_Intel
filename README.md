@@ -1,5 +1,5 @@
 # CMI8738_PowerPC_Intel
-Mac OS X driver for the CMI8738, CMI8330, CMI8768 and compatible sound cards, for both Intel and Power PC Macs.
+Mac OS X driver for the CMI8738, CMI8330, CMI8768, CMI8770 and compatible sound cards, for both Intel and Power PC Macs.
 
 Based on Dogbert's (dogber1@gmail.com) CMI8738 OS X driver, this is a fork that adds support for big endian cpu architectures (like PPC), adds more supported chips, and some minor tweaks.
 
